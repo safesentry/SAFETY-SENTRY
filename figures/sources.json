@@ -1,0 +1,62 @@
+{
+  "source": "https://arxiv.org/pdf/2607.13594v1",
+  "sha256": "5e27b617ed14f0bf2a876e99cbe043bd5b6c820f62a80f5a150e7e3ee1161931",
+  "dpi": 330,
+  "figures": [
+    {
+      "file": "method.png",
+      "page": 4,
+      "label": "Figure 3",
+      "crop_pixels_at_330_dpi": {
+        "x": 348,
+        "y": 312,
+        "width": 2025,
+        "height": 993
+      }
+    },
+    {
+      "file": "main-results.png",
+      "page": 6,
+      "label": "Table 1",
+      "crop_pixels_at_330_dpi": {
+        "x": 552,
+        "y": 309,
+        "width": 1620,
+        "height": 1146
+      }
+    },
+    {
+      "file": "safety-autonomy.png",
+      "page": 7,
+      "label": "Figure 4",
+      "crop_pixels_at_330_dpi": {
+        "x": 315,
+        "y": 309,
+        "width": 2100,
+        "height": 900
+      }
+    },
+    {
+      "file": "personalized-routing.png",
+      "page": 7,
+      "label": "Figure 5",
+      "crop_pixels_at_330_dpi": {
+        "x": 1401,
+        "y": 1290,
+        "width": 1014,
+        "height": 519
+      }
+    },
+    {
+      "file": "ood-results.png",
+      "page": 8,
+      "label": "Table 2",
+      "crop_pixels_at_330_dpi": {
+        "x": 321,
+        "y": 273,
+        "width": 996,
+        "height": 531
+      }
+    }
+  ]
+}

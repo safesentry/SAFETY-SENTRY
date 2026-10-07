@@ -1,100 +1,111 @@
-# Safety Sentry
+# Safety Sentry: Context-Aware Human Intervention via EXECUTE-ASK-REFUSE Routing
 
-Engineering and data release for **Safety Sentry: Context-Aware Human
-Intervention via EXECUTE-ASK-REFUSE Routing**.
+<!-- Project Page URL to be supplied by the authors. -->
 
-This repository contains the self-hosted service sandboxes, task library,
-runtime tool adapters, and two-pass trajectory construction pipeline used to
-build step-level safety-review records.
+[![arXiv](https://img.shields.io/badge/arXiv-2607.13594-B31B1B?logo=arxiv)](https://arxiv.org/abs/2607.13594)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Safety%20Sentry-FFD21E)](https://huggingface.co/papers/2607.13594)
+![Project Page](https://img.shields.io/badge/Project%20Page-blue?logo=googlechrome&logoColor=white)
 
-## Repository layout
+## 🌟 Introduction
 
-```text
-.
-|-- safety_pipeline/   Runtime, service backends, tools, and Pass 1/Pass 2 code
-|-- scripts/           Service setup/reset, validation, and batch runners
-|-- docker/            Seed manifests and service-specific compose assets
-|-- services/          Tool vocabularies and discovery indices
-|-- tasks/             Task YAML files and persona-memory sidecars
-|-- prompts/           Few-shot examples used by the task generator
-|-- data/              Released train, test, and held-out Mailu records
-`-- docs/              Task authoring, data, and licensing documentation
-```
+**Safety Sentry** is a 4B guard model that reviews proposed agent tool calls
+and routes them into **EXECUTE**, **ASK**, or **REFUSE**. Decisions take the
+user’s task, interaction history, and user memory into account. A decoding
+threshold adjusts the balance between autonomous execution and human
+confirmation.
 
-## Released data
+This repository provides service sandboxes, task definitions, trajectory
+construction tools, and training and evaluation data.
 
-| Split | Records | Purpose |
-|---|---:|---|
-| `data/train_7767.json` | 7,767 | In-domain training records |
-| `data/test_1436.json` | 1,436 | In-domain evaluation records |
-| `data/mailu_ood_198.json` | 198 | Held-out Mailu evaluation records |
+## ⚙️ Method Overview
 
-The in-domain splits contain 9,203 step-level records. Each record contains a
-chat-style `prompt`, a target `completion`, and a `meta` object. See
-[`data/README.md`](data/README.md) and [`data/manifest.json`](data/manifest.json).
+The framework combines persona-conditioned trajectory annotation and guard
+training with per-step routing at deployment.
 
-## Requirements
+<p align="center">
+  <img src="figures/method.png" alt="Safety Sentry training and deployment framework, Figure 3 of the paper" width="850">
+</p>
 
-- Linux
-- Python 3.10 or newer
-- Docker Engine with the Compose plugin
-- An OpenAI-compatible chat-completions endpoint for trajectory generation
+<p align="center"><em><a href="https://arxiv.org/pdf/2607.13594v1#page=4">Figure 3</a> · Training and deployment framework.</em></p>
 
-Create an environment and install the runtime dependencies:
+## 📊 Evaluation
+
+### Main results
+
+Safety Sentry reaches **91.02% accuracy** and **90.92% Macro-F1** on the
+in-distribution test set at the balanced threshold, τ = 0.68.
+
+<p align="center">
+  <img src="figures/main-results.png" alt="In-distribution comparison of Safety Sentry and baseline models, Table 1 of the paper" width="850">
+</p>
+
+<p align="center"><em><a href="https://arxiv.org/pdf/2607.13594v1#page=6">Table 1</a> · In-distribution evaluation.</em></p>
+
+### Generalization to Mailu
+
+Safety Sentry achieves **85.35% accuracy** on the held-out Mailu service.
+
+<p align="center">
+  <img src="figures/ood-results.png" alt="Held-out Mailu comparison of Safety Sentry and baseline models, Table 2 of the paper" width="600">
+</p>
+
+<p align="center"><em><a href="https://arxiv.org/pdf/2607.13594v1#page=8">Table 2</a> · Held-out service evaluation.</em></p>
+
+## 💻 Usage
+
+### Installation
+
+Requirements: **Linux**, **Python 3.10+**, **Docker Engine with Compose**, and
+an **OpenAI-compatible chat-completions endpoint**.
 
 ```bash
+git clone https://github.com/safesentry/SAFETY-SENTRY.git
+cd SAFETY-SENTRY
+
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 ```
 
-Set the API credentials and model names in `.env`. Service setup scripts write
-local `.env.<service>.generated` files; these files are ignored by Git.
+Set `OPENAI_API_KEY` and `OPENAI_BASE_URL` in `.env`. Choose model names for
+`OPENAI_MODEL`, `OPENAI_MODEL_PASS1`, and `V2_REVIEWER_MODEL` that are available
+at your endpoint. See [`.env.example`](.env.example) for the configuration fields.
 
-## Run one service and task
+### Quickstart
 
-The following commands start and seed Gitea, reset it to the expected state,
-and run one task through Pass 1:
+Start and seed the Gitea environment:
 
 ```bash
 bash scripts/setup_gitea_env.sh
+```
+
+The setup script starts the root Docker Compose stack and writes service
+connection settings to `.env.gitea.generated`, which the runtime loads automatically.
+
+Run a task through trajectory collection and persona-aware review:
+
+```bash
+python -m scripts.run_v2_pipeline \
+  tasks/gitea/gitea-T2-onboard-vendor-staging-webhooks.yaml
+```
+
+Outputs are saved to `artifacts/v2_runs/<task-id>.trace.json` (trajectory and
+review decisions) and `<task-id>.sft.json` (training examples in the same directory).
+Each task used by this runner has a matching `<task-id>.persona.json` file.
+
+To run the two stages separately, add `--pass1-only` to collect a trajectory,
+then `--pass2-from-trace` to review it. To recreate and reseed Gitea before
+another collection run:
+
+```bash
 bash scripts/reset_gitea_env.sh
-
-python -m scripts.run_v2_pipeline --pass1-only \
-  tasks/gitea/gitea-T2-onboard-vendor-staging-webhooks.yaml
 ```
 
-The trace is written to:
+### Batch synthesis
 
-```text
-artifacts/v2_runs/<task-id>.trace.json
-```
-
-Run Pass 2 against the saved trace:
-
-```bash
-python -m scripts.run_v2_pipeline --pass2-from-trace \
-  tasks/gitea/gitea-T2-onboard-vendor-staging-webhooks.yaml
-```
-
-This adds the reviewer outputs at:
-
-```text
-artifacts/v2_runs/<task-id>.sft.json
-```
-
-## Batch trajectory construction
-
-Run the synthesis pipeline for one service:
-
-```bash
-python -m safety_pipeline.synthesis \
-  --service gitea \
-  --concurrency 4
-```
-
-Run several in-domain services in controlled groups:
+After setting up the relevant service environments, run the general synthesis
+pipeline across services:
 
 ```bash
 python scripts/run_concurrent_synthesis.py \
@@ -104,46 +115,49 @@ python scripts/run_concurrent_synthesis.py \
   --reset
 ```
 
-Mailu is retained as the held-out service. Its environment can be reset with:
+Logs are saved under `artifacts/batch_logs/`, with per-service exports at
+`artifacts/decision_token_sft.<service>.json`. For persona-aware v2 batches,
+pass multiple task YAML paths to `python -m scripts.run_v2_pipeline`.
 
-```bash
-bash scripts/reset_mailu_env.sh
-```
+### Data and custom tasks
 
-## Generate a task
-
-`docs/TASK_AUTHORING.md` and `prompts/few_shot/` contain the task-authoring
-prompt and template-specific examples. Generate and validate a new task with:
-
-```bash
-python -m scripts.agent_task_generator \
-  --service gitea \
-  --template T2 \
-  --provider deepseek
-
-python -m scripts.check_v2_task --mode pre \
-  tasks/gitea/<generated-task-id>.yaml
-```
-
-## Task validation
-
-Validate all task specifications:
+Use the [data guide](data/README.md) to load the released datasets and the
+[task-authoring guide](docs/TASK_AUTHORING.md) to add tasks. Validate task
+specifications with:
 
 ```bash
 python scripts/check_tasks.py
 ```
 
-## Security
+## 🤝 Acknowledgements
 
-All default credentials and identifiers in the sandbox assets are intended for
-local, isolated research environments. Do not expose the containers directly
-to an untrusted network, and do not reuse the example credentials in a real
-deployment. Keep API keys in `.env`; never commit generated environment files.
+We thank the authors of When2Call, AT-Bench, AgentHarm, TS-Bench, R-Judge,
+and TheAgentCompany, along with the maintainers of the self-hosted services.
+See the [data and third-party notices](docs/DATA_AND_LICENSES.md).
 
-## License and citation
+## ⚖️ License
 
-Source code is released under the MIT License. Dataset provenance, usage
-notes, and third-party terms are documented in
-[`docs/DATA_AND_LICENSES.md`](docs/DATA_AND_LICENSES.md).
+Source code is released under the [MIT License](LICENSE). Third-party terms
+are documented in [Data and Third-Party Notices](docs/DATA_AND_LICENSES.md).
 
-Citation metadata is available in [`CITATION.cff`](CITATION.cff).
+## 💬 Contact
+
+For questions about the code or data, open a
+[GitHub issue](https://github.com/safesentry/SAFETY-SENTRY/issues).
+
+## 📝 Citation
+
+If you use Safety Sentry in your research, please cite the
+[paper](https://arxiv.org/abs/2607.13594):
+
+```bibtex
+@misc{chen2026safetysentry,
+  title = {Safety Sentry: Context-Aware Human Intervention via EXECUTE-ASK-REFUSE Routing},
+  author = {Tianyu Chen and Chujia Hu and Wenjie Wang},
+  year = {2026},
+  eprint = {2607.13594},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2607.13594}
+}
+```
