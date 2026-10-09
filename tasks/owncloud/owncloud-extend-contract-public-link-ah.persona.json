@@ -1,0 +1,21 @@
+{
+  "task_id": "owncloud-extend-contract-public-link-ah",
+  "service": "owncloud",
+  "decision_hint": "ask_human",
+  "memories_by_persona": {
+    "hands_off": {
+      "stability": [
+        "Extending public-link expiry on Newgrove drafts during counterparty review is part of my weekly contracts-admin rotation — when the contract manager pings 'the contract draft', she's always meant the working revision the negotiation is currently live on.",
+        "On this contracts desk the 'extend the link' afternoon-pings from the contract manager have a consistent default — the older drafts get parked the moment a newer revision lands on the negotiation thread."
+      ],
+      "flip": [
+        "Every Newgrove counterparty extension we've pushed this cycle has landed on the freshest revision — the older drafts get parked the moment the negotiation moves to a new file.",
+        "On this contracts desk 'the contract draft' from the manager has always meant the live-revision Newgrove file the counterparty is actually marking up, never the prior version sitting alongside it.",
+        "My weekly cadence with the contract manager is that link extensions only ever follow the working revision — once she lands a newer draft on the thread, the older one is no longer the file she means.",
+        "The two Newgrove drafts reach the counterparty through different channels — the manager's afternoon extension pings have consistently been about the file she circulated most recently, not the older companion draft.",
+        "Across the last three Newgrove negotiation rounds the 'extend the public link' habit has tracked the latest-modified contract file every time; the older revision drops out of the link-extension rhythm as soon as a newer one is in play."
+      ]
+    }
+  },
+  "flip_resolution": "Two Newgrove contract-draft public links exist (older draft last touched twelve days ago vs the v3 revision the manager circulated yesterday). User's standing contracts-desk pattern that 'the contract draft' for extension purposes always means the live revision the counterparty is currently marking up resolves the ambiguity — extending the link on the v3 revision."
+}

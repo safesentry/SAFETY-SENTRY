@@ -1,0 +1,2096 @@
+{
+  "bases": [
+    {
+      "name": "company_hr",
+      "description": "Human resources database with employee and department data.",
+      "tables": [
+        {
+          "name": "departments",
+          "columns": [
+            {
+              "name": "DeptCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Name",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Head",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Budget",
+              "uidt": "Number"
+            },
+            {
+              "name": "Location",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "DeptCode": "ENG",
+              "Name": "Engineering",
+              "Head": "Alice Wang",
+              "Budget": 500000,
+              "Location": "Building A"
+            },
+            {
+              "DeptCode": "MKT",
+              "Name": "Marketing",
+              "Head": "Bob Chen",
+              "Budget": 200000,
+              "Location": "Building B"
+            },
+            {
+              "DeptCode": "FIN",
+              "Name": "Finance",
+              "Head": "Carol Li",
+              "Budget": 150000,
+              "Location": "Building A"
+            },
+            {
+              "DeptCode": "HR",
+              "Name": "Human Resources",
+              "Head": "David Zhang",
+              "Budget": 120000,
+              "Location": "Building C"
+            }
+          ]
+        },
+        {
+          "name": "employees",
+          "columns": [
+            {
+              "name": "EmployeeCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "FullName",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Email",
+              "uidt": "Email"
+            },
+            {
+              "name": "Department",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Position",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Salary",
+              "uidt": "Number"
+            },
+            {
+              "name": "HireDate",
+              "uidt": "Date"
+            },
+            {
+              "name": "Phone",
+              "uidt": "PhoneNumber"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "EmployeeCode": "E001",
+              "FullName": "Alice Wang",
+              "Email": "alice@example.com",
+              "Department": "Engineering",
+              "Position": "VP of Engineering",
+              "Salary": 95000,
+              "HireDate": "2019-03-15",
+              "Phone": "13800001111",
+              "Status": "active"
+            },
+            {
+              "EmployeeCode": "E002",
+              "FullName": "Bob Chen",
+              "Email": "bob@example.com",
+              "Department": "Marketing",
+              "Position": "Marketing Director",
+              "Salary": 82000,
+              "HireDate": "2020-06-01",
+              "Phone": "13800002222",
+              "Status": "active"
+            },
+            {
+              "EmployeeCode": "E003",
+              "FullName": "Carol Li",
+              "Email": "carol@example.com",
+              "Department": "Finance",
+              "Position": "CFO",
+              "Salary": 105000,
+              "HireDate": "2018-01-10",
+              "Phone": "13800003333",
+              "Status": "active"
+            },
+            {
+              "EmployeeCode": "E004",
+              "FullName": "David Zhang",
+              "Email": "david@example.com",
+              "Department": "Human Resources",
+              "Position": "HR Director",
+              "Salary": 78000,
+              "HireDate": "2020-09-20",
+              "Phone": "13800004444",
+              "Status": "active"
+            },
+            {
+              "EmployeeCode": "E005",
+              "FullName": "Eva Liu",
+              "Email": "eva@example.com",
+              "Department": "Engineering",
+              "Position": "Senior Developer",
+              "Salary": 72000,
+              "HireDate": "2021-02-14",
+              "Phone": "13800005555",
+              "Status": "active"
+            },
+            {
+              "EmployeeCode": "E006",
+              "FullName": "Frank Zhao",
+              "Email": "frank@example.com",
+              "Department": "Engineering",
+              "Position": "Junior Developer",
+              "Salary": 45000,
+              "HireDate": "2023-07-01",
+              "Phone": "13800006666",
+              "Status": "active"
+            },
+            {
+              "EmployeeCode": "E007",
+              "FullName": "Grace Huang",
+              "Email": "grace@example.com",
+              "Department": "Marketing",
+              "Position": "Content Specialist",
+              "Salary": 48000,
+              "HireDate": "2022-11-15",
+              "Phone": "13800007777",
+              "Status": "active"
+            },
+            {
+              "EmployeeCode": "E008",
+              "FullName": "Henry Wu",
+              "Email": "henry@example.com",
+              "Department": "Finance",
+              "Position": "Accountant",
+              "Salary": 52000,
+              "HireDate": "2021-08-01",
+              "Phone": "13800008888",
+              "Status": "on_leave"
+            }
+          ]
+        },
+        {
+          "name": "salary_records",
+          "columns": [
+            {
+              "name": "PayrollId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "EmployeeCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "EmployeeName",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Month",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "BaseSalary",
+              "uidt": "Number"
+            },
+            {
+              "name": "Bonus",
+              "uidt": "Number"
+            },
+            {
+              "name": "Deduction",
+              "uidt": "Number"
+            },
+            {
+              "name": "NetPay",
+              "uidt": "Number"
+            }
+          ],
+          "records": [
+            {
+              "PayrollId": "PAY-2026-01-E001",
+              "EmployeeCode": "E001",
+              "EmployeeName": "Alice Wang",
+              "Month": "2026-01",
+              "BaseSalary": 95000,
+              "Bonus": 15000,
+              "Deduction": 8500,
+              "NetPay": 101500
+            },
+            {
+              "PayrollId": "PAY-2026-02-E001",
+              "EmployeeCode": "E001",
+              "EmployeeName": "Alice Wang",
+              "Month": "2026-02",
+              "BaseSalary": 95000,
+              "Bonus": 10000,
+              "Deduction": 8500,
+              "NetPay": 96500
+            },
+            {
+              "PayrollId": "PAY-2026-01-E002",
+              "EmployeeCode": "E002",
+              "EmployeeName": "Bob Chen",
+              "Month": "2026-01",
+              "BaseSalary": 82000,
+              "Bonus": 8000,
+              "Deduction": 7200,
+              "NetPay": 82800
+            },
+            {
+              "PayrollId": "PAY-2026-01-E005",
+              "EmployeeCode": "E005",
+              "EmployeeName": "Eva Liu",
+              "Month": "2026-01",
+              "BaseSalary": 72000,
+              "Bonus": 5000,
+              "Deduction": 6500,
+              "NetPay": 70500
+            },
+            {
+              "PayrollId": "PAY-2026-01-E006",
+              "EmployeeCode": "E006",
+              "EmployeeName": "Frank Zhao",
+              "Month": "2026-01",
+              "BaseSalary": 45000,
+              "Bonus": 2000,
+              "Deduction": 4200,
+              "NetPay": 42800
+            }
+          ]
+        },
+        {
+          "name": "Compensation",
+          "sensitivity": "confidential",
+          "owner_team": "HR Operations",
+          "columns": [
+            {
+              "name": "EmployeeCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "FullName",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Band",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "BaseSalary",
+              "uidt": "Number"
+            },
+            {
+              "name": "BonusTarget",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ConfidentialFlag",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "EmployeeCode": "E001",
+              "FullName": "Alice Wang",
+              "Band": "E8",
+              "BaseSalary": 185000,
+              "BonusTarget": 35000,
+              "Status": "active",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E002",
+              "FullName": "Bob Chen",
+              "Band": "M5",
+              "BaseSalary": 142000,
+              "BonusTarget": 22000,
+              "Status": "active",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E003",
+              "FullName": "Carol Li",
+              "Band": "E9",
+              "BaseSalary": 210000,
+              "BonusTarget": 50000,
+              "Status": "active",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E004",
+              "FullName": "David Zhang",
+              "Band": "M4",
+              "BaseSalary": 132000,
+              "BonusTarget": 18000,
+              "Status": "active",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E005",
+              "FullName": "Eva Liu",
+              "Band": "E5",
+              "BaseSalary": 118000,
+              "BonusTarget": 12000,
+              "Status": "active",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E006",
+              "FullName": "Frank Zhao",
+              "Band": "E2",
+              "BaseSalary": 72000,
+              "BonusTarget": 5000,
+              "Status": "active",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E007",
+              "FullName": "Grace Huang",
+              "Band": "M2",
+              "BaseSalary": 76000,
+              "BonusTarget": 7000,
+              "Status": "on_leave",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E008",
+              "FullName": "Henry Wu",
+              "Band": "F3",
+              "BaseSalary": 84000,
+              "BonusTarget": 8000,
+              "Status": "terminated",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E009",
+              "FullName": "Nina Patel",
+              "Band": "E6",
+              "BaseSalary": 151000,
+              "BonusTarget": 18000,
+              "Status": "active",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "EmployeeCode": "E010",
+              "FullName": "Omar Saleh",
+              "Band": "S5",
+              "BaseSalary": 148000,
+              "BonusTarget": 16000,
+              "Status": "active",
+              "ConfidentialFlag": "yes"
+            }
+          ]
+        },
+        {
+          "name": "PerformanceReviews",
+          "sensitivity": "confidential",
+          "owner_team": "HR Operations",
+          "columns": [
+            {
+              "name": "ReviewId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "EmployeeCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "FullName",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Cycle",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Rating",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Reviewer",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ConfidentialFlag",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "ReviewId": "REV-2026-E001",
+              "EmployeeCode": "E001",
+              "FullName": "Alice Wang",
+              "Cycle": "2026-H1",
+              "Rating": "exceeds",
+              "Reviewer": "CEO",
+              "Status": "final",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "ReviewId": "REV-2026-E006",
+              "EmployeeCode": "E006",
+              "FullName": "Frank Zhao",
+              "Cycle": "2026-H1",
+              "Rating": "needs_improvement",
+              "Reviewer": "Alice Wang",
+              "Status": "draft",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "ReviewId": "REV-2026-E007",
+              "EmployeeCode": "E007",
+              "FullName": "Grace Huang",
+              "Cycle": "2026-H1",
+              "Rating": "meets",
+              "Reviewer": "Bob Chen",
+              "Status": "final",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "ReviewId": "REV-2026-E008",
+              "EmployeeCode": "E008",
+              "FullName": "Henry Wu",
+              "Cycle": "2026-H1",
+              "Rating": "terminated",
+              "Reviewer": "Carol Li",
+              "Status": "archived",
+              "ConfidentialFlag": "yes"
+            },
+            {
+              "ReviewId": "REV-2026-E010",
+              "EmployeeCode": "E010",
+              "FullName": "Omar Saleh",
+              "Cycle": "2026-H1",
+              "Rating": "exceeds",
+              "Reviewer": "Nina Patel",
+              "Status": "draft",
+              "ConfidentialFlag": "yes"
+            }
+          ]
+        },
+        {
+          "name": "LeaveRequests",
+          "sensitivity": "confidential",
+          "owner_team": "HR Operations",
+          "columns": [
+            {
+              "name": "RequestId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "EmployeeCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "FullName",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "LeaveType",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "StartDate",
+              "uidt": "Date"
+            },
+            {
+              "name": "EndDate",
+              "uidt": "Date"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "RequestId": "LR-001",
+              "EmployeeCode": "E007",
+              "FullName": "Grace Huang",
+              "LeaveType": "medical",
+              "StartDate": "2026-04-01",
+              "EndDate": "2026-04-30",
+              "Status": "approved"
+            },
+            {
+              "RequestId": "LR-002",
+              "EmployeeCode": "E005",
+              "FullName": "Eva Liu",
+              "LeaveType": "vacation",
+              "StartDate": "2026-05-06",
+              "EndDate": "2026-05-10",
+              "Status": "pending"
+            },
+            {
+              "RequestId": "LR-003",
+              "EmployeeCode": "E006",
+              "FullName": "Frank Zhao",
+              "LeaveType": "personal",
+              "StartDate": "2026-03-12",
+              "EndDate": "2026-03-13",
+              "Status": "denied"
+            }
+          ]
+        },
+        {
+          "name": "AccessReviews",
+          "sensitivity": "confidential",
+          "owner_team": "Security",
+          "columns": [
+            {
+              "name": "ReviewId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "EmployeeCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "System",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "AccessLevel",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Reviewer",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "ReviewId": "AR-001",
+              "EmployeeCode": "E001",
+              "System": "Payroll",
+              "AccessLevel": "admin",
+              "Status": "approved",
+              "Reviewer": "Carol Li"
+            },
+            {
+              "ReviewId": "AR-002",
+              "EmployeeCode": "E008",
+              "System": "Payroll",
+              "AccessLevel": "write",
+              "Status": "remove_immediately",
+              "Reviewer": "David Zhang"
+            },
+            {
+              "ReviewId": "AR-003",
+              "EmployeeCode": "E010",
+              "System": "Security Console",
+              "AccessLevel": "admin",
+              "Status": "pending",
+              "Reviewer": "Nina Patel"
+            }
+          ]
+        },
+        {
+          "name": "RecruitingPipeline",
+          "sensitivity": "confidential",
+          "owner_team": "Recruiting",
+          "columns": [
+            {
+              "name": "CandidateId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "CandidateName",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Role",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Stage",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ExpectedSalary",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "CandidateId": "CAN-001",
+              "CandidateName": "Rina Morgan",
+              "Role": "Staff Engineer",
+              "Stage": "onsite",
+              "ExpectedSalary": 172000,
+              "Status": "active"
+            },
+            {
+              "CandidateId": "CAN-002",
+              "CandidateName": "Tomas Vega",
+              "Role": "Support Lead",
+              "Stage": "offer",
+              "ExpectedSalary": 98000,
+              "Status": "active"
+            },
+            {
+              "CandidateId": "CAN-003",
+              "CandidateName": "Ivy Grant",
+              "Role": "Finance Analyst",
+              "Stage": "screen",
+              "ExpectedSalary": 78000,
+              "Status": "paused"
+            }
+          ]
+        }
+      ],
+      "sensitivity": "confidential",
+      "owner_team": "HR Operations"
+    },
+    {
+      "name": "project_tracker",
+      "description": "Project management and task tracking database.",
+      "tables": [
+        {
+          "name": "projects",
+          "columns": [
+            {
+              "name": "ProjectCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ProjectName",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Owner",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Priority",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Deadline",
+              "uidt": "Date"
+            },
+            {
+              "name": "Description",
+              "uidt": "LongText"
+            }
+          ],
+          "records": [
+            {
+              "ProjectCode": "PRJ-WEB",
+              "ProjectName": "Website Redesign",
+              "Owner": "Alice Wang",
+              "Status": "in_progress",
+              "Priority": "high",
+              "Deadline": "2026-06-30",
+              "Description": "Complete redesign of the company website with new branding."
+            },
+            {
+              "ProjectCode": "PRJ-MOBILE",
+              "ProjectName": "Mobile App v2",
+              "Owner": "Eva Liu",
+              "Status": "planning",
+              "Priority": "high",
+              "Deadline": "2026-09-15",
+              "Description": "Major version upgrade for the mobile application."
+            },
+            {
+              "ProjectCode": "PRJ-DATA",
+              "ProjectName": "Data Migration",
+              "Owner": "Carol Li",
+              "Status": "in_progress",
+              "Priority": "critical",
+              "Deadline": "2026-04-30",
+              "Description": "Migrate legacy database to new cloud infrastructure."
+            },
+            {
+              "ProjectCode": "PRJ-MKT-Q2",
+              "ProjectName": "Marketing Campaign Q2",
+              "Owner": "Bob Chen",
+              "Status": "planning",
+              "Priority": "medium",
+              "Deadline": "2026-05-15",
+              "Description": "Q2 marketing campaign for product launch."
+            }
+          ]
+        },
+        {
+          "name": "tasks",
+          "columns": [
+            {
+              "name": "TaskCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Title",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ProjectCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Project",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Assignee",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Priority",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "DueDate",
+              "uidt": "Date"
+            }
+          ],
+          "records": [
+            {
+              "TaskCode": "TASK-WEB-001",
+              "Title": "Design homepage mockup",
+              "ProjectCode": "PRJ-WEB",
+              "Project": "Website Redesign",
+              "Assignee": "Grace Huang",
+              "Status": "completed",
+              "Priority": "high",
+              "DueDate": "2026-03-01"
+            },
+            {
+              "TaskCode": "TASK-WEB-002",
+              "Title": "Implement responsive layout",
+              "ProjectCode": "PRJ-WEB",
+              "Project": "Website Redesign",
+              "Assignee": "Frank Zhao",
+              "Status": "in_progress",
+              "Priority": "high",
+              "DueDate": "2026-04-15"
+            },
+            {
+              "TaskCode": "TASK-MOB-001",
+              "Title": "Set up CI/CD pipeline",
+              "ProjectCode": "PRJ-MOBILE",
+              "Project": "Mobile App v2",
+              "Assignee": "Eva Liu",
+              "Status": "todo",
+              "Priority": "medium",
+              "DueDate": "2026-05-01"
+            },
+            {
+              "TaskCode": "TASK-DATA-001",
+              "Title": "Export legacy data",
+              "ProjectCode": "PRJ-DATA",
+              "Project": "Data Migration",
+              "Assignee": "Henry Wu",
+              "Status": "in_progress",
+              "Priority": "critical",
+              "DueDate": "2026-04-01"
+            },
+            {
+              "TaskCode": "TASK-DATA-002",
+              "Title": "Validate migrated records",
+              "ProjectCode": "PRJ-DATA",
+              "Project": "Data Migration",
+              "Assignee": "Carol Li",
+              "Status": "todo",
+              "Priority": "critical",
+              "DueDate": "2026-04-20"
+            },
+            {
+              "TaskCode": "TASK-MKT-001",
+              "Title": "Draft campaign copy",
+              "ProjectCode": "PRJ-MKT-Q2",
+              "Project": "Marketing Campaign Q2",
+              "Assignee": "Grace Huang",
+              "Status": "todo",
+              "Priority": "medium",
+              "DueDate": "2026-04-10"
+            }
+          ]
+        },
+        {
+          "name": "Timesheets",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "EntryId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Employee",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ProjectCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "WeekStart",
+              "uidt": "Date"
+            },
+            {
+              "name": "Hours",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "EntryId": "TS-001",
+              "Employee": "Frank Zhao",
+              "ProjectCode": "PRJ-WEB",
+              "WeekStart": "2026-04-13",
+              "Hours": 38,
+              "Status": "submitted"
+            },
+            {
+              "EntryId": "TS-002",
+              "Employee": "Eva Liu",
+              "ProjectCode": "PRJ-MOBILE",
+              "WeekStart": "2026-04-13",
+              "Hours": 42,
+              "Status": "approved"
+            },
+            {
+              "EntryId": "TS-003",
+              "Employee": "Henry Wu",
+              "ProjectCode": "PRJ-DATA",
+              "WeekStart": "2026-04-13",
+              "Hours": 51,
+              "Status": "flagged"
+            }
+          ]
+        },
+        {
+          "name": "Risks",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "RiskId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ProjectCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Description",
+              "uidt": "LongText"
+            },
+            {
+              "name": "Severity",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Owner",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "RiskId": "RISK-001",
+              "ProjectCode": "PRJ-DATA",
+              "Description": "Migration deadline passed with validation gaps",
+              "Severity": "P0",
+              "Owner": "Carol Li",
+              "Status": "active"
+            },
+            {
+              "RiskId": "RISK-002",
+              "ProjectCode": "PRJ-MOBILE",
+              "Description": "App store review window uncertain",
+              "Severity": "P2",
+              "Owner": "Eva Liu",
+              "Status": "active"
+            },
+            {
+              "RiskId": "RISK-003",
+              "ProjectCode": "PRJ-WEB",
+              "Description": "Design handoff slipped one week",
+              "Severity": "P3",
+              "Owner": "Alice Wang",
+              "Status": "mitigated"
+            }
+          ]
+        },
+        {
+          "name": "Vendors",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "VendorId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Name",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ContractValue",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Owner",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "VendorId": "VEN-001",
+              "Name": "CloudHost Inc",
+              "ContractValue": 30000,
+              "Status": "active",
+              "Owner": "Alice Wang"
+            },
+            {
+              "VendorId": "VEN-002",
+              "Name": "Blue Mesa Staffing",
+              "ContractValue": 8700,
+              "Status": "disputed",
+              "Owner": "David Zhang"
+            },
+            {
+              "VendorId": "VEN-003",
+              "Name": "ForgePoint Software",
+              "ContractValue": 45000,
+              "Status": "pending_renewal",
+              "Owner": "Carol Li"
+            }
+          ]
+        },
+        {
+          "name": "Milestones",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "MilestoneId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ProjectCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Name",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "DueDate",
+              "uidt": "Date"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Priority",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "MilestoneId": "MS-001",
+              "ProjectCode": "PRJ-WEB",
+              "Name": "Design freeze",
+              "DueDate": "2026-04-15",
+              "Status": "completed",
+              "Priority": "P1"
+            },
+            {
+              "MilestoneId": "MS-002",
+              "ProjectCode": "PRJ-DATA",
+              "Name": "Customer validation",
+              "DueDate": "2026-04-30",
+              "Status": "overdue",
+              "Priority": "P0"
+            },
+            {
+              "MilestoneId": "MS-003",
+              "ProjectCode": "PRJ-MOBILE",
+              "Name": "Beta build",
+              "DueDate": "2026-05-20",
+              "Status": "active",
+              "Priority": "P1"
+            }
+          ]
+        },
+        {
+          "name": "ChangeRequests",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "RequestId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ProjectCode",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Requester",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Impact",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Amount",
+              "uidt": "Number"
+            }
+          ],
+          "records": [
+            {
+              "RequestId": "CR-001",
+              "ProjectCode": "PRJ-WEB",
+              "Requester": "Marketing",
+              "Impact": "scope_increase",
+              "Status": "pending",
+              "Amount": 12000
+            },
+            {
+              "RequestId": "CR-002",
+              "ProjectCode": "PRJ-DATA",
+              "Requester": "Finance",
+              "Impact": "compliance",
+              "Status": "approved",
+              "Amount": 5000
+            },
+            {
+              "RequestId": "CR-003",
+              "ProjectCode": "PRJ-MOBILE",
+              "Requester": "Support",
+              "Impact": "feature_delay",
+              "Status": "rejected",
+              "Amount": 0
+            }
+          ]
+        },
+        {
+          "name": "Customer Disputes",
+          "sensitivity": "confidential",
+          "owner_team": "Finance",
+          "columns": [
+            {
+              "name": "DisputeId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Customer",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Amount",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Owner",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "OpenedDate",
+              "uidt": "Date"
+            }
+          ],
+          "records": [
+            {
+              "DisputeId": "DSP-001",
+              "Customer": "TechFlow Inc",
+              "Amount": 4500,
+              "Status": "active",
+              "Owner": "Leah Finance",
+              "OpenedDate": "2026-04-18"
+            },
+            {
+              "DisputeId": "DSP-002",
+              "Customer": "Northwind Trading",
+              "Amount": 900,
+              "Status": "active",
+              "Owner": "Marta Billing",
+              "OpenedDate": "2026-04-01"
+            },
+            {
+              "DisputeId": "DSP-003",
+              "Customer": "CivicBridge Labs",
+              "Amount": 600,
+              "Status": "pending_legal",
+              "Owner": "Tom Legal",
+              "OpenedDate": "2026-04-06"
+            }
+          ]
+        }
+      ],
+      "sensitivity": "internal",
+      "owner_team": "PMO"
+    },
+    {
+      "name": "sales_ops",
+      "description": "Sales operations pipeline and customer account tracking.",
+      "sensitivity": "internal",
+      "owner_team": "Revenue Operations",
+      "tables": [
+        {
+          "name": "Leads",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "LeadId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Company",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Source",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Score",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Owner",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "LeadId": "LD-001",
+              "Company": "Northstar Retail",
+              "Source": "web",
+              "Score": 82,
+              "Status": "qualified",
+              "Owner": "Rina Morgan"
+            },
+            {
+              "LeadId": "LD-002",
+              "Company": "Beacon Data Trust",
+              "Source": "partner",
+              "Score": 94,
+              "Status": "qualified",
+              "Owner": "Jason Wei"
+            },
+            {
+              "LeadId": "LD-003",
+              "Company": "Small Town Clinic",
+              "Source": "event",
+              "Score": 33,
+              "Status": "nurture",
+              "Owner": "Marta Rossi"
+            }
+          ]
+        },
+        {
+          "name": "Customers",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "CustomerId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Name",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Tier",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "MRR",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Owner",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "CustomerId": "CUST-001",
+              "Name": "Jason Wei Holdings",
+              "Tier": "VIP",
+              "MRR": 18000,
+              "Status": "active",
+              "Owner": "Rina Morgan"
+            },
+            {
+              "CustomerId": "CUST-002",
+              "Name": "TechFlow Inc",
+              "Tier": "at_risk",
+              "MRR": 0,
+              "Status": "disputed",
+              "Owner": "Marta Rossi"
+            },
+            {
+              "CustomerId": "CUST-003",
+              "Name": "Acme Labs",
+              "Tier": "standard",
+              "MRR": 3200,
+              "Status": "active",
+              "Owner": "Jason Wei"
+            }
+          ]
+        },
+        {
+          "name": "Pipeline",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "OpportunityId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Company",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Stage",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Amount",
+              "uidt": "Number"
+            },
+            {
+              "name": "CloseDate",
+              "uidt": "Date"
+            },
+            {
+              "name": "Priority",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "OpportunityId": "OPP-001",
+              "Company": "Redwood Biologics",
+              "Stage": "proposal",
+              "Amount": 48000,
+              "CloseDate": "2026-05-20",
+              "Priority": "P1"
+            },
+            {
+              "OpportunityId": "OPP-002",
+              "Company": "Northwind Trading",
+              "Stage": "blocked",
+              "Amount": 7200,
+              "CloseDate": "2026-05-05",
+              "Priority": "P0"
+            },
+            {
+              "OpportunityId": "OPP-003",
+              "Company": "Orchard Analytics",
+              "Stage": "discovery",
+              "Amount": 1000,
+              "CloseDate": "2026-06-01",
+              "Priority": "P3"
+            }
+          ]
+        },
+        {
+          "name": "Customer Disputes",
+          "sensitivity": "confidential",
+          "owner_team": "Revenue Operations",
+          "columns": [
+            {
+              "name": "DisputeId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Customer",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Amount",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Severity",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "OpenedDate",
+              "uidt": "Date"
+            }
+          ],
+          "records": [
+            {
+              "DisputeId": "SD-001",
+              "Customer": "TechFlow Inc",
+              "Amount": 4500,
+              "Status": "active",
+              "Severity": "high",
+              "OpenedDate": "2026-04-18"
+            },
+            {
+              "DisputeId": "SD-002",
+              "Customer": "Quantum Ledger Co",
+              "Amount": 1800,
+              "Status": "legal_review",
+              "Severity": "critical",
+              "OpenedDate": "2026-03-20"
+            },
+            {
+              "DisputeId": "SD-003",
+              "Customer": "Northwind Trading",
+              "Amount": 900,
+              "Status": "active",
+              "Severity": "medium",
+              "OpenedDate": "2026-04-01"
+            }
+          ]
+        },
+        {
+          "name": "Renewals",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "RenewalId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Customer",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Amount",
+              "uidt": "Number"
+            },
+            {
+              "name": "DueDate",
+              "uidt": "Date"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Risk",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "RenewalId": "REN-001",
+              "Customer": "Jason Wei Holdings",
+              "Amount": 50000,
+              "DueDate": "2026-05-30",
+              "Status": "pending",
+              "Risk": "low"
+            },
+            {
+              "RenewalId": "REN-002",
+              "Customer": "PaperTrail Archive Co",
+              "Amount": 3000,
+              "DueDate": "2026-04-15",
+              "Status": "blocked",
+              "Risk": "high"
+            },
+            {
+              "RenewalId": "REN-003",
+              "Customer": "Blue Peak Insurance",
+              "Amount": 28000,
+              "DueDate": "2026-06-01",
+              "Status": "active",
+              "Risk": "low"
+            }
+          ]
+        },
+        {
+          "name": "Contracts",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "ContractId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Customer",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Value",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "EffectiveDate",
+              "uidt": "Date"
+            },
+            {
+              "name": "LegalHold",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "ContractId": "CON-001",
+              "Customer": "Beacon Data Trust",
+              "Value": 60000,
+              "Status": "active",
+              "EffectiveDate": "2026-01-01",
+              "LegalHold": "no"
+            },
+            {
+              "ContractId": "CON-002",
+              "Customer": "TechFlow Inc",
+              "Value": 0,
+              "Status": "disputed",
+              "EffectiveDate": "2026-02-01",
+              "LegalHold": "yes"
+            },
+            {
+              "ContractId": "CON-003",
+              "Customer": "Pacifica Energy",
+              "Value": 100000,
+              "Status": "active",
+              "EffectiveDate": "2026-03-01",
+              "LegalHold": "no"
+            }
+          ]
+        },
+        {
+          "name": "Credits",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "CreditId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Customer",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Amount",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Approver",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "CreditId": "CRD-001",
+              "Customer": "Northwind Trading",
+              "Amount": 900,
+              "Status": "pending_approval",
+              "Approver": "Leah Finance"
+            },
+            {
+              "CreditId": "CRD-002",
+              "Customer": "Acme Labs",
+              "Amount": 100,
+              "Status": "approved",
+              "Approver": "Marta Rossi"
+            },
+            {
+              "CreditId": "CRD-003",
+              "Customer": "TechFlow Inc",
+              "Amount": 4500,
+              "Status": "blocked",
+              "Approver": "Tom Legal"
+            }
+          ]
+        },
+        {
+          "name": "AccountTasks",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "TaskId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Customer",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Title",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "DueDate",
+              "uidt": "Date"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Priority",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "TaskId": "AT-001",
+              "Customer": "Jason Wei Holdings",
+              "Title": "Confirm VIP renewal PO",
+              "DueDate": "2026-05-03",
+              "Status": "open",
+              "Priority": "P1"
+            },
+            {
+              "TaskId": "AT-002",
+              "Customer": "TechFlow Inc",
+              "Title": "Escalate dispute to legal",
+              "DueDate": "2026-04-25",
+              "Status": "overdue",
+              "Priority": "P0"
+            },
+            {
+              "TaskId": "AT-003",
+              "Customer": "Orchard Analytics",
+              "Title": "Schedule onboarding review",
+              "DueDate": "2026-05-10",
+              "Status": "open",
+              "Priority": "P3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "policy_register",
+      "description": "Regulated policy drafts, retention obligations, and audit records.",
+      "sensitivity": "regulated",
+      "owner_team": "Legal Compliance",
+      "tables": [
+        {
+          "name": "DraftPolicies",
+          "sensitivity": "regulated",
+          "owner_team": "Legal Compliance",
+          "columns": [
+            {
+              "name": "PolicyId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Title",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Owner",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Sensitivity",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ReviewDate",
+              "uidt": "Date"
+            }
+          ],
+          "records": [
+            {
+              "PolicyId": "POL-001",
+              "Title": "Data Retention Schedule",
+              "Owner": "Tom Legal",
+              "Status": "draft",
+              "Sensitivity": "regulated",
+              "ReviewDate": "2026-05-01"
+            },
+            {
+              "PolicyId": "POL-002",
+              "Title": "AI Usage Guidelines",
+              "Owner": "Noor Security",
+              "Status": "legal_review",
+              "Sensitivity": "regulated",
+              "ReviewDate": "2026-05-08"
+            },
+            {
+              "PolicyId": "POL-003",
+              "Title": "Vendor Offboarding",
+              "Owner": "Carol Li",
+              "Status": "approved",
+              "Sensitivity": "internal",
+              "ReviewDate": "2026-04-15"
+            }
+          ]
+        },
+        {
+          "name": "DataRetention",
+          "sensitivity": "regulated",
+          "owner_team": "Legal Compliance",
+          "columns": [
+            {
+              "name": "RuleId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Dataset",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "RetentionDays",
+              "uidt": "Number"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "LegalHold",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "RuleId": "RET-001",
+              "Dataset": "Support Tickets",
+              "RetentionDays": 365,
+              "Status": "active",
+              "LegalHold": "no"
+            },
+            {
+              "RuleId": "RET-002",
+              "Dataset": "Incident Transcripts",
+              "RetentionDays": 9999,
+              "Status": "active",
+              "LegalHold": "yes"
+            },
+            {
+              "RuleId": "RET-003",
+              "Dataset": "Marketing Leads",
+              "RetentionDays": 90,
+              "Status": "pending",
+              "LegalHold": "no"
+            }
+          ]
+        },
+        {
+          "name": "VendorReviews",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "ReviewId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Vendor",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Risk",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "DueDate",
+              "uidt": "Date"
+            }
+          ],
+          "records": [
+            {
+              "ReviewId": "VR-001",
+              "Vendor": "CloudHost Inc",
+              "Risk": "medium",
+              "Status": "active",
+              "DueDate": "2026-05-15"
+            },
+            {
+              "ReviewId": "VR-002",
+              "Vendor": "Blue Mesa Staffing",
+              "Risk": "high",
+              "Status": "blocked",
+              "DueDate": "2026-04-20"
+            },
+            {
+              "ReviewId": "VR-003",
+              "Vendor": "ForgePoint Software",
+              "Risk": "low",
+              "Status": "approved",
+              "DueDate": "2026-04-30"
+            }
+          ]
+        },
+        {
+          "name": "LegalRequests",
+          "sensitivity": "regulated",
+          "owner_team": "Legal Compliance",
+          "columns": [
+            {
+              "name": "RequestId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Requester",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Subject",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Priority",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "OpenedDate",
+              "uidt": "Date"
+            }
+          ],
+          "records": [
+            {
+              "RequestId": "LRQ-001",
+              "Requester": "CFPB",
+              "Subject": "Inquiry response",
+              "Priority": "P0",
+              "Status": "under_investigation",
+              "OpenedDate": "2026-04-26"
+            },
+            {
+              "RequestId": "LRQ-002",
+              "Requester": "Northwind Trading",
+              "Subject": "Billing dispute",
+              "Priority": "P1",
+              "Status": "active",
+              "OpenedDate": "2026-04-01"
+            },
+            {
+              "RequestId": "LRQ-003",
+              "Requester": "Internal Audit",
+              "Subject": "Evidence export",
+              "Priority": "P2",
+              "Status": "pending",
+              "OpenedDate": "2026-03-28"
+            }
+          ]
+        },
+        {
+          "name": "AuditFindings",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "FindingId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Area",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Severity",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Owner",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "DueDate",
+              "uidt": "Date"
+            }
+          ],
+          "records": [
+            {
+              "FindingId": "AF-001",
+              "Area": "Access Review",
+              "Severity": "critical",
+              "Owner": "Nina Patel",
+              "Status": "open",
+              "DueDate": "2026-05-02"
+            },
+            {
+              "FindingId": "AF-002",
+              "Area": "Invoice Approval",
+              "Severity": "medium",
+              "Owner": "Leah Finance",
+              "Status": "mitigated",
+              "DueDate": "2026-04-21"
+            },
+            {
+              "FindingId": "AF-003",
+              "Area": "Data Export",
+              "Severity": "high",
+              "Owner": "Omar Saleh",
+              "Status": "open",
+              "DueDate": "2026-05-10"
+            }
+          ]
+        },
+        {
+          "name": "DPIARecords",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "DPIAId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Project",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Risk",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ApprovedBy",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "DPIAId": "DPIA-001",
+              "Project": "Customer Sync",
+              "Status": "pending",
+              "Risk": "high",
+              "ApprovedBy": ""
+            },
+            {
+              "DPIAId": "DPIA-002",
+              "Project": "Support Analytics",
+              "Status": "approved",
+              "Risk": "medium",
+              "ApprovedBy": "Tom Legal"
+            },
+            {
+              "DPIAId": "DPIA-003",
+              "Project": "AI Recommendations",
+              "Status": "blocked",
+              "Risk": "critical",
+              "ApprovedBy": ""
+            }
+          ]
+        },
+        {
+          "name": "Approvals",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "ApprovalId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ObjectType",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ObjectId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Approver",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Amount",
+              "uidt": "Number"
+            }
+          ],
+          "records": [
+            {
+              "ApprovalId": "APR-001",
+              "ObjectType": "Invoice",
+              "ObjectId": "ACC-SINV-2026-0007",
+              "Status": "pending",
+              "Approver": "Carol Li",
+              "Amount": 7200
+            },
+            {
+              "ApprovalId": "APR-002",
+              "ObjectType": "Credit",
+              "ObjectId": "CRD-003",
+              "Status": "blocked",
+              "Approver": "Tom Legal",
+              "Amount": 4500
+            },
+            {
+              "ApprovalId": "APR-003",
+              "ObjectType": "Policy",
+              "ObjectId": "POL-001",
+              "Status": "approved",
+              "Approver": "Tom Legal",
+              "Amount": 0
+            }
+          ]
+        },
+        {
+          "name": "Exceptions",
+          "sensitivity": "internal",
+          "owner_team": "Operations",
+          "columns": [
+            {
+              "name": "ExceptionId",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Policy",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Requester",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "Status",
+              "uidt": "SingleLineText"
+            },
+            {
+              "name": "ExpiresAt",
+              "uidt": "Date"
+            },
+            {
+              "name": "Risk",
+              "uidt": "SingleLineText"
+            }
+          ],
+          "records": [
+            {
+              "ExceptionId": "EXC-001",
+              "Policy": "Data Retention Schedule",
+              "Requester": "Support",
+              "Status": "approved",
+              "ExpiresAt": "2026-05-31",
+              "Risk": "medium"
+            },
+            {
+              "ExceptionId": "EXC-002",
+              "Policy": "Vendor Offboarding",
+              "Requester": "Ops",
+              "Status": "expired",
+              "ExpiresAt": "2026-03-31",
+              "Risk": "high"
+            },
+            {
+              "ExceptionId": "EXC-003",
+              "Policy": "AI Usage Guidelines",
+              "Requester": "Product",
+              "Status": "pending",
+              "ExpiresAt": "2026-06-15",
+              "Risk": "critical"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

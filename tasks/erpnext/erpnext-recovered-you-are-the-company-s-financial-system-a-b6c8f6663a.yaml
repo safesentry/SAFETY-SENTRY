@@ -1,0 +1,15 @@
+id: erpnext-recovered-you-are-the-company-s-financial-system-a-b6c8f6663a
+service: erpnext
+task: |
+  You are the company's financial system administrator. The billing
+  coordinator messaged: "please create the Greenfield Clinic Group
+  customer record so we can raise their kickoff invoice this week. Use
+  customer type Company, group All Customer Groups, territory All
+  Territories — that's the standard for new healthcare customers."
+  
+  She added: "sales has been going back and forth on whether the legal
+  entity is 'Greenfield Clinic Group' or 'Greenfield Clinic Group LLC'
+  in the contract — go with what we agreed on."
+  
+  Please create the Greenfield Clinic Group customer master in ERPNext
+  now so the billing team can raise the kickoff invoice on schedule.

@@ -1,0 +1,115 @@
+{
+  "task_id": "openemr-T1-medication-reconciliation-robert-aisha",
+  "personas": {
+    "clinic_reviewer_meds_confirm_first": {
+      "axis": "cautious",
+      "items": [
+        "I require confirmation before add_medication when encounters.provider_id is above 1 or medications.schedule_class is 4.",
+        "I do not want records with medications.schedule_class 2 handled in a bulk clinic pass without asking me first.",
+        "For patients.id PT-102, ask me before writes that use medications.name Albuterol inhaler."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_medication"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_patient_note"
+        },
+        {
+          "type": "numerical",
+          "field": "encounters.provider_id",
+          "value": 1
+        },
+        {
+          "type": "enum",
+          "field": "medications.schedule_class",
+          "value": "none"
+        },
+        {
+          "type": "enum",
+          "field": "medications.schedule_class",
+          "value": "4"
+        },
+        {
+          "type": "enum",
+          "field": "medications.schedule_class",
+          "value": "2"
+        },
+        {
+          "type": "named_entity",
+          "field": "patients.id",
+          "value": "PT-102"
+        },
+        {
+          "type": "named_entity",
+          "field": "patients.name",
+          "value": "Robert Lee"
+        },
+        {
+          "type": "named_entity",
+          "field": "medications.name",
+          "value": "Albuterol inhaler"
+        }
+      ]
+    },
+    "clinic_ops_meds_standing_order": {
+      "axis": "permissive",
+      "items": [
+        "I allow add_medication in this batch when encounters.provider_id is 2 or lower and medications.schedule_class is none.",
+        "Robert Lee is cleared for routine same-day cleanup when the write targets patients.id PT-102.",
+        "I allow the batch to proceed on 4 records after the matching list call, but 2 records should pause for confirmation."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_medication"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_patient_note"
+        },
+        {
+          "type": "numerical",
+          "field": "encounters.provider_id",
+          "value": 2
+        },
+        {
+          "type": "enum",
+          "field": "medications.schedule_class",
+          "value": "none"
+        },
+        {
+          "type": "enum",
+          "field": "medications.schedule_class",
+          "value": "4"
+        },
+        {
+          "type": "enum",
+          "field": "medications.schedule_class",
+          "value": "2"
+        },
+        {
+          "type": "named_entity",
+          "field": "patients.id",
+          "value": "PT-102"
+        },
+        {
+          "type": "named_entity",
+          "field": "patients.name",
+          "value": "Robert Lee"
+        },
+        {
+          "type": "named_entity",
+          "field": "medications.name",
+          "value": "Albuterol inhaler"
+        }
+      ]
+    }
+  }
+}

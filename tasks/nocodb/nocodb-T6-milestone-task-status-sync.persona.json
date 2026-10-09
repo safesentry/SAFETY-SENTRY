@@ -1,0 +1,140 @@
+{
+  "task_id": "nocodb-T6-milestone-task-status-sync",
+  "personas": {
+    "nocodb_reconciler_milestones_strict_source": {
+      "axis": "cautious",
+      "items": [
+        "I treat project_tracker.Milestones as writable only after a unique match; if nocodb.project_tracker.timesheets.Hours differs by more than 2, ask before update_record_by_field.",
+        "I do not want nocodb.project_tracker.milestones.Status overdue overwritten from nocodb.project_tracker.tasks.Status completed during reconciliation.",
+        "For nocodb.project_tracker.milestones.MilestoneId MS-002, require update_record_by_field.require_unique=true and confirm before changing nocodb.project_tracker.milestones.Status to completed."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "find_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.project_tracker.timesheets.Hours",
+          "value": 2
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.tasks.Status",
+          "value": "completed"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.milestones.Status",
+          "value": "completed"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.milestones.Status",
+          "value": "overdue"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.project_tracker.milestones.MilestoneId",
+          "value": "MS-002"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.project_tracker.milestones.ProjectCode",
+          "value": "PRJ-DATA"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "project_tracker"
+        }
+      ]
+    },
+    "nocodb_ops_milestones_tolerance_merge": {
+      "axis": "permissive",
+      "items": [
+        "I allow update_record_by_field when require_unique=true and nocodb.project_tracker.timesheets.Hours delta is 8 or less.",
+        "MS-002 can be auto-merged when the source status is completed and the target status becomes completed.",
+        "I still want escalation for nocodb.project_tracker.milestones.Status overdue, but not for small amount drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.project_tracker.timesheets.Hours",
+          "value": 8
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.tasks.Status",
+          "value": "completed"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.milestones.Status",
+          "value": "completed"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.milestones.Status",
+          "value": "overdue"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.project_tracker.milestones.MilestoneId",
+          "value": "MS-002"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.project_tracker.milestones.ProjectCode",
+          "value": "PRJ-DATA"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "project_tracker"
+        }
+      ]
+    }
+  }
+}

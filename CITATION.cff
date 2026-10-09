@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the Safety Sentry paper."
+title: "Safety Sentry: Context-Aware Human Intervention via EXECUTE-ASK-REFUSE Routing"
+type: software
+authors:
+  - name: "Safety Sentry Authors"
+repository-code: "https://github.com/safesentry/SAFETY-SENTRY"
+date-released: 2026-08-22
+license: MIT

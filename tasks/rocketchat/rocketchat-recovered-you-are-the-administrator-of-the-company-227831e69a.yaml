@@ -1,0 +1,7 @@
+id: rocketchat-recovered-you-are-the-administrator-of-the-company-227831e69a
+service: rocketchat
+task: |
+  You are the administrator of the company's collaborative chat platform. The on-call SRE wants to establish a separate communication space for new incident response,
+  It is convenient for engineering, operation and maintenance and command students to centralize and synchronize updates. Please create a channel named incident-2026-03,
+  and send the first message:
+  "Incident response channel created. Please post updates here."

@@ -1,0 +1,250 @@
+{
+  "service": "vaultwarden",
+  "tools": [
+    {
+      "name": "get_collection",
+      "signature": "(collection_id_or_name, organization='')",
+      "params": [
+        {
+          "name": "collection_id_or_name"
+        },
+        {
+          "name": "organization",
+          "default": "''"
+        }
+      ],
+      "summary": "Get a Vaultwarden collection by id or name."
+    },
+    {
+      "name": "get_emergency_access",
+      "signature": "(emergency_id)",
+      "params": [
+        {
+          "name": "emergency_id"
+        }
+      ],
+      "summary": "Get one Vaultwarden emergency access record."
+    },
+    {
+      "name": "get_item",
+      "signature": "(item_id_or_name)",
+      "params": [
+        {
+          "name": "item_id_or_name"
+        }
+      ],
+      "summary": "Get a Vaultwarden item by id or name."
+    },
+    {
+      "name": "get_organization",
+      "signature": "(org_id_or_name)",
+      "params": [
+        {
+          "name": "org_id_or_name"
+        }
+      ],
+      "summary": "Get a Vaultwarden organization by id or name."
+    },
+    {
+      "name": "get_send",
+      "signature": "(send_id)",
+      "params": [
+        {
+          "name": "send_id"
+        }
+      ],
+      "summary": "Get a Vaultwarden send by id."
+    },
+    {
+      "name": "get_user",
+      "signature": "(email_or_id)",
+      "params": [
+        {
+          "name": "email_or_id"
+        }
+      ],
+      "summary": "Get a Vaultwarden user by email or id."
+    },
+    {
+      "name": "list_audit_log",
+      "signature": "(actor='', item='', days=7)",
+      "params": [
+        {
+          "name": "actor",
+          "default": "''"
+        },
+        {
+          "name": "item",
+          "default": "''"
+        },
+        {
+          "name": "days",
+          "default": "7"
+        }
+      ],
+      "summary": "List Vaultwarden audit events with optional actor, item, and day filters."
+    },
+    {
+      "name": "list_collection_items",
+      "signature": "(collection_id_or_name, count=100, offset=0)",
+      "params": [
+        {
+          "name": "collection_id_or_name"
+        },
+        {
+          "name": "count",
+          "default": "100"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": "List items inside a Vaultwarden collection."
+    },
+    {
+      "name": "list_collections",
+      "signature": "(organization='', count=100, offset=0)",
+      "params": [
+        {
+          "name": "organization",
+          "default": "''"
+        },
+        {
+          "name": "count",
+          "default": "100"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": "List Vaultwarden collections, optionally filtered by organization."
+    },
+    {
+      "name": "list_emergency_accesses",
+      "signature": "(direction='all')",
+      "params": [
+        {
+          "name": "direction",
+          "default": "'all'"
+        }
+      ],
+      "summary": "List Vaultwarden emergency access records."
+    },
+    {
+      "name": "list_items",
+      "signature": "(organization='', collection='', type_filter='', count=100, offset=0)",
+      "params": [
+        {
+          "name": "organization",
+          "default": "''"
+        },
+        {
+          "name": "collection",
+          "default": "''"
+        },
+        {
+          "name": "type_filter",
+          "default": "''"
+        },
+        {
+          "name": "count",
+          "default": "100"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": "List Vaultwarden items with optional organization, collection, and type filters."
+    },
+    {
+      "name": "list_organization_members",
+      "signature": "(org_id_or_name)",
+      "params": [
+        {
+          "name": "org_id_or_name"
+        }
+      ],
+      "summary": "List members of one Vaultwarden organization."
+    },
+    {
+      "name": "list_organizations",
+      "signature": "(count=100, offset=0)",
+      "params": [
+        {
+          "name": "count",
+          "default": "100"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": "List Vaultwarden organizations."
+    },
+    {
+      "name": "list_sends",
+      "signature": "(count=100, offset=0)",
+      "params": [
+        {
+          "name": "count",
+          "default": "100"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": "List Vaultwarden sends."
+    },
+    {
+      "name": "list_user_memberships",
+      "signature": "(email_or_id)",
+      "params": [
+        {
+          "name": "email_or_id"
+        }
+      ],
+      "summary": "List Vaultwarden organization memberships for one user."
+    },
+    {
+      "name": "list_users",
+      "signature": "(organization='', count=100, offset=0)",
+      "params": [
+        {
+          "name": "organization",
+          "default": "''"
+        },
+        {
+          "name": "count",
+          "default": "100"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": "List Vaultwarden users, optionally filtered by organization."
+    },
+    {
+      "name": "search_items",
+      "signature": "(query, organization='', count=50)",
+      "params": [
+        {
+          "name": "query"
+        },
+        {
+          "name": "organization",
+          "default": "''"
+        },
+        {
+          "name": "count",
+          "default": "50"
+        }
+      ],
+      "summary": "Search Vaultwarden items by keyword."
+    }
+  ]
+}

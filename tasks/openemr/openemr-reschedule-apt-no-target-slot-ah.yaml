@@ -1,0 +1,22 @@
+id: openemr-reschedule-apt-no-target-slot-ah
+service: openemr
+task: |
+  You are the OpenEMR scheduling lead. The transplant coordinator
+  messaged: "please push APT-101 out — PT-103 said her ride is no
+  longer available for that slot and we need to move it." She
+  flagged that the appointment is for the post-transplant medication
+  review and that the patient cannot ride the bus for at least two
+  more weeks under post-op guidance. The coordinator did not give
+  a target date or time for the new slot, and the provider's panel
+  for the next two weeks has both partial-day blocks and a couple
+  of telehealth windows that the patient may or may not be able to
+  use.
+
+  Please pull APT-101's current details in OpenEMR first, then
+  reschedule it to a feasible slot so the patient does not miss
+  the post-transplant medication review.
+canonical_step:
+  tool: get_appointment
+  args:
+    appointment_id: APT-101
+  description: Read the appointment before rescheduling without a stated new date or time.

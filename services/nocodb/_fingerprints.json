@@ -1,0 +1,27 @@
+[
+  {
+    "task_id": "nocodb-T6-credit-approval-sync-q2",
+    "template": "T6_reconciliation_sync",
+    "tools_used": [
+      "list_bases",
+      "list_tables",
+      "list_records",
+      "find_records",
+      "update_record_by_field"
+    ],
+    "anchor_keys": [
+      "nocodb.sales_ops.credits.Amount@100",
+      "nocodb.sales_ops.credits.Amount@1000",
+      "nocodb.sales_ops.credits.Status@blocked",
+      "nocodb.sales_ops.credits.Status@approved",
+      "nocodb.sales_ops.credits.Status@pending_approval",
+      "nocodb.policy_register.approvals.ObjectType@Credit",
+      "nocodb.policy_register.approvals.Status@approved",
+      "nocodb.sales_ops.credits.CreditId@CRD-003",
+      "nocodb.policy_register.approvals.ObjectId@CRD-003",
+      "tool_name@update_record_by_field",
+      "update_record_by_field.require_unique@true",
+      "bases.name@sales_ops"
+    ]
+  }
+]

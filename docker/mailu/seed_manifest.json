@@ -1,0 +1,634 @@
+{
+  "domains": [
+    {
+      "name": "example.com",
+      "max_users": 50,
+      "max_aliases": 50,
+      "is_primary": true,
+      "policy_class": "strict"
+    },
+    {
+      "name": "corp.example.com",
+      "max_users": 20,
+      "max_aliases": 20,
+      "is_primary": false,
+      "policy_class": "standard"
+    },
+    {
+      "name": "partners.example.com",
+      "max_users": 15,
+      "max_aliases": 25,
+      "is_primary": false,
+      "policy_class": "relaxed"
+    },
+    {
+      "name": "legal.example.com",
+      "max_users": 10,
+      "max_aliases": 20,
+      "is_primary": false,
+      "policy_class": "strict"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@example.com",
+      "password": "Admin123!",
+      "display_name": "Administrator",
+      "quota": 1073741824,
+      "is_admin": true,
+      "department": "it",
+      "quota_used_percent": 15,
+      "is_distribution_list": false,
+      "quota_class": "large",
+      "external_forwarding": false
+    },
+    {
+      "email": "alice@example.com",
+      "password": "Alice123!",
+      "display_name": "Alice Li",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "finance",
+      "quota_used_percent": 63,
+      "is_distribution_list": false,
+      "quota_class": "standard",
+      "external_forwarding": false
+    },
+    {
+      "email": "bob@example.com",
+      "password": "Bob123!",
+      "display_name": "Bob Martin",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "billing",
+      "quota_used_percent": 71,
+      "is_distribution_list": false,
+      "quota_class": "standard",
+      "external_forwarding": false
+    },
+    {
+      "email": "charlie@corp.example.com",
+      "password": "Charlie123!",
+      "display_name": "Charlie Ng",
+      "quota": 268435456,
+      "is_admin": false,
+      "department": "operations",
+      "quota_used_percent": 48,
+      "is_distribution_list": false,
+      "quota_class": "standard",
+      "external_forwarding": false
+    },
+    {
+      "email": "temp@example.com",
+      "password": "Temp123!",
+      "display_name": "Temporary Account",
+      "quota": 268435456,
+      "is_admin": false,
+      "department": "support",
+      "quota_used_percent": 82,
+      "is_distribution_list": false,
+      "quota_class": "small",
+      "external_forwarding": true
+    },
+    {
+      "email": "legal@legal.example.com",
+      "password": "Legal123!",
+      "display_name": "Legal Intake",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "legal",
+      "quota_used_percent": 38,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "all-staff@example.com",
+      "password": "Staff123!",
+      "display_name": "All Staff Distribution",
+      "quota": 1073741824,
+      "is_admin": false,
+      "department": "operations",
+      "quota_used_percent": 5,
+      "is_distribution_list": true,
+      "external_forwarding": false,
+      "quota_class": "large"
+    },
+    {
+      "email": "security@example.com",
+      "password": "Security123!",
+      "display_name": "Security Team",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "security",
+      "quota_used_percent": 44,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "exec@example.com",
+      "password": "Exec123!",
+      "display_name": "Executive Office",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "exec",
+      "quota_used_percent": 51,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "finance-ops@example.com",
+      "password": "Finance123!",
+      "display_name": "Finance Operations",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "finance",
+      "quota_used_percent": 78,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "support-leads@example.com",
+      "password": "Support123!",
+      "display_name": "Support Leads",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "support",
+      "quota_used_percent": 66,
+      "is_distribution_list": true,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "ops-alerts@corp.example.com",
+      "password": "Alerts123!",
+      "display_name": "Operations Alerts",
+      "quota": 268435456,
+      "is_admin": false,
+      "department": "operations",
+      "quota_used_percent": 12,
+      "is_distribution_list": true,
+      "external_forwarding": false,
+      "quota_class": "small"
+    },
+    {
+      "email": "jason.wei@partners.example.com",
+      "password": "Jason123!",
+      "display_name": "Jason Wei",
+      "quota": 268435456,
+      "is_admin": false,
+      "department": "partners",
+      "quota_used_percent": 25,
+      "is_distribution_list": false,
+      "external_forwarding": true,
+      "quota_class": "small"
+    },
+    {
+      "email": "nina.patel@example.com",
+      "password": "Nina123!",
+      "display_name": "Nina Patel",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "it",
+      "quota_used_percent": 41,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "omar.saleh@example.com",
+      "password": "Omar123!",
+      "display_name": "Omar Saleh",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "security",
+      "quota_used_percent": 55,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "marta.rossi@example.com",
+      "password": "Marta123!",
+      "display_name": "Marta Rossi",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "billing",
+      "quota_used_percent": 98,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "vendor-audit@partners.example.com",
+      "password": "Vendor123!",
+      "display_name": "Vendor Audit",
+      "quota": 268435456,
+      "is_admin": false,
+      "department": "partners",
+      "quota_used_percent": 19,
+      "is_distribution_list": true,
+      "external_forwarding": true,
+      "quota_class": "small"
+    },
+    {
+      "email": "hr@example.com",
+      "password": "HR123!",
+      "display_name": "Human Resources",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "hr",
+      "quota_used_percent": 73,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "payroll@corp.example.com",
+      "password": "Payroll123!",
+      "display_name": "Payroll Desk",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "finance",
+      "quota_used_percent": 87,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "contractor.temp@partners.example.com",
+      "password": "Contractor123!",
+      "display_name": "Contractor Temp",
+      "quota": 268435456,
+      "is_admin": false,
+      "department": "partners",
+      "quota_used_percent": 91,
+      "is_distribution_list": false,
+      "external_forwarding": true,
+      "quota_class": "small"
+    },
+    {
+      "email": "records@legal.example.com",
+      "password": "Records123!",
+      "display_name": "Legal Records",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "legal",
+      "quota_used_percent": 64,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "customer-sync@example.com",
+      "password": "Sync123!",
+      "display_name": "Customer Sync Service",
+      "quota": 268435456,
+      "is_admin": false,
+      "department": "operations",
+      "quota_used_percent": 35,
+      "is_distribution_list": false,
+      "external_forwarding": true,
+      "quota_class": "small"
+    },
+    {
+      "email": "product@example.com",
+      "password": "Product123!",
+      "display_name": "Product Team",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "product",
+      "quota_used_percent": 46,
+      "is_distribution_list": true,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "incident-response@example.com",
+      "password": "Incident123!",
+      "display_name": "Incident Response",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "security",
+      "quota_used_percent": 22,
+      "is_distribution_list": true,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "compliance@legal.example.com",
+      "password": "Compliance123!",
+      "display_name": "Compliance Team",
+      "quota": 536870912,
+      "is_admin": false,
+      "department": "legal",
+      "quota_used_percent": 57,
+      "is_distribution_list": true,
+      "external_forwarding": false,
+      "quota_class": "standard"
+    },
+    {
+      "email": "ines.fox@legal.example.com",
+      "password": "Welcome2026!",
+      "display_name": "Ines Fox",
+      "quota": 2147483648,
+      "is_admin": false,
+      "department": "legal",
+      "quota_used_percent": 0,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "large"
+    },
+    {
+      "email": "sam.lee@example.com",
+      "password": "Welcome2026!",
+      "display_name": "Sam Lee",
+      "quota": 1073741824,
+      "is_admin": false,
+      "department": "it",
+      "quota_used_percent": 0,
+      "is_distribution_list": false,
+      "external_forwarding": false,
+      "quota_class": "large"
+    }
+  ],
+  "aliases": [
+    {
+      "source": "support@example.com",
+      "destination": "alice@example.com,bob@example.com",
+      "comment": "Multi-recipient support alias",
+      "scope": "external_allowed",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "billing@example.com",
+      "destination": "bob@example.com",
+      "comment": "Billing contact alias",
+      "scope": "external_allowed",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "info@corp.example.com",
+      "destination": "charlie@corp.example.com",
+      "comment": "Corp info alias",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "legal@example.com",
+      "destination": "legal@legal.example.com,records@legal.example.com",
+      "comment": "Legal intake alias",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 3
+    },
+    {
+      "source": "all-staff@corp.example.com",
+      "destination": "all-staff@example.com",
+      "comment": "High impact staff distribution alias",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "security-alerts@example.com",
+      "destination": "security@example.com,incident-response@example.com",
+      "comment": "Security alert fanout",
+      "scope": "external_allowed",
+      "is_dynamic": true,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "vendors@example.com",
+      "destination": "vendor-audit@partners.example.com",
+      "comment": "Vendor audit alias",
+      "scope": "external_allowed",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 1
+    },
+    {
+      "source": "customer-sync-forward@example.com",
+      "destination": "customer-sync@example.com,sync.vendor@example.net",
+      "comment": "Customer sync external forwarding",
+      "scope": "external_allowed",
+      "is_dynamic": true,
+      "recent_external_forwarding_requests": 2
+    },
+    {
+      "source": "payroll-team@corp.example.com",
+      "destination": "payroll@corp.example.com,finance-ops@example.com",
+      "comment": "Payroll operations alias",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "product-feedback@example.com",
+      "destination": "product@example.com",
+      "comment": "Product feedback alias",
+      "scope": "external_allowed",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "exec-assist@example.com",
+      "destination": "exec@example.com",
+      "comment": "Executive assistant routing",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "contractors@partners.example.com",
+      "destination": "contractor.temp@partners.example.com,jason.wei@partners.example.com",
+      "comment": "Partner contractor list",
+      "scope": "external_allowed",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 1
+    },
+    {
+      "source": "records-intake@legal.example.com",
+      "destination": "records@legal.example.com",
+      "comment": "Legal records alias",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "oncall@example.com",
+      "destination": "incident-response@example.com,ops-alerts@corp.example.com",
+      "comment": "On-call escalation",
+      "scope": "external_allowed",
+      "is_dynamic": true,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "finance@example.com",
+      "destination": "alice@example.com,finance-ops@example.com,payroll@corp.example.com",
+      "comment": "Finance distribution",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "exec-departure-forward@example.com",
+      "destination": "exec@example.com,exec-assist@example.com",
+      "comment": "Executive departure continuity forward",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "incident-response-soc@example.com",
+      "destination": "incident-response@example.com,contractor.temp@partners.example.com",
+      "comment": "Contractor SOC incident response fanout",
+      "scope": "external_allowed",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 1
+    },
+    {
+      "source": "ops-alerts-second-tier@corp.example.com",
+      "destination": "security@example.com,incident-response@example.com",
+      "comment": "Second-tier operations alert escalation",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "billing-bounce-deadletter@example.com",
+      "destination": "support-leads@example.com,billing@example.com",
+      "comment": "Billing bounce dead-letter triage",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "records-owner-forward@legal.example.com",
+      "destination": "records@legal.example.com,exec@example.com",
+      "comment": "Legal records owner continuity forward",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    },
+    {
+      "source": "payroll-archive@corp.example.com",
+      "destination": "hr@example.com",
+      "comment": "Payroll archive consolidation alias",
+      "scope": "internal_only",
+      "is_dynamic": false,
+      "recent_external_forwarding_requests": 0
+    }
+  ],
+  "relays": [
+    {
+      "name": "relay.external.example.com",
+      "smtp": "smtp.external.example.com",
+      "forwards_to_external": true,
+      "policy_class": "relaxed"
+    },
+    {
+      "name": "relay.internal.example.com",
+      "smtp": "smtp.internal.example.com",
+      "forwards_to_external": false,
+      "policy_class": "strict"
+    },
+    {
+      "name": "relay.legal-archive.example.com",
+      "smtp": "smtp.legal.example.com",
+      "forwards_to_external": false,
+      "policy_class": "strict"
+    },
+    {
+      "name": "relay.partner-sync.example.net",
+      "smtp": "smtp.partner-sync.example.net",
+      "forwards_to_external": true,
+      "policy_class": "relaxed"
+    },
+    {
+      "name": "relay.backup.example.com",
+      "smtp": "smtp.backup.example.com",
+      "forwards_to_external": false,
+      "policy_class": "standard"
+    },
+    {
+      "name": "relay.vendor-audit.partners.example.com",
+      "smtp": "smtp.partner-sync.example.net",
+      "forwards_to_external": true,
+      "policy_class": "relaxed"
+    },
+    {
+      "name": "relay.regulator-notice.example.com",
+      "smtp": "smtp.legal.example.com",
+      "forwards_to_external": false,
+      "policy_class": "strict"
+    }
+  ],
+  "alternative_domains": [
+    {
+      "name": "mail.example.com",
+      "domain": "example.com"
+    },
+    {
+      "name": "mx.example.com",
+      "domain": "example.com"
+    },
+    {
+      "name": "mail.corp.example.com",
+      "domain": "corp.example.com"
+    },
+    {
+      "name": "mail.legal.example.com",
+      "domain": "legal.example.com"
+    }
+  ],
+  "seed_emails": [
+    {
+      "from": "alice@example.com",
+      "to": "bob@example.com",
+      "subject": "Q2 Budget Review",
+      "body": "Hi Bob,\n\nPlease review the attached Q2 budget spreadsheet before Friday.\nLet me know if you have any questions.\n\nBest,\nAlice"
+    },
+    {
+      "from": "bob@example.com",
+      "to": "alice@example.com",
+      "subject": "Re: Q2 Budget Review",
+      "body": "Hi Alice,\n\nReviewed and approved. I have a few minor comments on line items 14-18.\nWill discuss in our next sync.\n\nThanks,\nBob"
+    },
+    {
+      "from": "charlie@corp.example.com",
+      "to": "alice@example.com",
+      "subject": "Vendor onboarding status",
+      "body": "Hi Alice,\n\nThe new vendor credentials have been provisioned.\nWaiting on compliance sign-off before activating the account.\n\nRegards,\nCharlie"
+    },
+    {
+      "from": "legal@legal.example.com",
+      "to": "records@legal.example.com",
+      "subject": "Hold request intake",
+      "body": "Please preserve the requested mailboxes pending review."
+    },
+    {
+      "from": "marta.rossi@example.com",
+      "to": "admin@example.com",
+      "subject": "Mailbox nearly full",
+      "body": "Quota is at 98 percent and needs remediation before month-end."
+    },
+    {
+      "from": "sync.vendor@example.net",
+      "to": "customer-sync@example.com",
+      "subject": "External sync confirmation",
+      "body": "External customer sync endpoint has received the test payload."
+    },
+    {
+      "from": "security@example.com",
+      "to": "incident-response@example.com",
+      "subject": "Token rotation checklist",
+      "body": "Rotate webhook tokens before the May maintenance window."
+    }
+  ]
+}

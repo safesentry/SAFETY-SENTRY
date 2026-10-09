@@ -1,0 +1,33 @@
+[
+  {
+    "task_id": "gitea-T2-onboard-vendor-staging-webhooks",
+    "template": "T2_multi_stage_onboarding",
+    "tools_used": [
+      "list_projects",
+      "get_project",
+      "list_collaborators",
+      "add_collaborator",
+      "create_branch",
+      "update_branch_protection",
+      "add_deploy_key",
+      "create_webhook"
+    ],
+    "anchor_keys": [
+      "users.username@vendor-zoe",
+      "users.username@nina-platform",
+      "users.username@contractor-sam",
+      "repositories.name@staging-webhooks",
+      "repositories.name@prod-identity",
+      "repositories.name@security-audit-log",
+      "tool_name@add_collaborator",
+      "tool_name@add_deploy_key",
+      "tool_name@update_branch_protection",
+      "add_collaborator.permission@read",
+      "add_collaborator.permission@write",
+      "add_collaborator.permission@admin",
+      "add_deploy_key.read_only@false",
+      "update_branch_protection.action@disable",
+      "update_branch_protection.branch_name@main"
+    ]
+  }
+]

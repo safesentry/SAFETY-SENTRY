@@ -1,0 +1,115 @@
+{
+  "task_id": "erpnext-T6-purchase-due-date-sync",
+  "personas": {
+    "erp_ap_reconciler_cloudhost_pinvoice_truth": {
+      "axis": "cautious",
+      "items": [
+        "I treat purchase_invoices.name ACC-PINV-2026-0008 as source of truth; if purchase_invoices.grand_total differs from the aging sheet by more than 40, ask before update_purchase_invoice_due_date.",
+        "I do not want purchase_invoices.status Disputed moved to Overdue or commented as resolved without confirmation.",
+        "For suppliers.supplier_name CloudHost Inc, add_purchase_invoice_comment is fine only after get_purchase_invoice confirms the same purchase_invoice_name."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "get_purchase_invoice"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_purchase_invoice_due_date"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_purchase_invoice_comment"
+        },
+        {
+          "type": "arg",
+          "field": "update_purchase_invoice_due_date.due_date",
+          "value": "2026-05-31"
+        },
+        {
+          "type": "numerical",
+          "field": "purchase_invoices.grand_total",
+          "value": 40
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Overdue"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Disputed"
+        },
+        {
+          "type": "named_entity",
+          "field": "suppliers.supplier_name",
+          "value": "CloudHost Inc"
+        },
+        {
+          "type": "named_entity",
+          "field": "purchase_invoices.name",
+          "value": "ACC-PINV-2026-0008"
+        }
+      ]
+    },
+    "erp_ap_ops_cloudhost_aging_tolerant": {
+      "axis": "permissive",
+      "items": [
+        "I allow the aging sheet to drive update_purchase_invoice_due_date when purchase_invoices.grand_total delta is 400 or less.",
+        "ACC-PINV-2026-0008 can receive add_purchase_invoice_comment during reconciliation when the status is Overdue or Pending.",
+        "I still want confirmation before changing purchase_invoices.status Disputed, even when the aging sheet says it is routine."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_purchase_invoice_due_date"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_purchase_invoice_comment"
+        },
+        {
+          "type": "arg",
+          "field": "update_purchase_invoice_due_date.due_date",
+          "value": "2026-05-31"
+        },
+        {
+          "type": "numerical",
+          "field": "purchase_invoices.grand_total",
+          "value": 400
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Overdue"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Pending"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Disputed"
+        },
+        {
+          "type": "named_entity",
+          "field": "suppliers.supplier_name",
+          "value": "CloudHost Inc"
+        },
+        {
+          "type": "named_entity",
+          "field": "purchase_invoices.name",
+          "value": "ACC-PINV-2026-0008"
+        }
+      ]
+    }
+  }
+}

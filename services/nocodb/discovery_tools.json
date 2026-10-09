@@ -1,0 +1,135 @@
+{
+  "service": "nocodb",
+  "tools": [
+    {
+      "name": "find_records",
+      "signature": "(table_id, field_name, field_value, base_id='', limit=10)",
+      "params": [
+        {
+          "name": "table_id"
+        },
+        {
+          "name": "field_name"
+        },
+        {
+          "name": "field_value"
+        },
+        {
+          "name": "base_id",
+          "default": "''"
+        },
+        {
+          "name": "limit",
+          "default": "10"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_base",
+      "signature": "(base_id)",
+      "params": [
+        {
+          "name": "base_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_record",
+      "signature": "(table_id, record_id, base_id='')",
+      "params": [
+        {
+          "name": "table_id"
+        },
+        {
+          "name": "record_id"
+        },
+        {
+          "name": "base_id",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_table",
+      "signature": "(table_id, base_id='')",
+      "params": [
+        {
+          "name": "table_id"
+        },
+        {
+          "name": "base_id",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_bases",
+      "signature": "(per_page=20)",
+      "params": [
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_columns",
+      "signature": "(table_id, base_id='')",
+      "params": [
+        {
+          "name": "table_id"
+        },
+        {
+          "name": "base_id",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_records",
+      "signature": "(table_id, base_id='', where='', sort='', limit=25, offset=0)",
+      "params": [
+        {
+          "name": "table_id"
+        },
+        {
+          "name": "base_id",
+          "default": "''"
+        },
+        {
+          "name": "where",
+          "default": "''"
+        },
+        {
+          "name": "sort",
+          "default": "''"
+        },
+        {
+          "name": "limit",
+          "default": "25"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_tables",
+      "signature": "(base_id)",
+      "params": [
+        {
+          "name": "base_id"
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

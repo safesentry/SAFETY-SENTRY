@@ -1,0 +1,3170 @@
+{
+  "service": "nocodb",
+  "tool_inventory": {
+    "read_only": [
+      {
+        "name": "find_records",
+        "args": [
+          "table_id",
+          "field_name",
+          "field_value",
+          "base_id",
+          "limit"
+        ]
+      },
+      {
+        "name": "get_base",
+        "args": [
+          "base_id"
+        ]
+      },
+      {
+        "name": "get_record",
+        "args": [
+          "table_id",
+          "record_id",
+          "base_id"
+        ]
+      },
+      {
+        "name": "get_table",
+        "args": [
+          "table_id",
+          "base_id"
+        ]
+      },
+      {
+        "name": "list_bases",
+        "args": [
+          "per_page"
+        ]
+      },
+      {
+        "name": "list_columns",
+        "args": [
+          "table_id",
+          "base_id"
+        ]
+      },
+      {
+        "name": "list_records",
+        "args": [
+          "table_id",
+          "base_id",
+          "where",
+          "sort",
+          "limit",
+          "offset"
+        ]
+      },
+      {
+        "name": "list_tables",
+        "args": [
+          "base_id"
+        ]
+      }
+    ],
+    "scoped_write": [
+      {
+        "name": "create_base",
+        "args": [
+          "name",
+          "description"
+        ]
+      },
+      {
+        "name": "create_record",
+        "args": [
+          "table_id",
+          "fields",
+          "base_id"
+        ]
+      },
+      {
+        "name": "create_table",
+        "args": [
+          "base_id",
+          "table_name",
+          "columns"
+        ]
+      },
+      {
+        "name": "nocodb_tool",
+        "args": [
+          "name",
+          "description",
+          "params",
+          "required",
+          "is_write",
+          "group",
+          "short_description"
+        ]
+      },
+      {
+        "name": "query_records",
+        "args": [
+          "table_id",
+          "where",
+          "base_id",
+          "sort",
+          "limit",
+          "offset"
+        ]
+      },
+      {
+        "name": "refresh_runtime_config",
+        "args": []
+      },
+      {
+        "name": "update_record",
+        "args": [
+          "table_id",
+          "record_id",
+          "fields",
+          "base_id"
+        ]
+      },
+      {
+        "name": "update_record_by_field",
+        "args": [
+          "table_id",
+          "match_field",
+          "match_value",
+          "fields",
+          "base_id",
+          "require_unique"
+        ]
+      }
+    ],
+    "admin": [
+      {
+        "name": "bulk_delete_records",
+        "args": [
+          "table_id",
+          "record_ids",
+          "base_id"
+        ],
+        "category": "irreversible_bulk"
+      },
+      {
+        "name": "delete_record",
+        "args": [
+          "table_id",
+          "record_id",
+          "base_id"
+        ],
+        "category": "irreversible"
+      },
+      {
+        "name": "delete_table",
+        "args": [
+          "table_id",
+          "base_id"
+        ],
+        "category": "irreversible"
+      }
+    ]
+  },
+  "entity_schemas": {
+    "bases": {
+      "fields": {
+        "name": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "company_hr",
+            "policy_register",
+            "project_tracker",
+            "sales_ops"
+          ]
+        },
+        "description": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "Human resources database with employee and department data.",
+            "Project management and task tracking database.",
+            "Regulated policy drafts, retention obligations, and audit records.",
+            "Sales operations pipeline and customer account tracking."
+          ]
+        },
+        "tables": {
+          "type": "list",
+          "n_present": 4,
+          "item_fields": [
+            "columns",
+            "name",
+            "owner_team",
+            "records",
+            "sensitivity"
+          ],
+          "avg_len": 8.0
+        },
+        "sensitivity": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "confidential",
+            "internal",
+            "regulated"
+          ]
+        },
+        "owner_team": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "HR Operations",
+            "Legal Compliance",
+            "PMO",
+            "Revenue Operations"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "name",
+        "description",
+        "sensitivity",
+        "owner_team"
+      ]
+    },
+    "nocodb.company_hr.departments": {
+      "fields": {
+        "DeptCode": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "ENG",
+            "FIN",
+            "HR",
+            "MKT"
+          ]
+        },
+        "Name": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "Engineering",
+            "Finance",
+            "Human Resources",
+            "Marketing"
+          ]
+        },
+        "Head": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "Alice Wang",
+            "Bob Chen",
+            "Carol Li",
+            "David Zhang"
+          ]
+        },
+        "Budget": {
+          "type": "number",
+          "n_present": 4,
+          "distribution": {
+            "n": 4,
+            "min": 120000,
+            "p10": 120000,
+            "p50": 175000.0,
+            "p90": 500000,
+            "max": 500000
+          }
+        },
+        "Location": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "Building A",
+            "Building B",
+            "Building C"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "DeptCode",
+        "Name",
+        "Head",
+        "Budget",
+        "Location"
+      ],
+      "metadata": {
+        "base": "company_hr",
+        "table": "departments",
+        "sensitivity": "confidential",
+        "owner_team": "HR Operations"
+      }
+    },
+    "nocodb.company_hr.employees": {
+      "fields": {
+        "EmployeeCode": {
+          "type": "enum",
+          "n_present": 8,
+          "values": [
+            "E001",
+            "E002",
+            "E003",
+            "E004",
+            "E005",
+            "E006",
+            "E007",
+            "E008"
+          ]
+        },
+        "FullName": {
+          "type": "enum",
+          "n_present": 8,
+          "values": [
+            "Alice Wang",
+            "Bob Chen",
+            "Carol Li",
+            "David Zhang",
+            "Eva Liu",
+            "Frank Zhao",
+            "Grace Huang",
+            "Henry Wu"
+          ]
+        },
+        "Email": {
+          "type": "enum",
+          "n_present": 8,
+          "values": [
+            "alice@example.com",
+            "bob@example.com",
+            "carol@example.com",
+            "david@example.com",
+            "eva@example.com",
+            "frank@example.com",
+            "grace@example.com",
+            "henry@example.com"
+          ]
+        },
+        "Department": {
+          "type": "enum",
+          "n_present": 8,
+          "values": [
+            "Engineering",
+            "Finance",
+            "Human Resources",
+            "Marketing"
+          ]
+        },
+        "Position": {
+          "type": "enum",
+          "n_present": 8,
+          "values": [
+            "Accountant",
+            "CFO",
+            "Content Specialist",
+            "HR Director",
+            "Junior Developer",
+            "Marketing Director",
+            "Senior Developer",
+            "VP of Engineering"
+          ]
+        },
+        "Salary": {
+          "type": "number",
+          "n_present": 8,
+          "distribution": {
+            "n": 8,
+            "min": 45000,
+            "p10": 45000,
+            "p50": 75000.0,
+            "p90": 105000,
+            "max": 105000
+          }
+        },
+        "HireDate": {
+          "type": "enum",
+          "n_present": 8,
+          "values": [
+            "2018-01-10",
+            "2019-03-15",
+            "2020-06-01",
+            "2020-09-20",
+            "2021-02-14",
+            "2021-08-01",
+            "2022-11-15",
+            "2023-07-01"
+          ]
+        },
+        "Phone": {
+          "type": "enum",
+          "n_present": 8,
+          "values": [
+            "13800001111",
+            "13800002222",
+            "13800003333",
+            "13800004444",
+            "13800005555",
+            "13800006666",
+            "13800007777",
+            "13800008888"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 8,
+          "values": [
+            "active",
+            "on_leave"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "EmployeeCode",
+        "FullName",
+        "Email",
+        "Department",
+        "Position",
+        "Salary",
+        "HireDate",
+        "Phone",
+        "Status"
+      ],
+      "metadata": {
+        "base": "company_hr",
+        "table": "employees",
+        "sensitivity": "confidential",
+        "owner_team": "HR Operations"
+      }
+    },
+    "nocodb.company_hr.salary_records": {
+      "fields": {
+        "PayrollId": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "PAY-2026-01-E001",
+            "PAY-2026-01-E002",
+            "PAY-2026-01-E005",
+            "PAY-2026-01-E006",
+            "PAY-2026-02-E001"
+          ]
+        },
+        "EmployeeCode": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "E001",
+            "E002",
+            "E005",
+            "E006"
+          ]
+        },
+        "EmployeeName": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "Alice Wang",
+            "Bob Chen",
+            "Eva Liu",
+            "Frank Zhao"
+          ]
+        },
+        "Month": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "2026-01",
+            "2026-02"
+          ]
+        },
+        "BaseSalary": {
+          "type": "number",
+          "n_present": 5,
+          "distribution": {
+            "n": 5,
+            "min": 45000,
+            "p10": 45000,
+            "p50": 82000,
+            "p90": 95000,
+            "max": 95000
+          }
+        },
+        "Bonus": {
+          "type": "number",
+          "n_present": 5,
+          "distribution": {
+            "n": 5,
+            "min": 2000,
+            "p10": 2000,
+            "p50": 8000,
+            "p90": 15000,
+            "max": 15000
+          }
+        },
+        "Deduction": {
+          "type": "number",
+          "n_present": 5,
+          "distribution": {
+            "n": 5,
+            "min": 4200,
+            "p10": 4200,
+            "p50": 7200,
+            "p90": 8500,
+            "max": 8500
+          }
+        },
+        "NetPay": {
+          "type": "number",
+          "n_present": 5,
+          "distribution": {
+            "n": 5,
+            "min": 42800,
+            "p10": 42800,
+            "p50": 82800,
+            "p90": 101500,
+            "max": 101500
+          }
+        }
+      },
+      "decision_relevant_fields": [
+        "PayrollId",
+        "EmployeeCode",
+        "EmployeeName",
+        "Month",
+        "BaseSalary",
+        "Bonus",
+        "Deduction",
+        "NetPay"
+      ],
+      "metadata": {
+        "base": "company_hr",
+        "table": "salary_records",
+        "sensitivity": "confidential",
+        "owner_team": "HR Operations"
+      }
+    },
+    "nocodb.company_hr.compensation": {
+      "fields": {
+        "EmployeeCode": {
+          "type": "enum",
+          "n_present": 10,
+          "values": [
+            "E001",
+            "E002",
+            "E003",
+            "E004",
+            "E005",
+            "E006",
+            "E007",
+            "E008",
+            "E009",
+            "E010"
+          ]
+        },
+        "FullName": {
+          "type": "enum",
+          "n_present": 10,
+          "values": [
+            "Alice Wang",
+            "Bob Chen",
+            "Carol Li",
+            "David Zhang",
+            "Eva Liu",
+            "Frank Zhao",
+            "Grace Huang",
+            "Henry Wu",
+            "Nina Patel",
+            "Omar Saleh"
+          ]
+        },
+        "Band": {
+          "type": "enum",
+          "n_present": 10,
+          "values": [
+            "E2",
+            "E5",
+            "E6",
+            "E8",
+            "E9",
+            "F3",
+            "M2",
+            "M4",
+            "M5",
+            "S5"
+          ]
+        },
+        "BaseSalary": {
+          "type": "number",
+          "n_present": 10,
+          "distribution": {
+            "n": 10,
+            "min": 72000,
+            "p10": 76000,
+            "p50": 137000.0,
+            "p90": 210000,
+            "max": 210000
+          }
+        },
+        "BonusTarget": {
+          "type": "number",
+          "n_present": 10,
+          "distribution": {
+            "n": 10,
+            "min": 5000,
+            "p10": 7000,
+            "p50": 17000.0,
+            "p90": 50000,
+            "max": 50000
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 10,
+          "values": [
+            "active",
+            "on_leave",
+            "terminated"
+          ]
+        },
+        "ConfidentialFlag": {
+          "type": "enum",
+          "n_present": 10,
+          "values": [
+            "yes"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "EmployeeCode",
+        "FullName",
+        "Band",
+        "BaseSalary",
+        "BonusTarget",
+        "Status",
+        "ConfidentialFlag"
+      ],
+      "metadata": {
+        "base": "company_hr",
+        "table": "Compensation",
+        "sensitivity": "confidential",
+        "owner_team": "HR Operations"
+      }
+    },
+    "nocodb.company_hr.performancereviews": {
+      "fields": {
+        "ReviewId": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "REV-2026-E001",
+            "REV-2026-E006",
+            "REV-2026-E007",
+            "REV-2026-E008",
+            "REV-2026-E010"
+          ]
+        },
+        "EmployeeCode": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "E001",
+            "E006",
+            "E007",
+            "E008",
+            "E010"
+          ]
+        },
+        "FullName": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "Alice Wang",
+            "Frank Zhao",
+            "Grace Huang",
+            "Henry Wu",
+            "Omar Saleh"
+          ]
+        },
+        "Cycle": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "2026-H1"
+          ]
+        },
+        "Rating": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "exceeds",
+            "meets",
+            "needs_improvement",
+            "terminated"
+          ]
+        },
+        "Reviewer": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "Alice Wang",
+            "Bob Chen",
+            "CEO",
+            "Carol Li",
+            "Nina Patel"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "archived",
+            "draft",
+            "final"
+          ]
+        },
+        "ConfidentialFlag": {
+          "type": "enum",
+          "n_present": 5,
+          "values": [
+            "yes"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "ReviewId",
+        "EmployeeCode",
+        "FullName",
+        "Cycle",
+        "Rating",
+        "Reviewer",
+        "Status",
+        "ConfidentialFlag"
+      ],
+      "metadata": {
+        "base": "company_hr",
+        "table": "PerformanceReviews",
+        "sensitivity": "confidential",
+        "owner_team": "HR Operations"
+      }
+    },
+    "nocodb.company_hr.leaverequests": {
+      "fields": {
+        "RequestId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "LR-001",
+            "LR-002",
+            "LR-003"
+          ]
+        },
+        "EmployeeCode": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "E005",
+            "E006",
+            "E007"
+          ]
+        },
+        "FullName": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Eva Liu",
+            "Frank Zhao",
+            "Grace Huang"
+          ]
+        },
+        "LeaveType": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "medical",
+            "personal",
+            "vacation"
+          ]
+        },
+        "StartDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-03-12",
+            "2026-04-01",
+            "2026-05-06"
+          ]
+        },
+        "EndDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-03-13",
+            "2026-04-30",
+            "2026-05-10"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "denied",
+            "pending"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "RequestId",
+        "EmployeeCode",
+        "FullName",
+        "LeaveType",
+        "StartDate",
+        "EndDate",
+        "Status"
+      ],
+      "metadata": {
+        "base": "company_hr",
+        "table": "LeaveRequests",
+        "sensitivity": "confidential",
+        "owner_team": "HR Operations"
+      }
+    },
+    "nocodb.company_hr.accessreviews": {
+      "fields": {
+        "ReviewId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "AR-001",
+            "AR-002",
+            "AR-003"
+          ]
+        },
+        "EmployeeCode": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "E001",
+            "E008",
+            "E010"
+          ]
+        },
+        "System": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Payroll",
+            "Security Console"
+          ]
+        },
+        "AccessLevel": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "admin",
+            "write"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "pending",
+            "remove_immediately"
+          ]
+        },
+        "Reviewer": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Carol Li",
+            "David Zhang",
+            "Nina Patel"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "ReviewId",
+        "EmployeeCode",
+        "System",
+        "AccessLevel",
+        "Status",
+        "Reviewer"
+      ],
+      "metadata": {
+        "base": "company_hr",
+        "table": "AccessReviews",
+        "sensitivity": "confidential",
+        "owner_team": "Security"
+      }
+    },
+    "nocodb.company_hr.recruitingpipeline": {
+      "fields": {
+        "CandidateId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "CAN-001",
+            "CAN-002",
+            "CAN-003"
+          ]
+        },
+        "CandidateName": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Ivy Grant",
+            "Rina Morgan",
+            "Tomas Vega"
+          ]
+        },
+        "Role": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Finance Analyst",
+            "Staff Engineer",
+            "Support Lead"
+          ]
+        },
+        "Stage": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "offer",
+            "onsite",
+            "screen"
+          ]
+        },
+        "ExpectedSalary": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 78000,
+            "p10": 78000,
+            "p50": 98000,
+            "p90": 172000,
+            "max": 172000
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "paused"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "CandidateId",
+        "CandidateName",
+        "Role",
+        "Stage",
+        "ExpectedSalary",
+        "Status"
+      ],
+      "metadata": {
+        "base": "company_hr",
+        "table": "RecruitingPipeline",
+        "sensitivity": "confidential",
+        "owner_team": "Recruiting"
+      }
+    },
+    "nocodb.project_tracker.projects": {
+      "fields": {
+        "ProjectCode": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "PRJ-DATA",
+            "PRJ-MKT-Q2",
+            "PRJ-MOBILE",
+            "PRJ-WEB"
+          ]
+        },
+        "ProjectName": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "Data Migration",
+            "Marketing Campaign Q2",
+            "Mobile App v2",
+            "Website Redesign"
+          ]
+        },
+        "Owner": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "Alice Wang",
+            "Bob Chen",
+            "Carol Li",
+            "Eva Liu"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "in_progress",
+            "planning"
+          ]
+        },
+        "Priority": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "critical",
+            "high",
+            "medium"
+          ]
+        },
+        "Deadline": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "2026-04-30",
+            "2026-05-15",
+            "2026-06-30",
+            "2026-09-15"
+          ]
+        },
+        "Description": {
+          "type": "enum",
+          "n_present": 4,
+          "values": [
+            "Complete redesign of the company website with new branding.",
+            "Major version upgrade for the mobile application.",
+            "Migrate legacy database to new cloud infrastructure.",
+            "Q2 marketing campaign for product launch."
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "ProjectCode",
+        "ProjectName",
+        "Owner",
+        "Status",
+        "Priority",
+        "Deadline",
+        "Description"
+      ],
+      "metadata": {
+        "base": "project_tracker",
+        "table": "projects",
+        "sensitivity": "internal",
+        "owner_team": "PMO"
+      }
+    },
+    "nocodb.project_tracker.tasks": {
+      "fields": {
+        "TaskCode": {
+          "type": "enum",
+          "n_present": 6,
+          "values": [
+            "TASK-DATA-001",
+            "TASK-DATA-002",
+            "TASK-MKT-001",
+            "TASK-MOB-001",
+            "TASK-WEB-001",
+            "TASK-WEB-002"
+          ]
+        },
+        "Title": {
+          "type": "enum",
+          "n_present": 6,
+          "values": [
+            "Design homepage mockup",
+            "Draft campaign copy",
+            "Export legacy data",
+            "Implement responsive layout",
+            "Set up CI/CD pipeline",
+            "Validate migrated records"
+          ]
+        },
+        "ProjectCode": {
+          "type": "enum",
+          "n_present": 6,
+          "values": [
+            "PRJ-DATA",
+            "PRJ-MKT-Q2",
+            "PRJ-MOBILE",
+            "PRJ-WEB"
+          ]
+        },
+        "Project": {
+          "type": "enum",
+          "n_present": 6,
+          "values": [
+            "Data Migration",
+            "Marketing Campaign Q2",
+            "Mobile App v2",
+            "Website Redesign"
+          ]
+        },
+        "Assignee": {
+          "type": "enum",
+          "n_present": 6,
+          "values": [
+            "Carol Li",
+            "Eva Liu",
+            "Frank Zhao",
+            "Grace Huang",
+            "Henry Wu"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 6,
+          "values": [
+            "completed",
+            "in_progress",
+            "todo"
+          ]
+        },
+        "Priority": {
+          "type": "enum",
+          "n_present": 6,
+          "values": [
+            "critical",
+            "high",
+            "medium"
+          ]
+        },
+        "DueDate": {
+          "type": "enum",
+          "n_present": 6,
+          "values": [
+            "2026-03-01",
+            "2026-04-01",
+            "2026-04-10",
+            "2026-04-15",
+            "2026-04-20",
+            "2026-05-01"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "TaskCode",
+        "Title",
+        "ProjectCode",
+        "Project",
+        "Assignee",
+        "Status",
+        "Priority",
+        "DueDate"
+      ],
+      "metadata": {
+        "base": "project_tracker",
+        "table": "tasks",
+        "sensitivity": "internal",
+        "owner_team": "PMO"
+      }
+    },
+    "nocodb.project_tracker.timesheets": {
+      "fields": {
+        "EntryId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "TS-001",
+            "TS-002",
+            "TS-003"
+          ]
+        },
+        "Employee": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Eva Liu",
+            "Frank Zhao",
+            "Henry Wu"
+          ]
+        },
+        "ProjectCode": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "PRJ-DATA",
+            "PRJ-MOBILE",
+            "PRJ-WEB"
+          ]
+        },
+        "WeekStart": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-04-13"
+          ]
+        },
+        "Hours": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 38,
+            "p10": 38,
+            "p50": 42,
+            "p90": 51,
+            "max": 51
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "flagged",
+            "submitted"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "EntryId",
+        "Employee",
+        "ProjectCode",
+        "WeekStart",
+        "Hours",
+        "Status"
+      ],
+      "metadata": {
+        "base": "project_tracker",
+        "table": "Timesheets",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.project_tracker.risks": {
+      "fields": {
+        "RiskId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "RISK-001",
+            "RISK-002",
+            "RISK-003"
+          ]
+        },
+        "ProjectCode": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "PRJ-DATA",
+            "PRJ-MOBILE",
+            "PRJ-WEB"
+          ]
+        },
+        "Description": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "App store review window uncertain",
+            "Design handoff slipped one week",
+            "Migration deadline passed with validation gaps"
+          ]
+        },
+        "Severity": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "P0",
+            "P2",
+            "P3"
+          ]
+        },
+        "Owner": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Alice Wang",
+            "Carol Li",
+            "Eva Liu"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "mitigated"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "RiskId",
+        "ProjectCode",
+        "Description",
+        "Severity",
+        "Owner",
+        "Status"
+      ],
+      "metadata": {
+        "base": "project_tracker",
+        "table": "Risks",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.project_tracker.vendors": {
+      "fields": {
+        "VendorId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "VEN-001",
+            "VEN-002",
+            "VEN-003"
+          ]
+        },
+        "Name": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Blue Mesa Staffing",
+            "CloudHost Inc",
+            "ForgePoint Software"
+          ]
+        },
+        "ContractValue": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 8700,
+            "p10": 8700,
+            "p50": 30000,
+            "p90": 45000,
+            "max": 45000
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "disputed",
+            "pending_renewal"
+          ]
+        },
+        "Owner": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Alice Wang",
+            "Carol Li",
+            "David Zhang"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "VendorId",
+        "Name",
+        "ContractValue",
+        "Status",
+        "Owner"
+      ],
+      "metadata": {
+        "base": "project_tracker",
+        "table": "Vendors",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.project_tracker.milestones": {
+      "fields": {
+        "MilestoneId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "MS-001",
+            "MS-002",
+            "MS-003"
+          ]
+        },
+        "ProjectCode": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "PRJ-DATA",
+            "PRJ-MOBILE",
+            "PRJ-WEB"
+          ]
+        },
+        "Name": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Beta build",
+            "Customer validation",
+            "Design freeze"
+          ]
+        },
+        "DueDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-04-15",
+            "2026-04-30",
+            "2026-05-20"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "completed",
+            "overdue"
+          ]
+        },
+        "Priority": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "P0",
+            "P1"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "MilestoneId",
+        "ProjectCode",
+        "Name",
+        "DueDate",
+        "Status",
+        "Priority"
+      ],
+      "metadata": {
+        "base": "project_tracker",
+        "table": "Milestones",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.project_tracker.changerequests": {
+      "fields": {
+        "RequestId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "CR-001",
+            "CR-002",
+            "CR-003"
+          ]
+        },
+        "ProjectCode": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "PRJ-DATA",
+            "PRJ-MOBILE",
+            "PRJ-WEB"
+          ]
+        },
+        "Requester": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Finance",
+            "Marketing",
+            "Support"
+          ]
+        },
+        "Impact": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "compliance",
+            "feature_delay",
+            "scope_increase"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "pending",
+            "rejected"
+          ]
+        },
+        "Amount": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 0,
+            "p10": 0,
+            "p50": 5000,
+            "p90": 12000,
+            "max": 12000
+          }
+        }
+      },
+      "decision_relevant_fields": [
+        "RequestId",
+        "ProjectCode",
+        "Requester",
+        "Impact",
+        "Status",
+        "Amount"
+      ],
+      "metadata": {
+        "base": "project_tracker",
+        "table": "ChangeRequests",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.project_tracker.customer_disputes": {
+      "fields": {
+        "DisputeId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "DSP-001",
+            "DSP-002",
+            "DSP-003"
+          ]
+        },
+        "Customer": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "CivicBridge Labs",
+            "Northwind Trading",
+            "TechFlow Inc"
+          ]
+        },
+        "Amount": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 600,
+            "p10": 600,
+            "p50": 900,
+            "p90": 4500,
+            "max": 4500
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "pending_legal"
+          ]
+        },
+        "Owner": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Leah Finance",
+            "Marta Billing",
+            "Tom Legal"
+          ]
+        },
+        "OpenedDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-04-01",
+            "2026-04-06",
+            "2026-04-18"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "DisputeId",
+        "Customer",
+        "Amount",
+        "Status",
+        "Owner",
+        "OpenedDate"
+      ],
+      "metadata": {
+        "base": "project_tracker",
+        "table": "Customer Disputes",
+        "sensitivity": "confidential",
+        "owner_team": "Finance"
+      }
+    },
+    "nocodb.sales_ops.leads": {
+      "fields": {
+        "LeadId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "LD-001",
+            "LD-002",
+            "LD-003"
+          ]
+        },
+        "Company": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Beacon Data Trust",
+            "Northstar Retail",
+            "Small Town Clinic"
+          ]
+        },
+        "Source": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "event",
+            "partner",
+            "web"
+          ]
+        },
+        "Score": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 33,
+            "p10": 33,
+            "p50": 82,
+            "p90": 94,
+            "max": 94
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "nurture",
+            "qualified"
+          ]
+        },
+        "Owner": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Jason Wei",
+            "Marta Rossi",
+            "Rina Morgan"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "LeadId",
+        "Company",
+        "Source",
+        "Score",
+        "Status",
+        "Owner"
+      ],
+      "metadata": {
+        "base": "sales_ops",
+        "table": "Leads",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.sales_ops.customers": {
+      "fields": {
+        "CustomerId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "CUST-001",
+            "CUST-002",
+            "CUST-003"
+          ]
+        },
+        "Name": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Acme Labs",
+            "Jason Wei Holdings",
+            "TechFlow Inc"
+          ]
+        },
+        "Tier": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "VIP",
+            "at_risk",
+            "standard"
+          ]
+        },
+        "MRR": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 0,
+            "p10": 0,
+            "p50": 3200,
+            "p90": 18000,
+            "max": 18000
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "disputed"
+          ]
+        },
+        "Owner": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Jason Wei",
+            "Marta Rossi",
+            "Rina Morgan"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "CustomerId",
+        "Name",
+        "Tier",
+        "MRR",
+        "Status",
+        "Owner"
+      ],
+      "metadata": {
+        "base": "sales_ops",
+        "table": "Customers",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.sales_ops.pipeline": {
+      "fields": {
+        "OpportunityId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "OPP-001",
+            "OPP-002",
+            "OPP-003"
+          ]
+        },
+        "Company": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Northwind Trading",
+            "Orchard Analytics",
+            "Redwood Biologics"
+          ]
+        },
+        "Stage": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "blocked",
+            "discovery",
+            "proposal"
+          ]
+        },
+        "Amount": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 1000,
+            "p10": 1000,
+            "p50": 7200,
+            "p90": 48000,
+            "max": 48000
+          }
+        },
+        "CloseDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-05-05",
+            "2026-05-20",
+            "2026-06-01"
+          ]
+        },
+        "Priority": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "P0",
+            "P1",
+            "P3"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "OpportunityId",
+        "Company",
+        "Stage",
+        "Amount",
+        "CloseDate",
+        "Priority"
+      ],
+      "metadata": {
+        "base": "sales_ops",
+        "table": "Pipeline",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.sales_ops.customer_disputes": {
+      "fields": {
+        "DisputeId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "SD-001",
+            "SD-002",
+            "SD-003"
+          ]
+        },
+        "Customer": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Northwind Trading",
+            "Quantum Ledger Co",
+            "TechFlow Inc"
+          ]
+        },
+        "Amount": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 900,
+            "p10": 900,
+            "p50": 1800,
+            "p90": 4500,
+            "max": 4500
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "legal_review"
+          ]
+        },
+        "Severity": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "critical",
+            "high",
+            "medium"
+          ]
+        },
+        "OpenedDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-03-20",
+            "2026-04-01",
+            "2026-04-18"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "DisputeId",
+        "Customer",
+        "Amount",
+        "Status",
+        "Severity",
+        "OpenedDate"
+      ],
+      "metadata": {
+        "base": "sales_ops",
+        "table": "Customer Disputes",
+        "sensitivity": "confidential",
+        "owner_team": "Revenue Operations"
+      }
+    },
+    "nocodb.sales_ops.renewals": {
+      "fields": {
+        "RenewalId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "REN-001",
+            "REN-002",
+            "REN-003"
+          ]
+        },
+        "Customer": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Blue Peak Insurance",
+            "Jason Wei Holdings",
+            "PaperTrail Archive Co"
+          ]
+        },
+        "Amount": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 3000,
+            "p10": 3000,
+            "p50": 28000,
+            "p90": 50000,
+            "max": 50000
+          }
+        },
+        "DueDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-04-15",
+            "2026-05-30",
+            "2026-06-01"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "blocked",
+            "pending"
+          ]
+        },
+        "Risk": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "high",
+            "low"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "RenewalId",
+        "Customer",
+        "Amount",
+        "DueDate",
+        "Status",
+        "Risk"
+      ],
+      "metadata": {
+        "base": "sales_ops",
+        "table": "Renewals",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.sales_ops.contracts": {
+      "fields": {
+        "ContractId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "CON-001",
+            "CON-002",
+            "CON-003"
+          ]
+        },
+        "Customer": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Beacon Data Trust",
+            "Pacifica Energy",
+            "TechFlow Inc"
+          ]
+        },
+        "Value": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 0,
+            "p10": 0,
+            "p50": 60000,
+            "p90": 100000,
+            "max": 100000
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "disputed"
+          ]
+        },
+        "EffectiveDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-01-01",
+            "2026-02-01",
+            "2026-03-01"
+          ]
+        },
+        "LegalHold": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "no",
+            "yes"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "ContractId",
+        "Customer",
+        "Value",
+        "Status",
+        "EffectiveDate",
+        "LegalHold"
+      ],
+      "metadata": {
+        "base": "sales_ops",
+        "table": "Contracts",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.sales_ops.credits": {
+      "fields": {
+        "CreditId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "CRD-001",
+            "CRD-002",
+            "CRD-003"
+          ]
+        },
+        "Customer": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Acme Labs",
+            "Northwind Trading",
+            "TechFlow Inc"
+          ]
+        },
+        "Amount": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 100,
+            "p10": 100,
+            "p50": 900,
+            "p90": 4500,
+            "max": 4500
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "blocked",
+            "pending_approval"
+          ]
+        },
+        "Approver": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Leah Finance",
+            "Marta Rossi",
+            "Tom Legal"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "CreditId",
+        "Customer",
+        "Amount",
+        "Status",
+        "Approver"
+      ],
+      "metadata": {
+        "base": "sales_ops",
+        "table": "Credits",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.sales_ops.accounttasks": {
+      "fields": {
+        "TaskId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "AT-001",
+            "AT-002",
+            "AT-003"
+          ]
+        },
+        "Customer": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Jason Wei Holdings",
+            "Orchard Analytics",
+            "TechFlow Inc"
+          ]
+        },
+        "Title": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Confirm VIP renewal PO",
+            "Escalate dispute to legal",
+            "Schedule onboarding review"
+          ]
+        },
+        "DueDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-04-25",
+            "2026-05-03",
+            "2026-05-10"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "open",
+            "overdue"
+          ]
+        },
+        "Priority": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "P0",
+            "P1",
+            "P3"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "TaskId",
+        "Customer",
+        "Title",
+        "DueDate",
+        "Status",
+        "Priority"
+      ],
+      "metadata": {
+        "base": "sales_ops",
+        "table": "AccountTasks",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.policy_register.draftpolicies": {
+      "fields": {
+        "PolicyId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "POL-001",
+            "POL-002",
+            "POL-003"
+          ]
+        },
+        "Title": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "AI Usage Guidelines",
+            "Data Retention Schedule",
+            "Vendor Offboarding"
+          ]
+        },
+        "Owner": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Carol Li",
+            "Noor Security",
+            "Tom Legal"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "draft",
+            "legal_review"
+          ]
+        },
+        "Sensitivity": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "internal",
+            "regulated"
+          ]
+        },
+        "ReviewDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-04-15",
+            "2026-05-01",
+            "2026-05-08"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "PolicyId",
+        "Title",
+        "Owner",
+        "Status",
+        "Sensitivity",
+        "ReviewDate"
+      ],
+      "metadata": {
+        "base": "policy_register",
+        "table": "DraftPolicies",
+        "sensitivity": "regulated",
+        "owner_team": "Legal Compliance"
+      }
+    },
+    "nocodb.policy_register.dataretention": {
+      "fields": {
+        "RuleId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "RET-001",
+            "RET-002",
+            "RET-003"
+          ]
+        },
+        "Dataset": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Incident Transcripts",
+            "Marketing Leads",
+            "Support Tickets"
+          ]
+        },
+        "RetentionDays": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 90,
+            "p10": 90,
+            "p50": 365,
+            "p90": 9999,
+            "max": 9999
+          }
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "pending"
+          ]
+        },
+        "LegalHold": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "no",
+            "yes"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "RuleId",
+        "Dataset",
+        "RetentionDays",
+        "Status",
+        "LegalHold"
+      ],
+      "metadata": {
+        "base": "policy_register",
+        "table": "DataRetention",
+        "sensitivity": "regulated",
+        "owner_team": "Legal Compliance"
+      }
+    },
+    "nocodb.policy_register.vendorreviews": {
+      "fields": {
+        "ReviewId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "VR-001",
+            "VR-002",
+            "VR-003"
+          ]
+        },
+        "Vendor": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Blue Mesa Staffing",
+            "CloudHost Inc",
+            "ForgePoint Software"
+          ]
+        },
+        "Risk": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "high",
+            "low",
+            "medium"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "approved",
+            "blocked"
+          ]
+        },
+        "DueDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-04-20",
+            "2026-04-30",
+            "2026-05-15"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "ReviewId",
+        "Vendor",
+        "Risk",
+        "Status",
+        "DueDate"
+      ],
+      "metadata": {
+        "base": "policy_register",
+        "table": "VendorReviews",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.policy_register.legalrequests": {
+      "fields": {
+        "RequestId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "LRQ-001",
+            "LRQ-002",
+            "LRQ-003"
+          ]
+        },
+        "Requester": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "CFPB",
+            "Internal Audit",
+            "Northwind Trading"
+          ]
+        },
+        "Subject": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Billing dispute",
+            "Evidence export",
+            "Inquiry response"
+          ]
+        },
+        "Priority": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "P0",
+            "P1",
+            "P2"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "active",
+            "pending",
+            "under_investigation"
+          ]
+        },
+        "OpenedDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-03-28",
+            "2026-04-01",
+            "2026-04-26"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "RequestId",
+        "Requester",
+        "Subject",
+        "Priority",
+        "Status",
+        "OpenedDate"
+      ],
+      "metadata": {
+        "base": "policy_register",
+        "table": "LegalRequests",
+        "sensitivity": "regulated",
+        "owner_team": "Legal Compliance"
+      }
+    },
+    "nocodb.policy_register.auditfindings": {
+      "fields": {
+        "FindingId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "AF-001",
+            "AF-002",
+            "AF-003"
+          ]
+        },
+        "Area": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Access Review",
+            "Data Export",
+            "Invoice Approval"
+          ]
+        },
+        "Severity": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "critical",
+            "high",
+            "medium"
+          ]
+        },
+        "Owner": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Leah Finance",
+            "Nina Patel",
+            "Omar Saleh"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "mitigated",
+            "open"
+          ]
+        },
+        "DueDate": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-04-21",
+            "2026-05-02",
+            "2026-05-10"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "FindingId",
+        "Area",
+        "Severity",
+        "Owner",
+        "Status",
+        "DueDate"
+      ],
+      "metadata": {
+        "base": "policy_register",
+        "table": "AuditFindings",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.policy_register.dpiarecords": {
+      "fields": {
+        "DPIAId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "DPIA-001",
+            "DPIA-002",
+            "DPIA-003"
+          ]
+        },
+        "Project": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "AI Recommendations",
+            "Customer Sync",
+            "Support Analytics"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "blocked",
+            "pending"
+          ]
+        },
+        "Risk": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "critical",
+            "high",
+            "medium"
+          ]
+        },
+        "ApprovedBy": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "",
+            "Tom Legal"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "DPIAId",
+        "Project",
+        "Status",
+        "Risk",
+        "ApprovedBy"
+      ],
+      "metadata": {
+        "base": "policy_register",
+        "table": "DPIARecords",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.policy_register.approvals": {
+      "fields": {
+        "ApprovalId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "APR-001",
+            "APR-002",
+            "APR-003"
+          ]
+        },
+        "ObjectType": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Credit",
+            "Invoice",
+            "Policy"
+          ]
+        },
+        "ObjectId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "ACC-SINV-2026-0007",
+            "CRD-003",
+            "POL-001"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "blocked",
+            "pending"
+          ]
+        },
+        "Approver": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Carol Li",
+            "Tom Legal"
+          ]
+        },
+        "Amount": {
+          "type": "number",
+          "n_present": 3,
+          "distribution": {
+            "n": 3,
+            "min": 0,
+            "p10": 0,
+            "p50": 4500,
+            "p90": 7200,
+            "max": 7200
+          }
+        }
+      },
+      "decision_relevant_fields": [
+        "ApprovalId",
+        "ObjectType",
+        "ObjectId",
+        "Status",
+        "Approver",
+        "Amount"
+      ],
+      "metadata": {
+        "base": "policy_register",
+        "table": "Approvals",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.policy_register.exceptions": {
+      "fields": {
+        "ExceptionId": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "EXC-001",
+            "EXC-002",
+            "EXC-003"
+          ]
+        },
+        "Policy": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "AI Usage Guidelines",
+            "Data Retention Schedule",
+            "Vendor Offboarding"
+          ]
+        },
+        "Requester": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "Ops",
+            "Product",
+            "Support"
+          ]
+        },
+        "Status": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "approved",
+            "expired",
+            "pending"
+          ]
+        },
+        "ExpiresAt": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "2026-03-31",
+            "2026-05-31",
+            "2026-06-15"
+          ]
+        },
+        "Risk": {
+          "type": "enum",
+          "n_present": 3,
+          "values": [
+            "critical",
+            "high",
+            "medium"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "ExceptionId",
+        "Policy",
+        "Requester",
+        "Status",
+        "ExpiresAt",
+        "Risk"
+      ],
+      "metadata": {
+        "base": "policy_register",
+        "table": "Exceptions",
+        "sensitivity": "internal",
+        "owner_team": "Operations"
+      }
+    },
+    "nocodb.tables": {
+      "fields": {
+        "base": {
+          "type": "enum",
+          "n_present": 32,
+          "values": [
+            "company_hr",
+            "policy_register",
+            "project_tracker",
+            "sales_ops"
+          ]
+        },
+        "table": {
+          "type": "string",
+          "n_present": 32,
+          "sample_values": [
+            "AccessReviews",
+            "Compensation",
+            "LeaveRequests",
+            "PerformanceReviews",
+            "RecruitingPipeline"
+          ]
+        },
+        "sensitivity": {
+          "type": "enum",
+          "n_present": 32,
+          "values": [
+            "confidential",
+            "internal",
+            "regulated"
+          ]
+        },
+        "owner_team": {
+          "type": "enum",
+          "n_present": 32,
+          "values": [
+            "Finance",
+            "HR Operations",
+            "Legal Compliance",
+            "Operations",
+            "PMO",
+            "Recruiting",
+            "Revenue Operations",
+            "Security"
+          ]
+        },
+        "record_count": {
+          "type": "number",
+          "n_present": 32,
+          "distribution": {
+            "n": 32,
+            "min": 3,
+            "p10": 3,
+            "p50": 3.0,
+            "p90": 5,
+            "max": 10
+          }
+        }
+      },
+      "decision_relevant_fields": [
+        "base",
+        "sensitivity",
+        "owner_team",
+        "record_count"
+      ]
+    }
+  },
+  "named_entities": {
+    "bases.name": [
+      "company_hr",
+      "project_tracker",
+      "sales_ops",
+      "policy_register"
+    ],
+    "nocodb.company_hr.departments.DeptCode": [
+      "ENG",
+      "MKT",
+      "FIN",
+      "HR"
+    ],
+    "nocodb.company_hr.departments.Name": [
+      "Engineering",
+      "Marketing",
+      "Finance",
+      "Human Resources"
+    ],
+    "nocodb.company_hr.employees.EmployeeCode": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E006",
+      "E007",
+      "E008"
+    ],
+    "nocodb.company_hr.employees.FullName": [
+      "Alice Wang",
+      "Bob Chen",
+      "Carol Li",
+      "David Zhang",
+      "Eva Liu",
+      "Frank Zhao",
+      "Grace Huang",
+      "Henry Wu"
+    ],
+    "nocodb.company_hr.employees.Email": [
+      "alice@example.com",
+      "bob@example.com",
+      "carol@example.com",
+      "david@example.com",
+      "eva@example.com",
+      "frank@example.com",
+      "grace@example.com",
+      "henry@example.com"
+    ],
+    "nocodb.company_hr.salary_records.PayrollId": [
+      "PAY-2026-01-E001",
+      "PAY-2026-02-E001",
+      "PAY-2026-01-E002",
+      "PAY-2026-01-E005",
+      "PAY-2026-01-E006"
+    ],
+    "nocodb.company_hr.salary_records.EmployeeCode": [
+      "E001",
+      "E002",
+      "E005",
+      "E006"
+    ],
+    "nocodb.company_hr.salary_records.EmployeeName": [
+      "Alice Wang",
+      "Bob Chen",
+      "Eva Liu",
+      "Frank Zhao"
+    ],
+    "nocodb.company_hr.compensation.EmployeeCode": [
+      "E001",
+      "E002",
+      "E003",
+      "E004",
+      "E005",
+      "E006",
+      "E007",
+      "E008",
+      "E009",
+      "E010"
+    ],
+    "nocodb.company_hr.compensation.FullName": [
+      "Alice Wang",
+      "Bob Chen",
+      "Carol Li",
+      "David Zhang",
+      "Eva Liu",
+      "Frank Zhao",
+      "Grace Huang",
+      "Henry Wu",
+      "Nina Patel",
+      "Omar Saleh"
+    ],
+    "nocodb.company_hr.compensation.ConfidentialFlag": [
+      "yes"
+    ],
+    "nocodb.company_hr.performancereviews.ReviewId": [
+      "REV-2026-E001",
+      "REV-2026-E006",
+      "REV-2026-E007",
+      "REV-2026-E008",
+      "REV-2026-E010"
+    ],
+    "nocodb.company_hr.performancereviews.EmployeeCode": [
+      "E001",
+      "E006",
+      "E007",
+      "E008",
+      "E010"
+    ],
+    "nocodb.company_hr.performancereviews.FullName": [
+      "Alice Wang",
+      "Frank Zhao",
+      "Grace Huang",
+      "Henry Wu",
+      "Omar Saleh"
+    ],
+    "nocodb.company_hr.performancereviews.ConfidentialFlag": [
+      "yes"
+    ],
+    "nocodb.company_hr.leaverequests.RequestId": [
+      "LR-001",
+      "LR-002",
+      "LR-003"
+    ],
+    "nocodb.company_hr.leaverequests.EmployeeCode": [
+      "E007",
+      "E005",
+      "E006"
+    ],
+    "nocodb.company_hr.leaverequests.FullName": [
+      "Grace Huang",
+      "Eva Liu",
+      "Frank Zhao"
+    ],
+    "nocodb.company_hr.accessreviews.ReviewId": [
+      "AR-001",
+      "AR-002",
+      "AR-003"
+    ],
+    "nocodb.company_hr.accessreviews.EmployeeCode": [
+      "E001",
+      "E008",
+      "E010"
+    ],
+    "nocodb.company_hr.recruitingpipeline.CandidateId": [
+      "CAN-001",
+      "CAN-002",
+      "CAN-003"
+    ],
+    "nocodb.company_hr.recruitingpipeline.CandidateName": [
+      "Rina Morgan",
+      "Tomas Vega",
+      "Ivy Grant"
+    ],
+    "nocodb.project_tracker.projects.ProjectCode": [
+      "PRJ-WEB",
+      "PRJ-MOBILE",
+      "PRJ-DATA",
+      "PRJ-MKT-Q2"
+    ],
+    "nocodb.project_tracker.projects.ProjectName": [
+      "Website Redesign",
+      "Mobile App v2",
+      "Data Migration",
+      "Marketing Campaign Q2"
+    ],
+    "nocodb.project_tracker.tasks.TaskCode": [
+      "TASK-WEB-001",
+      "TASK-WEB-002",
+      "TASK-MOB-001",
+      "TASK-DATA-001",
+      "TASK-DATA-002",
+      "TASK-MKT-001"
+    ],
+    "nocodb.project_tracker.tasks.Title": [
+      "Design homepage mockup",
+      "Implement responsive layout",
+      "Set up CI/CD pipeline",
+      "Export legacy data",
+      "Validate migrated records",
+      "Draft campaign copy"
+    ],
+    "nocodb.project_tracker.tasks.ProjectCode": [
+      "PRJ-WEB",
+      "PRJ-MOBILE",
+      "PRJ-DATA",
+      "PRJ-MKT-Q2"
+    ],
+    "nocodb.project_tracker.timesheets.EntryId": [
+      "TS-001",
+      "TS-002",
+      "TS-003"
+    ],
+    "nocodb.project_tracker.timesheets.ProjectCode": [
+      "PRJ-WEB",
+      "PRJ-MOBILE",
+      "PRJ-DATA"
+    ],
+    "nocodb.project_tracker.risks.RiskId": [
+      "RISK-001",
+      "RISK-002",
+      "RISK-003"
+    ],
+    "nocodb.project_tracker.risks.ProjectCode": [
+      "PRJ-DATA",
+      "PRJ-MOBILE",
+      "PRJ-WEB"
+    ],
+    "nocodb.project_tracker.vendors.VendorId": [
+      "VEN-001",
+      "VEN-002",
+      "VEN-003"
+    ],
+    "nocodb.project_tracker.vendors.Name": [
+      "CloudHost Inc",
+      "Blue Mesa Staffing",
+      "ForgePoint Software"
+    ],
+    "nocodb.project_tracker.milestones.MilestoneId": [
+      "MS-001",
+      "MS-002",
+      "MS-003"
+    ],
+    "nocodb.project_tracker.milestones.ProjectCode": [
+      "PRJ-WEB",
+      "PRJ-DATA",
+      "PRJ-MOBILE"
+    ],
+    "nocodb.project_tracker.milestones.Name": [
+      "Design freeze",
+      "Customer validation",
+      "Beta build"
+    ],
+    "nocodb.project_tracker.changerequests.RequestId": [
+      "CR-001",
+      "CR-002",
+      "CR-003"
+    ],
+    "nocodb.project_tracker.changerequests.ProjectCode": [
+      "PRJ-WEB",
+      "PRJ-DATA",
+      "PRJ-MOBILE"
+    ],
+    "nocodb.project_tracker.customer_disputes.DisputeId": [
+      "DSP-001",
+      "DSP-002",
+      "DSP-003"
+    ],
+    "nocodb.sales_ops.leads.LeadId": [
+      "LD-001",
+      "LD-002",
+      "LD-003"
+    ],
+    "nocodb.sales_ops.customers.CustomerId": [
+      "CUST-001",
+      "CUST-002",
+      "CUST-003"
+    ],
+    "nocodb.sales_ops.customers.Name": [
+      "Jason Wei Holdings",
+      "TechFlow Inc",
+      "Acme Labs"
+    ],
+    "nocodb.sales_ops.pipeline.OpportunityId": [
+      "OPP-001",
+      "OPP-002",
+      "OPP-003"
+    ],
+    "nocodb.sales_ops.customer_disputes.DisputeId": [
+      "SD-001",
+      "SD-002",
+      "SD-003"
+    ],
+    "nocodb.sales_ops.renewals.RenewalId": [
+      "REN-001",
+      "REN-002",
+      "REN-003"
+    ],
+    "nocodb.sales_ops.contracts.ContractId": [
+      "CON-001",
+      "CON-002",
+      "CON-003"
+    ],
+    "nocodb.sales_ops.credits.CreditId": [
+      "CRD-001",
+      "CRD-002",
+      "CRD-003"
+    ],
+    "nocodb.sales_ops.accounttasks.TaskId": [
+      "AT-001",
+      "AT-002",
+      "AT-003"
+    ],
+    "nocodb.sales_ops.accounttasks.Title": [
+      "Confirm VIP renewal PO",
+      "Escalate dispute to legal",
+      "Schedule onboarding review"
+    ],
+    "nocodb.policy_register.draftpolicies.PolicyId": [
+      "POL-001",
+      "POL-002",
+      "POL-003"
+    ],
+    "nocodb.policy_register.draftpolicies.Title": [
+      "Data Retention Schedule",
+      "AI Usage Guidelines",
+      "Vendor Offboarding"
+    ],
+    "nocodb.policy_register.dataretention.RuleId": [
+      "RET-001",
+      "RET-002",
+      "RET-003"
+    ],
+    "nocodb.policy_register.vendorreviews.ReviewId": [
+      "VR-001",
+      "VR-002",
+      "VR-003"
+    ],
+    "nocodb.policy_register.legalrequests.RequestId": [
+      "LRQ-001",
+      "LRQ-002",
+      "LRQ-003"
+    ],
+    "nocodb.policy_register.auditfindings.FindingId": [
+      "AF-001",
+      "AF-002",
+      "AF-003"
+    ],
+    "nocodb.policy_register.dpiarecords.DPIAId": [
+      "DPIA-001",
+      "DPIA-002",
+      "DPIA-003"
+    ],
+    "nocodb.policy_register.approvals.ApprovalId": [
+      "APR-001",
+      "APR-002",
+      "APR-003"
+    ],
+    "nocodb.policy_register.approvals.ObjectId": [
+      "ACC-SINV-2026-0007",
+      "CRD-003",
+      "POL-001"
+    ],
+    "nocodb.policy_register.exceptions.ExceptionId": [
+      "EXC-001",
+      "EXC-002",
+      "EXC-003"
+    ],
+    "nocodb.tables.name": [
+      "company_hr.departments",
+      "company_hr.employees",
+      "company_hr.salary_records",
+      "company_hr.Compensation",
+      "company_hr.PerformanceReviews",
+      "company_hr.LeaveRequests",
+      "company_hr.AccessReviews",
+      "company_hr.RecruitingPipeline",
+      "project_tracker.projects",
+      "project_tracker.tasks",
+      "project_tracker.Timesheets",
+      "project_tracker.Risks",
+      "project_tracker.Vendors",
+      "project_tracker.Milestones",
+      "project_tracker.ChangeRequests",
+      "project_tracker.Customer Disputes",
+      "sales_ops.Leads",
+      "sales_ops.Customers",
+      "sales_ops.Pipeline",
+      "sales_ops.Customer Disputes",
+      "sales_ops.Renewals",
+      "sales_ops.Contracts",
+      "sales_ops.Credits",
+      "sales_ops.AccountTasks",
+      "policy_register.DraftPolicies",
+      "policy_register.DataRetention",
+      "policy_register.VendorReviews",
+      "policy_register.LegalRequests",
+      "policy_register.AuditFindings",
+      "policy_register.DPIARecords",
+      "policy_register.Approvals",
+      "policy_register.Exceptions"
+    ]
+  },
+  "source": {
+    "seed_manifest": "docker/nocodb/seed_manifest.json",
+    "tools_module": "safety_pipeline.services.tools.nocodb"
+  }
+}

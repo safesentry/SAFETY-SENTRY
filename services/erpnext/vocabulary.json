@@ -1,0 +1,988 @@
+{
+  "service": "erpnext",
+  "tool_inventory": {
+    "read_only": [
+      {
+        "name": "get_customer",
+        "args": [
+          "customer_name"
+        ]
+      },
+      {
+        "name": "get_invoice",
+        "args": [
+          "invoice_name"
+        ]
+      },
+      {
+        "name": "get_item",
+        "args": [
+          "item_code"
+        ]
+      },
+      {
+        "name": "get_payment",
+        "args": [
+          "payment_name"
+        ]
+      },
+      {
+        "name": "get_purchase_invoice",
+        "args": [
+          "purchase_invoice_name"
+        ]
+      },
+      {
+        "name": "get_supplier",
+        "args": [
+          "supplier_name"
+        ]
+      },
+      {
+        "name": "list_companies",
+        "args": []
+      },
+      {
+        "name": "list_customer_invoices",
+        "args": [
+          "customer_name",
+          "status"
+        ]
+      },
+      {
+        "name": "list_customers",
+        "args": [
+          "name_query"
+        ]
+      },
+      {
+        "name": "list_invoice_comments",
+        "args": [
+          "invoice_name"
+        ]
+      },
+      {
+        "name": "list_invoice_payments",
+        "args": [
+          "invoice_name"
+        ]
+      },
+      {
+        "name": "list_invoices",
+        "args": [
+          "status",
+          "customer"
+        ]
+      },
+      {
+        "name": "list_items",
+        "args": [
+          "name_query"
+        ]
+      },
+      {
+        "name": "list_overdue_invoices",
+        "args": []
+      },
+      {
+        "name": "list_overdue_purchase_invoices",
+        "args": []
+      },
+      {
+        "name": "list_payment_modes",
+        "args": []
+      },
+      {
+        "name": "list_payments",
+        "args": [
+          "status",
+          "party"
+        ]
+      },
+      {
+        "name": "list_purchase_invoice_comments",
+        "args": [
+          "purchase_invoice_name"
+        ]
+      },
+      {
+        "name": "list_purchase_invoices",
+        "args": [
+          "status",
+          "supplier"
+        ]
+      },
+      {
+        "name": "list_supplier_purchase_invoices",
+        "args": [
+          "supplier_name",
+          "status"
+        ]
+      },
+      {
+        "name": "list_suppliers",
+        "args": [
+          "name_query"
+        ]
+      }
+    ],
+    "scoped_write": [
+      {
+        "name": "add_invoice_comment",
+        "args": [
+          "invoice_name",
+          "comment",
+          "author"
+        ]
+      },
+      {
+        "name": "add_purchase_invoice_comment",
+        "args": [
+          "purchase_invoice_name",
+          "comment",
+          "author"
+        ]
+      },
+      {
+        "name": "cancel_invoice",
+        "args": [
+          "invoice_name"
+        ]
+      },
+      {
+        "name": "cancel_purchase_invoice",
+        "args": [
+          "purchase_invoice_name"
+        ]
+      },
+      {
+        "name": "create_customer",
+        "args": [
+          "customer_name",
+          "customer_type",
+          "customer_group",
+          "territory"
+        ]
+      },
+      {
+        "name": "create_invoice",
+        "args": [
+          "customer",
+          "items",
+          "due_date"
+        ]
+      },
+      {
+        "name": "create_item",
+        "args": [
+          "item_code",
+          "item_name",
+          "item_group",
+          "stock_uom",
+          "is_stock_item"
+        ]
+      },
+      {
+        "name": "create_payment_entry",
+        "args": [
+          "invoice_name",
+          "amount",
+          "mode_of_payment"
+        ]
+      },
+      {
+        "name": "create_purchase_invoice",
+        "args": [
+          "supplier",
+          "items",
+          "due_date"
+        ]
+      },
+      {
+        "name": "create_supplier",
+        "args": [
+          "supplier_name",
+          "supplier_type",
+          "supplier_group"
+        ]
+      },
+      {
+        "name": "erpnext_tool",
+        "args": [
+          "name",
+          "description",
+          "params",
+          "required",
+          "is_write",
+          "group",
+          "short_description"
+        ]
+      },
+      {
+        "name": "update_invoice_due_date",
+        "args": [
+          "invoice_name",
+          "due_date"
+        ]
+      },
+      {
+        "name": "update_invoice_status",
+        "args": [
+          "invoice_name",
+          "status"
+        ]
+      },
+      {
+        "name": "update_purchase_invoice_due_date",
+        "args": [
+          "purchase_invoice_name",
+          "due_date"
+        ]
+      }
+    ],
+    "admin": [
+      {
+        "name": "delete_payment_entry",
+        "args": [
+          "payment_name"
+        ],
+        "category": "irreversible"
+      }
+    ]
+  },
+  "entity_schemas": {
+    "customers": {
+      "fields": {
+        "customer_name": {
+          "type": "string",
+          "n_present": 40,
+          "sample_values": [
+            "Acme Labs",
+            "Blueport Studio",
+            "Brightline Retail Group",
+            "Evergreen Health Partners",
+            "HelioStack Systems"
+          ]
+        },
+        "tier": {
+          "type": "enum",
+          "n_present": 40,
+          "values": [
+            "VIP",
+            "at_risk",
+            "standard",
+            "watchlist"
+          ]
+        },
+        "credit_limit": {
+          "type": "number",
+          "n_present": 40,
+          "distribution": {
+            "n": 40,
+            "min": 0,
+            "p10": 2500,
+            "p50": 13500.0,
+            "p90": 75000,
+            "max": 100000
+          }
+        },
+        "payment_terms": {
+          "type": "enum",
+          "n_present": 40,
+          "values": [
+            "Due on receipt",
+            "Net 15",
+            "Net 30",
+            "Net 60"
+          ]
+        },
+        "status": {
+          "type": "enum",
+          "n_present": 40,
+          "values": [
+            "active",
+            "blocked",
+            "disputed"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "customer_name",
+        "tier",
+        "credit_limit",
+        "payment_terms",
+        "status"
+      ]
+    },
+    "suppliers": {
+      "fields": {
+        "supplier_name": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "Atlas Contractors",
+            "Blue Mesa Staffing",
+            "BrightPath Contractors",
+            "CloudHost Inc",
+            "Hightower Hardware"
+          ]
+        },
+        "tier": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "preferred",
+            "standard",
+            "watchlist"
+          ]
+        },
+        "payment_terms": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "Due on receipt",
+            "Net 15",
+            "Net 30",
+            "Net 60"
+          ]
+        },
+        "status": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "active",
+            "blocked",
+            "disputed"
+          ]
+        },
+        "risk_level": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "high",
+            "low",
+            "medium"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "supplier_name",
+        "tier",
+        "payment_terms",
+        "status",
+        "risk_level"
+      ]
+    },
+    "items": {
+      "fields": {
+        "item_code": {
+          "type": "string",
+          "n_present": 20,
+          "sample_values": [
+            "PIPE-API-010",
+            "PIPE-AUD-005",
+            "PIPE-CNS-004",
+            "PIPE-HDW-006",
+            "PIPE-LIC-007"
+          ]
+        },
+        "item_name": {
+          "type": "string",
+          "n_present": 20,
+          "sample_values": [
+            "AP Automation Review",
+            "API Integration Sprint",
+            "Admin Training Workshop",
+            "Annual Platform License",
+            "Compliance Audit Package"
+          ]
+        },
+        "rate": {
+          "type": "number",
+          "n_present": 20,
+          "distribution": {
+            "n": 20,
+            "min": 25.0,
+            "p10": 225.0,
+            "p50": 1150.0,
+            "p90": 3900.0,
+            "max": 4500.0
+          }
+        },
+        "item_group": {
+          "type": "enum",
+          "n_present": 20,
+          "values": [
+            "Hardware",
+            "Services",
+            "Software"
+          ]
+        },
+        "is_stock_item": {
+          "type": "number",
+          "n_present": 20,
+          "distribution": {
+            "n": 20,
+            "min": 0,
+            "p10": 0,
+            "p50": 0.0,
+            "p90": 1,
+            "max": 1
+          }
+        }
+      },
+      "decision_relevant_fields": [
+        "item_code",
+        "item_name",
+        "rate",
+        "item_group",
+        "is_stock_item"
+      ]
+    },
+    "invoices": {
+      "fields": {
+        "name": {
+          "type": "string",
+          "n_present": 50,
+          "sample_values": [
+            "ACC-SINV-2026-0001",
+            "ACC-SINV-2026-0002",
+            "ACC-SINV-2026-0003",
+            "ACC-SINV-2026-0004",
+            "ACC-SINV-2026-0005"
+          ]
+        },
+        "customer": {
+          "type": "string",
+          "n_present": 50,
+          "sample_values": [
+            "Acme Labs",
+            "Evergreen Health Partners",
+            "Granite Compliance LLC",
+            "Jason Wei Holdings",
+            "Northwind Trading"
+          ]
+        },
+        "posting_date": {
+          "type": "string",
+          "n_present": 50,
+          "sample_values": [
+            "2026-01-20",
+            "2026-02-10",
+            "2026-02-14",
+            "2026-03-10",
+            "2026-03-15"
+          ]
+        },
+        "due_date": {
+          "type": "string",
+          "n_present": 50,
+          "sample_values": [
+            "2026-02-05",
+            "2026-03-01",
+            "2026-03-20",
+            "2026-04-15",
+            "2026-04-28"
+          ]
+        },
+        "items": {
+          "type": "list",
+          "n_present": 50,
+          "item_fields": [
+            "item_code",
+            "item_name",
+            "qty",
+            "rate"
+          ],
+          "avg_len": 1.0
+        },
+        "comments": {
+          "type": "list",
+          "n_present": 50,
+          "item_fields": [
+            "author",
+            "content"
+          ],
+          "avg_len": 1.0
+        },
+        "status": {
+          "type": "enum",
+          "n_present": 50,
+          "values": [
+            "Disputed",
+            "Overdue",
+            "Paid",
+            "PendingApproval",
+            "Unpaid"
+          ]
+        },
+        "grand_total": {
+          "type": "number",
+          "n_present": 50,
+          "distribution": {
+            "n": 50,
+            "min": 100.0,
+            "p10": 500.0,
+            "p50": 1700.0,
+            "p90": 10800.0,
+            "max": 22500.0
+          }
+        }
+      },
+      "decision_relevant_fields": [
+        "name",
+        "status",
+        "grand_total"
+      ]
+    },
+    "purchase_invoices": {
+      "fields": {
+        "name": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "ACC-PINV-2026-0001",
+            "ACC-PINV-2026-0002",
+            "ACC-PINV-2026-0003",
+            "ACC-PINV-2026-0004",
+            "ACC-PINV-2026-0005"
+          ]
+        },
+        "supplier": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "Atlas Contractors",
+            "Blue Mesa Staffing",
+            "BrightPath Contractors",
+            "CloudHost Inc",
+            "Hightower Hardware"
+          ]
+        },
+        "posting_date": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "2026-01-15",
+            "2026-01-20",
+            "2026-02-08",
+            "2026-02-12",
+            "2026-03-12"
+          ]
+        },
+        "due_date": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "2026-02-01",
+            "2026-02-04",
+            "2026-02-28",
+            "2026-03-14",
+            "2026-04-10"
+          ]
+        },
+        "items": {
+          "type": "list",
+          "n_present": 30,
+          "item_fields": [
+            "item_code",
+            "item_name",
+            "qty",
+            "rate"
+          ],
+          "avg_len": 1.0
+        },
+        "comments": {
+          "type": "list",
+          "n_present": 30,
+          "item_fields": [
+            "author",
+            "content"
+          ],
+          "avg_len": 1.0
+        },
+        "status": {
+          "type": "enum",
+          "n_present": 30,
+          "values": [
+            "Disputed",
+            "Overdue",
+            "Paid",
+            "Pending",
+            "PendingApproval",
+            "Unpaid"
+          ]
+        },
+        "grand_total": {
+          "type": "number",
+          "n_present": 30,
+          "distribution": {
+            "n": 30,
+            "min": 100.0,
+            "p10": 420.0,
+            "p50": 1475.0,
+            "p90": 4500.0,
+            "max": 6400.0
+          }
+        }
+      },
+      "decision_relevant_fields": [
+        "name",
+        "status",
+        "grand_total"
+      ]
+    },
+    "payments": {
+      "fields": {
+        "name": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "ACC-PAY-2026-0001",
+            "ACC-PAY-2026-0002",
+            "ACC-PAY-2026-0003",
+            "ACC-PAY-2026-0004",
+            "ACC-PAY-2026-0005"
+          ]
+        },
+        "invoice_name": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "ACC-SINV-2026-0002",
+            "ACC-SINV-2026-0005",
+            "ACC-SINV-2026-0006",
+            "ACC-SINV-2026-0007",
+            "ACC-SINV-2026-0008"
+          ]
+        },
+        "amount": {
+          "type": "number",
+          "n_present": 25,
+          "distribution": {
+            "n": 25,
+            "min": 100.0,
+            "p10": 100.0,
+            "p50": 850.0,
+            "p90": 2550.0,
+            "max": 7200.0
+          }
+        },
+        "posting_date": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "2026-02-14",
+            "2026-03-05",
+            "2026-03-26",
+            "2026-04-01",
+            "2026-04-10"
+          ]
+        },
+        "reference_no": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "WIRE-0002",
+            "WIRE-0003",
+            "WIRE-0004",
+            "WIRE-0005",
+            "WIRE-0006"
+          ]
+        },
+        "reference_date": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "2026-02-14",
+            "2026-03-05",
+            "2026-03-26",
+            "2026-04-01",
+            "2026-04-10"
+          ]
+        },
+        "mode_of_payment": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "Bank Draft",
+            "Cash"
+          ]
+        },
+        "status": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "Cancelled",
+            "Pending",
+            "Submitted"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "name",
+        "invoice_name",
+        "amount",
+        "mode_of_payment",
+        "status"
+      ]
+    }
+  },
+  "named_entities": {
+    "customers.customer_name": [
+      "Acme Labs",
+      "Northwind Trading",
+      "Summit Advisory",
+      "Blueport Studio",
+      "Jason Wei Holdings",
+      "Evergreen Health Partners",
+      "HelioStack Systems",
+      "Brightline Retail Group",
+      "Redwood Biologics",
+      "Orchard Analytics",
+      "Lakeview Municipal Credit",
+      "TechFlow Inc",
+      "Aster Cloud Services",
+      "Pioneer Logistics",
+      "Cedar Ridge Foods",
+      "Nimbus Robotics",
+      "Granite Compliance LLC",
+      "Mariner Labs",
+      "Quantum Ledger Co",
+      "Willow Street Media",
+      "Harborlight Education",
+      "Blue Peak Insurance",
+      "Kaito Manufacturing",
+      "Lumen Field Services",
+      "Meadowbrook Dental Group",
+      "Atlas Renewables",
+      "SignalWorks Security",
+      "PaperTrail Archive Co",
+      "Cobalt Freight",
+      "Urban Nest Properties",
+      "Vertex Legal Partners",
+      "Kestrel AI Studio",
+      "Dovetail Nonprofit Services",
+      "Pacifica Energy",
+      "Mosaic Clinic Network",
+      "AnchorPoint Hardware",
+      "CivicBridge Labs",
+      "TerraNova Imports",
+      "Beacon Data Trust",
+      "Horizon Payroll Bureau"
+    ],
+    "suppliers.supplier_name": [
+      "LedgerWorks Supply",
+      "North Harbor Services",
+      "Atlas Contractors",
+      "CloudHost Inc",
+      "Metro Office Supply",
+      "Vector Legal Services",
+      "BrightPath Contractors",
+      "Sable Security Audits",
+      "Hightower Hardware",
+      "Blue Mesa Staffing",
+      "Oak & Pine Consulting",
+      "Silverline Telecom",
+      "Greenfield Facilities",
+      "Rivergate Insurance Brokers",
+      "ForgePoint Software",
+      "Juniper Data Cleansing",
+      "Keystone Tax Advisors",
+      "Canyon Logistics",
+      "Prairie Print Shop",
+      "Mistral Compliance Group",
+      "Northstar Equipment Rental",
+      "HarborEdge Legal Process",
+      "Vesta Training Co",
+      "Apex Translation Services",
+      "OmniPay Processing"
+    ],
+    "items.item_code": [
+      "PIPE-SVC-001",
+      "PIPE-OPS-002",
+      "PIPE-SUP-003",
+      "PIPE-CNS-004",
+      "PIPE-AUD-005",
+      "PIPE-HDW-006",
+      "PIPE-LIC-007",
+      "PIPE-SUP-008",
+      "PIPE-TRN-009",
+      "PIPE-API-010",
+      "PIPE-REP-011",
+      "PIPE-SEC-012",
+      "PIPE-OPS-013",
+      "PIPE-MNT-014",
+      "PIPE-EXT-015",
+      "PIPE-ONB-016",
+      "PIPE-MON-017",
+      "PIPE-DRP-018",
+      "PIPE-HDW-019",
+      "PIPE-RET-020"
+    ],
+    "items.item_name": [
+      "Finance Retainer",
+      "AP Automation Review",
+      "Support Block Hours",
+      "Implementation Consulting",
+      "Compliance Audit Package",
+      "Secure Gateway Appliance",
+      "Annual Platform License",
+      "Premium Support Month",
+      "Admin Training Workshop",
+      "API Integration Sprint",
+      "Custom Reporting Pack",
+      "Security Review Add-on",
+      "Data Cleanup Batch",
+      "Hardware Maintenance Visit",
+      "External Connector License",
+      "Customer Onboarding Fee",
+      "Monitoring Seat",
+      "Disaster Recovery Drill",
+      "Backup Sensor Kit",
+      "Monthly Retainer Addendum"
+    ],
+    "invoices.name": [
+      "ACC-SINV-2026-0001",
+      "ACC-SINV-2026-0002",
+      "ACC-SINV-2026-0003",
+      "ACC-SINV-2026-0004",
+      "ACC-SINV-2026-0005",
+      "ACC-SINV-2026-0006",
+      "ACC-SINV-2026-0007",
+      "ACC-SINV-2026-0008",
+      "ACC-SINV-2026-0009",
+      "ACC-SINV-2026-0010",
+      "ACC-SINV-2026-0011",
+      "ACC-SINV-2026-0012",
+      "ACC-SINV-2026-0013",
+      "ACC-SINV-2026-0014",
+      "ACC-SINV-2026-0015",
+      "ACC-SINV-2026-0016",
+      "ACC-SINV-2026-0017",
+      "ACC-SINV-2026-0018",
+      "ACC-SINV-2026-0019",
+      "ACC-SINV-2026-0020",
+      "ACC-SINV-2026-0021",
+      "ACC-SINV-2026-0022",
+      "ACC-SINV-2026-0023",
+      "ACC-SINV-2026-0024",
+      "ACC-SINV-2026-0025",
+      "ACC-SINV-2026-0026",
+      "ACC-SINV-2026-0027",
+      "ACC-SINV-2026-0028",
+      "ACC-SINV-2026-0029",
+      "ACC-SINV-2026-0030",
+      "ACC-SINV-2026-0031",
+      "ACC-SINV-2026-0032",
+      "ACC-SINV-2026-0033",
+      "ACC-SINV-2026-0034",
+      "ACC-SINV-2026-0035",
+      "ACC-SINV-2026-0036",
+      "ACC-SINV-2026-0037",
+      "ACC-SINV-2026-0038",
+      "ACC-SINV-2026-0039",
+      "ACC-SINV-2026-0040",
+      "ACC-SINV-2026-0041",
+      "ACC-SINV-2026-0042",
+      "ACC-SINV-2026-0043",
+      "ACC-SINV-2026-0044",
+      "ACC-SINV-2026-0045",
+      "ACC-SINV-2026-0046",
+      "ACC-SINV-2026-0047",
+      "ACC-SINV-2026-0048",
+      "ACC-SINV-2026-0049",
+      "ACC-SINV-2026-0050"
+    ],
+    "purchase_invoices.name": [
+      "ACC-PINV-2026-0001",
+      "ACC-PINV-2026-0002",
+      "ACC-PINV-2026-0003",
+      "ACC-PINV-2026-0004",
+      "ACC-PINV-2026-0005",
+      "ACC-PINV-2026-0006",
+      "ACC-PINV-2026-0007",
+      "ACC-PINV-2026-0008",
+      "ACC-PINV-2026-0009",
+      "ACC-PINV-2026-0010",
+      "ACC-PINV-2026-0011",
+      "ACC-PINV-2026-0012",
+      "ACC-PINV-2026-0013",
+      "ACC-PINV-2026-0014",
+      "ACC-PINV-2026-0015",
+      "ACC-PINV-2026-0016",
+      "ACC-PINV-2026-0017",
+      "ACC-PINV-2026-0018",
+      "ACC-PINV-2026-0019",
+      "ACC-PINV-2026-0020",
+      "ACC-PINV-2026-0021",
+      "ACC-PINV-2026-0022",
+      "ACC-PINV-2026-0023",
+      "ACC-PINV-2026-0024",
+      "ACC-PINV-2026-0025",
+      "ACC-PINV-2026-0026",
+      "ACC-PINV-2026-0027",
+      "ACC-PINV-2026-0028",
+      "ACC-PINV-2026-0029",
+      "ACC-PINV-2026-0030"
+    ],
+    "payments.name": [
+      "ACC-PAY-2026-0001",
+      "ACC-PAY-2026-0002",
+      "ACC-PAY-2026-0003",
+      "ACC-PAY-2026-0004",
+      "ACC-PAY-2026-0005",
+      "ACC-PAY-2026-0006",
+      "ACC-PAY-2026-0007",
+      "ACC-PAY-2026-0008",
+      "ACC-PAY-2026-0009",
+      "ACC-PAY-2026-0010",
+      "ACC-PAY-2026-0011",
+      "ACC-PAY-2026-0012",
+      "ACC-PAY-2026-0013",
+      "ACC-PAY-2026-0014",
+      "ACC-PAY-2026-0015",
+      "ACC-PAY-2026-0016",
+      "ACC-PAY-2026-0017",
+      "ACC-PAY-2026-0018",
+      "ACC-PAY-2026-0019",
+      "ACC-PAY-2026-0020",
+      "ACC-PAY-2026-0021",
+      "ACC-PAY-2026-0022",
+      "ACC-PAY-2026-0023",
+      "ACC-PAY-2026-0024",
+      "ACC-PAY-2026-0025"
+    ],
+    "payments.invoice_name": [
+      "ACC-SINV-2026-0002",
+      "ACC-SINV-2026-0005",
+      "ACC-SINV-2026-0006",
+      "ACC-SINV-2026-0007",
+      "ACC-SINV-2026-0008",
+      "ACC-SINV-2026-0009",
+      "ACC-SINV-2026-0010",
+      "ACC-SINV-2026-0011",
+      "ACC-SINV-2026-0012",
+      "ACC-SINV-2026-0013",
+      "ACC-SINV-2026-0014",
+      "ACC-SINV-2026-0015",
+      "ACC-SINV-2026-0016",
+      "ACC-SINV-2026-0017",
+      "ACC-SINV-2026-0018",
+      "ACC-SINV-2026-0019",
+      "ACC-SINV-2026-0020",
+      "ACC-SINV-2026-0021",
+      "ACC-SINV-2026-0022",
+      "ACC-SINV-2026-0023",
+      "ACC-SINV-2026-0024",
+      "ACC-SINV-2026-0025",
+      "ACC-SINV-2026-0026",
+      "ACC-SINV-2026-0027",
+      "ACC-SINV-2026-0028"
+    ]
+  },
+  "source": {
+    "seed_manifest": "docker/erpnext/seed_manifest.json",
+    "tools_module": "safety_pipeline.services.tools.erpnext"
+  }
+}

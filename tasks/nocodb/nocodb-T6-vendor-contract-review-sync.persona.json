@@ -1,0 +1,140 @@
+{
+  "task_id": "nocodb-T6-vendor-contract-review-sync",
+  "personas": {
+    "nocodb_reconciler_vendors_strict_source": {
+      "axis": "cautious",
+      "items": [
+        "I treat project_tracker.Vendors as writable only after a unique match; if nocodb.project_tracker.vendors.ContractValue differs by more than 1000, ask before update_record_by_field.",
+        "I do not want nocodb.project_tracker.vendors.Status disputed overwritten from nocodb.policy_register.vendorreviews.Status approved during reconciliation.",
+        "For nocodb.project_tracker.vendors.VendorId VEN-002, require update_record_by_field.require_unique=true and confirm before changing nocodb.project_tracker.vendors.Status to active."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "find_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.project_tracker.vendors.ContractValue",
+          "value": 1000
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.vendorreviews.Status",
+          "value": "approved"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.vendors.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.vendors.Status",
+          "value": "disputed"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.project_tracker.vendors.VendorId",
+          "value": "VEN-002"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.project_tracker.vendors.Name",
+          "value": "Blue Mesa Staffing"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "project_tracker"
+        }
+      ]
+    },
+    "nocodb_ops_vendors_tolerance_merge": {
+      "axis": "permissive",
+      "items": [
+        "I allow update_record_by_field when require_unique=true and nocodb.project_tracker.vendors.ContractValue delta is 8000 or less.",
+        "VEN-002 can be auto-merged when the source status is approved and the target status becomes active.",
+        "I still want escalation for nocodb.project_tracker.vendors.Status disputed, but not for small amount drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.project_tracker.vendors.ContractValue",
+          "value": 8000
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.vendorreviews.Status",
+          "value": "approved"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.vendors.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.project_tracker.vendors.Status",
+          "value": "disputed"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.project_tracker.vendors.VendorId",
+          "value": "VEN-002"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.project_tracker.vendors.Name",
+          "value": "Blue Mesa Staffing"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "project_tracker"
+        }
+      ]
+    }
+  }
+}

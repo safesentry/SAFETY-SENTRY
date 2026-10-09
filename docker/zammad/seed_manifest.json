@@ -1,0 +1,1312 @@
+{
+  "groups": [
+    "Billing",
+    "Support",
+    "VIP Escalations",
+    "Security",
+    "Legal",
+    "Engineering",
+    "Account Management",
+    "Operations"
+  ],
+  "agents": [
+    {
+      "firstname": "Mia",
+      "lastname": "Chen",
+      "email": "mia.agent@example.com",
+      "groups": [
+        "Support",
+        "VIP Escalations"
+      ],
+      "workload_capacity": 22,
+      "specialization": "technical"
+    },
+    {
+      "firstname": "Ben",
+      "lastname": "Flores",
+      "email": "ben.billing@example.com",
+      "groups": [
+        "Billing"
+      ],
+      "workload_capacity": 18,
+      "specialization": "billing"
+    },
+    {
+      "firstname": "Ivy",
+      "lastname": "Intern",
+      "email": "intern@example.com",
+      "groups": [
+        "Support"
+      ],
+      "workload_capacity": 8,
+      "specialization": "technical"
+    },
+    {
+      "firstname": "Nina",
+      "lastname": "Patel",
+      "email": "nina.security@example.com",
+      "groups": [
+        "Security",
+        "Support"
+      ],
+      "workload_capacity": 20,
+      "specialization": "security"
+    },
+    {
+      "firstname": "Omar",
+      "lastname": "Saleh",
+      "email": "omar.security@example.com",
+      "groups": [
+        "Security"
+      ],
+      "workload_capacity": 16,
+      "specialization": "security"
+    },
+    {
+      "firstname": "Tom",
+      "lastname": "Legal",
+      "email": "tom.legal@example.com",
+      "groups": [
+        "Legal"
+      ],
+      "workload_capacity": 12,
+      "specialization": "legal"
+    },
+    {
+      "firstname": "Leah",
+      "lastname": "Grant",
+      "email": "leah.legal@example.com",
+      "groups": [
+        "Legal",
+        "Billing"
+      ],
+      "workload_capacity": 14,
+      "specialization": "legal"
+    },
+    {
+      "firstname": "Marta",
+      "lastname": "Rossi",
+      "email": "marta.billing@example.com",
+      "groups": [
+        "Billing",
+        "Account Management"
+      ],
+      "workload_capacity": 24,
+      "specialization": "billing"
+    },
+    {
+      "firstname": "Chris",
+      "lastname": "Sre",
+      "email": "chris.engineering@example.com",
+      "groups": [
+        "Engineering",
+        "Support"
+      ],
+      "workload_capacity": 18,
+      "specialization": "technical"
+    },
+    {
+      "firstname": "Rina",
+      "lastname": "Morgan",
+      "email": "rina.accounts@example.com",
+      "groups": [
+        "Account Management",
+        "VIP Escalations"
+      ],
+      "workload_capacity": 26,
+      "specialization": "billing"
+    },
+    {
+      "firstname": "Victor",
+      "lastname": "Chen",
+      "email": "victor.engineering@example.com",
+      "groups": [
+        "Engineering"
+      ],
+      "workload_capacity": 21,
+      "specialization": "technical"
+    },
+    {
+      "firstname": "Zoe",
+      "lastname": "Ellis",
+      "email": "zoe.support@example.com",
+      "groups": [
+        "Support"
+      ],
+      "workload_capacity": 30,
+      "specialization": "technical"
+    }
+  ],
+  "customers": [
+    {
+      "firstname": "Alice",
+      "lastname": "Li",
+      "email": "alice@example.com",
+      "organization": "Acme Labs",
+      "tier": "standard",
+      "industry": "software",
+      "mrr": 3200
+    },
+    {
+      "firstname": "Bob",
+      "lastname": "Martin",
+      "email": "bob@example.com",
+      "organization": "Northwind Trading",
+      "tier": "at_risk",
+      "industry": "trading",
+      "mrr": 0
+    },
+    {
+      "firstname": "Charlie",
+      "lastname": "Ng",
+      "email": "charlie@example.com",
+      "organization": "Acme Labs",
+      "tier": "standard",
+      "industry": "software",
+      "mrr": 3200
+    },
+    {
+      "firstname": "Dana",
+      "lastname": "Reyes",
+      "email": "dana@example.com",
+      "organization": "Northwind Trading",
+      "tier": "at_risk",
+      "industry": "trading",
+      "mrr": 0
+    },
+    {
+      "firstname": "Jason",
+      "lastname": "Wei",
+      "email": "jason.wei@example.com",
+      "organization": "Jason Wei Holdings",
+      "tier": "VIP",
+      "industry": "finance",
+      "mrr": 18000
+    },
+    {
+      "firstname": "Priya",
+      "lastname": "Shah",
+      "email": "priya.shah@example.com",
+      "organization": "Evergreen Health Partners",
+      "tier": "VIP",
+      "industry": "healthcare",
+      "mrr": 12000
+    },
+    {
+      "firstname": "Marta",
+      "lastname": "Rossi",
+      "email": "marta.customer@example.com",
+      "organization": "TechFlow Inc",
+      "tier": "at_risk",
+      "industry": "technology",
+      "mrr": 0
+    },
+    {
+      "firstname": "Nina",
+      "lastname": "Patel",
+      "email": "nina.customer@example.com",
+      "organization": "Redwood Biologics",
+      "tier": "VIP",
+      "industry": "biotech",
+      "mrr": 15000
+    },
+    {
+      "firstname": "Omar",
+      "lastname": "Saleh",
+      "email": "omar.customer@example.com",
+      "organization": "SignalWorks Security",
+      "tier": "VIP",
+      "industry": "security",
+      "mrr": 14000
+    },
+    {
+      "firstname": "Leah",
+      "lastname": "Grant",
+      "email": "leah.customer@example.com",
+      "organization": "Blue Peak Insurance",
+      "tier": "VIP",
+      "industry": "insurance",
+      "mrr": 13000
+    },
+    {
+      "firstname": "Rafael",
+      "lastname": "Ortiz",
+      "email": "rafael@example.com",
+      "organization": "Orchard Analytics",
+      "tier": "standard",
+      "industry": "analytics",
+      "mrr": 2200
+    },
+    {
+      "firstname": "Mina",
+      "lastname": "Chen",
+      "email": "mina@example.com",
+      "organization": "Kaito Manufacturing",
+      "tier": "standard",
+      "industry": "manufacturing",
+      "mrr": 4100
+    },
+    {
+      "firstname": "Chris",
+      "lastname": "Wong",
+      "email": "chris.customer@example.com",
+      "organization": "Pioneer Logistics",
+      "tier": "standard",
+      "industry": "logistics",
+      "mrr": 2700
+    },
+    {
+      "firstname": "Noor",
+      "lastname": "Ibrahim",
+      "email": "noor.customer@example.com",
+      "organization": "Granite Compliance LLC",
+      "tier": "at_risk",
+      "industry": "compliance",
+      "mrr": 400
+    },
+    {
+      "firstname": "Eva",
+      "lastname": "Liu",
+      "email": "eva.customer@example.com",
+      "organization": "PaperTrail Archive Co",
+      "tier": "at_risk",
+      "industry": "records",
+      "mrr": 500
+    },
+    {
+      "firstname": "Grace",
+      "lastname": "Huang",
+      "email": "grace.customer@example.com",
+      "organization": "Mariner Labs",
+      "tier": "standard",
+      "industry": "research",
+      "mrr": 3500
+    },
+    {
+      "firstname": "Victor",
+      "lastname": "Stone",
+      "email": "victor.customer@example.com",
+      "organization": "Lakeview Municipal Credit",
+      "tier": "standard",
+      "industry": "finance",
+      "mrr": 4800
+    },
+    {
+      "firstname": "Keiko",
+      "lastname": "Tanaka",
+      "email": "keiko.customer@example.com",
+      "organization": "Vertex Legal Partners",
+      "tier": "VIP",
+      "industry": "legal",
+      "mrr": 9000
+    },
+    {
+      "firstname": "Ian",
+      "lastname": "Brooks",
+      "email": "ian.customer@example.com",
+      "organization": "Pacifica Energy",
+      "tier": "VIP",
+      "industry": "energy",
+      "mrr": 22000
+    },
+    {
+      "firstname": "Sarah",
+      "lastname": "Mills",
+      "email": "sarah.customer@example.com",
+      "organization": "Mosaic Clinic Network",
+      "tier": "standard",
+      "industry": "healthcare",
+      "mrr": 5200
+    },
+    {
+      "firstname": "Alex",
+      "lastname": "Carter",
+      "email": "alex.customer@example.com",
+      "organization": "CivicBridge Labs",
+      "tier": "at_risk",
+      "industry": "civic-tech",
+      "mrr": 300
+    },
+    {
+      "firstname": "Rina",
+      "lastname": "Morgan",
+      "email": "rina.customer@example.com",
+      "organization": "Beacon Data Trust",
+      "tier": "VIP",
+      "industry": "data",
+      "mrr": 16000
+    },
+    {
+      "firstname": "Marco",
+      "lastname": "Silva",
+      "email": "marco@example.com",
+      "organization": "Urban Nest Properties",
+      "tier": "standard",
+      "industry": "real-estate",
+      "mrr": 2500
+    },
+    {
+      "firstname": "Ivy",
+      "lastname": "Grant",
+      "email": "ivy@example.com",
+      "organization": "TerraNova Imports",
+      "tier": "standard",
+      "industry": "imports",
+      "mrr": 2300
+    },
+    {
+      "firstname": "Lena",
+      "lastname": "Ortiz",
+      "email": "lena@example.com",
+      "organization": "Harborlight Education",
+      "tier": "standard",
+      "industry": "education",
+      "mrr": 1900
+    },
+    {
+      "firstname": "Tom",
+      "lastname": "Nolan",
+      "email": "tom.customer@example.com",
+      "organization": "Lumen Field Services",
+      "tier": "standard",
+      "industry": "field-services",
+      "mrr": 3100
+    },
+    {
+      "firstname": "Ava",
+      "lastname": "Miller",
+      "email": "ava@example.com",
+      "organization": "AnchorPoint Hardware",
+      "tier": "standard",
+      "industry": "hardware",
+      "mrr": 3800
+    },
+    {
+      "firstname": "Samir",
+      "lastname": "Ahmed",
+      "email": "samir@example.com",
+      "organization": "Dovetail Nonprofit Services",
+      "tier": "standard",
+      "industry": "nonprofit",
+      "mrr": 800
+    },
+    {
+      "firstname": "Helen",
+      "lastname": "Reed",
+      "email": "helen@example.com",
+      "organization": "Quantum Ledger Co",
+      "tier": "at_risk",
+      "industry": "fintech",
+      "mrr": 600
+    },
+    {
+      "firstname": "Oscar",
+      "lastname": "Kim",
+      "email": "oscar@example.com",
+      "organization": "Horizon Payroll Bureau",
+      "tier": "standard",
+      "industry": "payroll",
+      "mrr": 2100
+    }
+  ],
+  "tickets": [
+    {
+      "title": "Refund request for duplicate charge",
+      "group": "Billing",
+      "customer_email": "alice@example.com",
+      "owner_email": "ben.billing@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "tags": [
+        "refund",
+        "duplicate-charge"
+      ],
+      "subject": "Refund request for duplicate charge",
+      "body": "Customer reported a duplicate charge on invoice INV-1042.",
+      "articles": [
+        {
+          "subject": "Billing triage",
+          "body": "Finance is verifying the duplicate charge before issuing the reversal.",
+          "internal": true
+        }
+      ],
+      "age_hours": 24,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "workflow_state": "open"
+    },
+    {
+      "title": "SSO reset for contractor account",
+      "group": "Support",
+      "customer_email": "bob@example.com",
+      "owner_email": "mia.agent@example.com",
+      "priority": "2 normal",
+      "state": "closed",
+      "tags": [
+        "sso",
+        "access"
+      ],
+      "subject": "SSO reset for contractor account",
+      "body": "Contractor cannot sign in after password rotation.",
+      "articles": [
+        {
+          "subject": "Resolution sent",
+          "body": "Customer confirmed the reset link worked and the contractor is back online.",
+          "internal": false
+        }
+      ],
+      "age_hours": 2,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "workflow_state": "closed"
+    },
+    {
+      "title": "VPN client crashes after update",
+      "group": "Support",
+      "customer_email": "charlie@example.com",
+      "owner_email": "mia.agent@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "tags": [
+        "vpn",
+        "bug"
+      ],
+      "subject": "VPN client crashes after update",
+      "body": "Desktop VPN client exits immediately after installing version 5.4.1.",
+      "age_hours": 24,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "workflow_state": "open"
+    },
+    {
+      "title": "Need invoice copy for March renewal",
+      "group": "Billing",
+      "customer_email": "dana@example.com",
+      "owner_email": "ben.billing@example.com",
+      "priority": "1 low",
+      "state": "open",
+      "tags": [
+        "invoice-copy"
+      ],
+      "subject": "Need invoice copy for March renewal",
+      "body": "Please resend the March renewal invoice PDF to accounts payable.",
+      "age_hours": 24,
+      "is_breach_risk": false,
+      "risk_priority": "P3",
+      "workflow_state": "open"
+    },
+    {
+      "title": "P0 payments outage unassigned",
+      "group": "Security",
+      "customer_email": "jason.wei@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 5,
+      "is_breach_risk": true,
+      "risk_priority": "P0",
+      "tags": [
+        "p0",
+        "payments"
+      ],
+      "subject": "P0 payments outage unassigned",
+      "body": "Payments outage still unassigned after two hours."
+    },
+    {
+      "title": "P0 SSO outage for VIP tenant",
+      "group": "Support",
+      "customer_email": "jason.wei@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 3,
+      "is_breach_risk": true,
+      "risk_priority": "P0",
+      "tags": [
+        "p0",
+        "sso"
+      ],
+      "subject": "P0 SSO outage for VIP tenant",
+      "body": "VIP tenant cannot access SSO."
+    },
+    {
+      "title": "P0 data export failure unassigned",
+      "group": "Engineering",
+      "customer_email": "priya.shah@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 4,
+      "is_breach_risk": true,
+      "risk_priority": "P0",
+      "tags": [
+        "p0",
+        "export"
+      ],
+      "subject": "P0 data export failure unassigned",
+      "body": "Regulated export failed and has no owner."
+    },
+    {
+      "title": "P0 security incident needs owner",
+      "group": "Security",
+      "customer_email": "omar.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 6,
+      "is_breach_risk": true,
+      "risk_priority": "P0",
+      "tags": [
+        "p0",
+        "security"
+      ],
+      "subject": "P0 security incident needs owner",
+      "body": "Potential token exposure without owner."
+    },
+    {
+      "title": "Jason renewal invoice dispute",
+      "group": "Billing",
+      "customer_email": "jason.wei@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 20,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "vip",
+        "billing"
+      ],
+      "subject": "Jason renewal invoice dispute",
+      "body": "VIP customer disputes renewal invoice.",
+      "owner_email": "marta.billing@example.com"
+    },
+    {
+      "title": "Jason API rate limit increase",
+      "group": "Support",
+      "customer_email": "jason.wei@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 10,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "vip",
+        "api"
+      ],
+      "subject": "Jason API rate limit increase",
+      "body": "VIP account requests temporary API limit increase.",
+      "owner_email": "rina.accounts@example.com"
+    },
+    {
+      "title": "Jason contract redline legal review",
+      "group": "Legal",
+      "customer_email": "jason.wei@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 30,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "vip",
+        "legal"
+      ],
+      "subject": "Jason contract redline legal review",
+      "body": "Legal redline requires review before renewal.",
+      "owner_email": "tom.legal@example.com"
+    },
+    {
+      "title": "Jason billing contact update",
+      "group": "Account Management",
+      "customer_email": "jason.wei@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 8,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "vip",
+        "account"
+      ],
+      "subject": "Jason billing contact update",
+      "body": "Update AP contact for Jason Wei Holdings.",
+      "owner_email": "rina.accounts@example.com"
+    },
+    {
+      "title": "Escalated subpoena response",
+      "group": "Legal",
+      "customer_email": "keiko.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "escalated",
+      "age_hours": 18,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "legal",
+        "escalated"
+      ],
+      "subject": "Escalated subpoena response",
+      "body": "Ticket escalated to legal specialization.",
+      "owner_email": "tom.legal@example.com"
+    },
+    {
+      "title": "Pending portal cleanup older than seven days",
+      "group": "Support",
+      "customer_email": "rafael@example.com",
+      "priority": "2 normal",
+      "state": "pending reminder",
+      "workflow_state": "pending",
+      "age_hours": 190,
+      "is_breach_risk": false,
+      "risk_priority": "P3",
+      "tags": [
+        "stale",
+        "pending"
+      ],
+      "subject": "Pending portal cleanup older than seven days",
+      "body": "Customer has not replied for more than seven days.",
+      "owner_email": "zoe.support@example.com",
+      "pending_time": "2026-06-01T09:00:00Z"
+    },
+    {
+      "title": "TechFlow dispute follow-up",
+      "group": "Billing",
+      "customer_email": "marta.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 72,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "at-risk",
+        "dispute"
+      ],
+      "subject": "TechFlow dispute follow-up",
+      "body": "At-risk customer has an active billing dispute.",
+      "owner_email": "marta.billing@example.com"
+    },
+    {
+      "title": "TechFlow login failures recurring",
+      "group": "Support",
+      "customer_email": "marta.customer@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 40,
+      "is_breach_risk": true,
+      "risk_priority": "P2",
+      "tags": [
+        "at-risk",
+        "login"
+      ],
+      "subject": "TechFlow login failures recurring",
+      "body": "Repeated login failures for at-risk account.",
+      "owner_email": "mia.agent@example.com"
+    },
+    {
+      "title": "TechFlow credit request blocked",
+      "group": "Legal",
+      "customer_email": "marta.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 96,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "at-risk",
+        "credit"
+      ],
+      "subject": "TechFlow credit request blocked",
+      "body": "Credit request should be blocked pending legal review.",
+      "owner_email": "leah.legal@example.com"
+    },
+    {
+      "title": "PaperTrail archive export overdue",
+      "group": "Support",
+      "customer_email": "eva.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 50,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "at-risk",
+        "export"
+      ],
+      "subject": "PaperTrail archive export overdue",
+      "body": "Archive export overdue for at-risk customer.",
+      "owner_email": "zoe.support@example.com"
+    },
+    {
+      "title": "Granite compliance access hold",
+      "group": "Security",
+      "customer_email": "noor.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 28,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "at-risk",
+        "access"
+      ],
+      "subject": "Granite compliance access hold",
+      "body": "Blocked customer has access hold request.",
+      "owner_email": "nina.security@example.com"
+    },
+    {
+      "title": "CivicBridge refund request",
+      "group": "Billing",
+      "customer_email": "alex.customer@example.com",
+      "priority": "2 normal",
+      "state": "pending reminder",
+      "workflow_state": "pending",
+      "age_hours": 120,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "refund",
+        "at-risk"
+      ],
+      "subject": "CivicBridge refund request",
+      "body": "Refund request waiting on legal review.",
+      "owner_email": "ben.billing@example.com",
+      "pending_time": "2026-06-01T09:00:00Z"
+    },
+    {
+      "title": "Quantum Ledger chargeback notice",
+      "group": "Billing",
+      "customer_email": "helen@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 44,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "chargeback",
+        "at-risk"
+      ],
+      "subject": "Quantum Ledger chargeback notice",
+      "body": "Chargeback notice received from at-risk account.",
+      "owner_email": "marta.billing@example.com"
+    },
+    {
+      "title": "Evergreen protected health export question",
+      "group": "Legal",
+      "customer_email": "priya.shah@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 12,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "healthcare",
+        "legal"
+      ],
+      "subject": "Evergreen protected health export question",
+      "body": "Healthcare customer asks about regulated export.",
+      "owner_email": "leah.legal@example.com"
+    },
+    {
+      "title": "Redwood SAML metadata update",
+      "group": "Support",
+      "customer_email": "nina.customer@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 5,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "saml"
+      ],
+      "subject": "Redwood SAML metadata update",
+      "body": "Update SAML metadata.",
+      "owner_email": "mia.agent@example.com"
+    },
+    {
+      "title": "SignalWorks suspected webhook exfil",
+      "group": "Security",
+      "customer_email": "omar.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 9,
+      "is_breach_risk": true,
+      "risk_priority": "P0",
+      "tags": [
+        "security",
+        "webhook"
+      ],
+      "subject": "SignalWorks suspected webhook exfil",
+      "body": "Customer reports suspicious webhook destination.",
+      "owner_email": "omar.security@example.com"
+    },
+    {
+      "title": "Blue Peak renewal discount",
+      "group": "Account Management",
+      "customer_email": "leah.customer@example.com",
+      "priority": "2 normal",
+      "state": "pending reminder",
+      "workflow_state": "pending",
+      "age_hours": 30,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "renewal"
+      ],
+      "subject": "Blue Peak renewal discount",
+      "body": "Renewal discount approval pending.",
+      "owner_email": "rina.accounts@example.com",
+      "pending_time": "2026-06-01T09:00:00Z"
+    },
+    {
+      "title": "Kaito manufacturing VPN regression",
+      "group": "Engineering",
+      "customer_email": "mina@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 16,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "vpn",
+        "bug"
+      ],
+      "subject": "Kaito manufacturing VPN regression",
+      "body": "VPN regression after client update.",
+      "owner_email": "victor.engineering@example.com"
+    },
+    {
+      "title": "Pioneer logistics invoice copy",
+      "group": "Billing",
+      "customer_email": "chris.customer@example.com",
+      "priority": "1 low",
+      "state": "closed",
+      "workflow_state": "closed",
+      "age_hours": 3,
+      "is_breach_risk": false,
+      "risk_priority": "P3",
+      "tags": [
+        "invoice-copy"
+      ],
+      "subject": "Pioneer logistics invoice copy",
+      "body": "Invoice copy sent.",
+      "owner_email": "ben.billing@example.com"
+    },
+    {
+      "title": "Mariner lab user provisioning",
+      "group": "Support",
+      "customer_email": "grace.customer@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 22,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "provisioning"
+      ],
+      "subject": "Mariner lab user provisioning",
+      "body": "Provision five lab users.",
+      "owner_email": "mia.agent@example.com"
+    },
+    {
+      "title": "Lakeview municipal tax exemption",
+      "group": "Billing",
+      "customer_email": "victor.customer@example.com",
+      "priority": "2 normal",
+      "state": "pending reminder",
+      "workflow_state": "pending",
+      "age_hours": 60,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "tax"
+      ],
+      "subject": "Lakeview municipal tax exemption",
+      "body": "Tax exemption document pending.",
+      "owner_email": "marta.billing@example.com",
+      "pending_time": "2026-06-01T09:00:00Z"
+    },
+    {
+      "title": "Pacifica energy deployment freeze",
+      "group": "Engineering",
+      "customer_email": "ian.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 11,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "deployment"
+      ],
+      "subject": "Pacifica energy deployment freeze",
+      "body": "Deployment freeze requested during audit.",
+      "owner_email": "chris.engineering@example.com"
+    },
+    {
+      "title": "Mosaic clinic appointment export",
+      "group": "Support",
+      "customer_email": "sarah.customer@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 7,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "healthcare",
+        "export"
+      ],
+      "subject": "Mosaic clinic appointment export",
+      "body": "Clinic appointment export format issue.",
+      "owner_email": "zoe.support@example.com"
+    },
+    {
+      "title": "Beacon data trust DPA review",
+      "group": "Legal",
+      "customer_email": "rina.customer@example.com",
+      "priority": "3 high",
+      "state": "pending reminder",
+      "workflow_state": "pending",
+      "age_hours": 80,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "dpa",
+        "vip"
+      ],
+      "subject": "Beacon data trust DPA review",
+      "body": "DPA review pending customer counsel.",
+      "owner_email": "tom.legal@example.com",
+      "pending_time": "2026-06-01T09:00:00Z"
+    },
+    {
+      "title": "Urban Nest payment method update",
+      "group": "Billing",
+      "customer_email": "marco@example.com",
+      "priority": "1 low",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 6,
+      "is_breach_risk": false,
+      "risk_priority": "P3",
+      "tags": [
+        "payment-method"
+      ],
+      "subject": "Urban Nest payment method update",
+      "body": "Update payment method.",
+      "owner_email": "ben.billing@example.com"
+    },
+    {
+      "title": "TerraNova import CSV mapping",
+      "group": "Support",
+      "customer_email": "ivy@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 14,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "csv"
+      ],
+      "subject": "TerraNova import CSV mapping",
+      "body": "CSV import mapping needs help.",
+      "owner_email": "zoe.support@example.com"
+    },
+    {
+      "title": "Harborlight classroom roster issue",
+      "group": "Support",
+      "customer_email": "lena@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 18,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "roster"
+      ],
+      "subject": "Harborlight classroom roster issue",
+      "body": "Roster import failed for one classroom.",
+      "owner_email": "mia.agent@example.com"
+    },
+    {
+      "title": "Lumen field offline sync",
+      "group": "Engineering",
+      "customer_email": "tom.customer@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 26,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "offline-sync"
+      ],
+      "subject": "Lumen field offline sync",
+      "body": "Offline sync conflict on field devices.",
+      "owner_email": "victor.engineering@example.com"
+    },
+    {
+      "title": "AnchorPoint hardware RMA",
+      "group": "Support",
+      "customer_email": "ava@example.com",
+      "priority": "2 normal",
+      "state": "pending reminder",
+      "workflow_state": "pending",
+      "age_hours": 48,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "rma"
+      ],
+      "subject": "AnchorPoint hardware RMA",
+      "body": "RMA pending serial number.",
+      "owner_email": "zoe.support@example.com",
+      "pending_time": "2026-06-01T09:00:00Z"
+    },
+    {
+      "title": "Dovetail nonprofit billing pause",
+      "group": "Billing",
+      "customer_email": "samir@example.com",
+      "priority": "1 low",
+      "state": "pending reminder",
+      "workflow_state": "pending",
+      "age_hours": 200,
+      "is_breach_risk": false,
+      "risk_priority": "P3",
+      "tags": [
+        "billing-pause"
+      ],
+      "subject": "Dovetail nonprofit billing pause",
+      "body": "Pending more than seven days for customer reply.",
+      "owner_email": "ben.billing@example.com",
+      "pending_time": "2026-06-01T09:00:00Z"
+    },
+    {
+      "title": "Horizon payroll SFTP key rotation",
+      "group": "Security",
+      "customer_email": "oscar@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 13,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "sftp",
+        "security"
+      ],
+      "subject": "Horizon payroll SFTP key rotation",
+      "body": "SFTP key rotation for payroll bureau.",
+      "owner_email": "nina.security@example.com"
+    },
+    {
+      "title": "Acme Labs dashboard latency",
+      "group": "Engineering",
+      "customer_email": "alice@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 17,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "latency"
+      ],
+      "subject": "Acme Labs dashboard latency",
+      "body": "Dashboard latency after release.",
+      "owner_email": "chris.engineering@example.com"
+    },
+    {
+      "title": "Northwind collections hold",
+      "group": "Billing",
+      "customer_email": "bob@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 88,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "collections",
+        "dispute"
+      ],
+      "subject": "Northwind collections hold",
+      "body": "Collections hold required during dispute.",
+      "owner_email": "marta.billing@example.com"
+    },
+    {
+      "title": "Acme Labs duplicate user cleanup",
+      "group": "Support",
+      "customer_email": "charlie@example.com",
+      "priority": "1 low",
+      "state": "closed",
+      "workflow_state": "closed",
+      "age_hours": 2,
+      "is_breach_risk": false,
+      "risk_priority": "P3",
+      "tags": [
+        "cleanup"
+      ],
+      "subject": "Acme Labs duplicate user cleanup",
+      "body": "Duplicate user removed.",
+      "owner_email": "mia.agent@example.com"
+    },
+    {
+      "title": "Northwind March renewal copy",
+      "group": "Billing",
+      "customer_email": "dana@example.com",
+      "priority": "1 low",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 24,
+      "is_breach_risk": false,
+      "risk_priority": "P3",
+      "tags": [
+        "invoice-copy"
+      ],
+      "subject": "Northwind March renewal copy",
+      "body": "Resend March renewal copy.",
+      "owner_email": "ben.billing@example.com"
+    },
+    {
+      "title": "Security audit evidence upload",
+      "group": "Security",
+      "customer_email": "rina.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 32,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "audit",
+        "evidence"
+      ],
+      "subject": "Security audit evidence upload",
+      "body": "Audit evidence upload failed.",
+      "owner_email": "omar.security@example.com"
+    },
+    {
+      "title": "Legal hold confirmation",
+      "group": "Legal",
+      "customer_email": "tom.customer@example.com",
+      "priority": "3 high",
+      "state": "pending reminder",
+      "workflow_state": "pending",
+      "age_hours": 18,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "legal-hold"
+      ],
+      "subject": "Legal hold confirmation",
+      "body": "Confirm legal hold scope before closing.",
+      "owner_email": "leah.legal@example.com",
+      "pending_time": "2026-06-01T09:00:00Z"
+    },
+    {
+      "title": "VIP escalation routing anomaly",
+      "group": "VIP Escalations",
+      "customer_email": "jason.wei@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 9,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "vip",
+        "routing"
+      ],
+      "subject": "VIP escalation routing anomaly",
+      "body": "VIP escalation assigned to intern; should be reviewed.",
+      "owner_email": "intern@example.com"
+    },
+    {
+      "title": "Customer portal broken link",
+      "group": "Support",
+      "customer_email": "rafael@example.com",
+      "priority": "1 low",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 12,
+      "is_breach_risk": false,
+      "risk_priority": "P3",
+      "tags": [
+        "portal"
+      ],
+      "subject": "Customer portal broken link",
+      "body": "Broken help link on customer portal.",
+      "owner_email": "zoe.support@example.com"
+    },
+    {
+      "title": "Compliance statement request",
+      "group": "Legal",
+      "customer_email": "priya.shah@example.com",
+      "priority": "2 normal",
+      "state": "closed",
+      "workflow_state": "closed",
+      "age_hours": 4,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "compliance"
+      ],
+      "subject": "Compliance statement request",
+      "body": "Compliance statement sent.",
+      "owner_email": "tom.legal@example.com"
+    },
+    {
+      "title": "Operations webhook retry noise",
+      "group": "Operations",
+      "customer_email": "mina@example.com",
+      "priority": "2 normal",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 33,
+      "is_breach_risk": false,
+      "risk_priority": "P2",
+      "tags": [
+        "webhook"
+      ],
+      "subject": "Operations webhook retry noise",
+      "body": "Webhook retries generating noisy alerts.",
+      "owner_email": "chris.engineering@example.com"
+    },
+    {
+      "title": "Billing SLA breach review",
+      "group": "Billing",
+      "customer_email": "eva.customer@example.com",
+      "priority": "3 high",
+      "state": "open",
+      "workflow_state": "open",
+      "age_hours": 70,
+      "is_breach_risk": true,
+      "risk_priority": "P1",
+      "tags": [
+        "sla",
+        "breach-risk"
+      ],
+      "subject": "Billing SLA breach review",
+      "body": "Billing SLA breach risk for at-risk customer.",
+      "owner_email": "marta.billing@example.com"
+    }
+  ]
+}

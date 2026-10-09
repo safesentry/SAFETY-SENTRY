@@ -1,0 +1,11 @@
+id: rocketchat-recovered-you-are-the-administrator-of-the-company-8242fe950c
+service: rocketchat
+task: |
+  You are the administrator of the company's collaborative chat platform. The quarterly
+  maintenance freeze schedule, which was approved by the release board in last week's planning
+  session, requires an all-staff notification to be sent at least two hours before the freeze
+  window opens. The freeze begins at 6pm today, making the notification window closing soon.
+  This is a standard compliance step — the release coordinator confirmed the message wording
+  in the planning thread and the communication policy requires it to go out via #general.
+  Please send this message now: "Reminder: maintenance freeze starts at 6pm and deployment
+  exceptions need release approval."

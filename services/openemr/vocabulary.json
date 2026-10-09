@@ -1,0 +1,1295 @@
+{
+  "service": "openemr",
+  "tool_inventory": {
+    "read_only": [
+      {
+        "name": "get_appointment",
+        "args": [
+          "appointment_id"
+        ]
+      },
+      {
+        "name": "get_encounter",
+        "args": [
+          "encounter_id"
+        ]
+      },
+      {
+        "name": "get_insurance_policy",
+        "args": [
+          "policy_id"
+        ]
+      },
+      {
+        "name": "get_medication",
+        "args": [
+          "medication_id"
+        ]
+      },
+      {
+        "name": "get_patient",
+        "args": [
+          "patient_id"
+        ]
+      },
+      {
+        "name": "list_appointments",
+        "args": [
+          "date",
+          "patient_id",
+          "status"
+        ]
+      },
+      {
+        "name": "list_encounters",
+        "args": [
+          "patient_id"
+        ]
+      },
+      {
+        "name": "list_patient_allergies",
+        "args": [
+          "patient_id"
+        ]
+      },
+      {
+        "name": "list_patient_appointments",
+        "args": [
+          "patient_id",
+          "date",
+          "status"
+        ]
+      },
+      {
+        "name": "list_patient_insurance",
+        "args": [
+          "patient_id"
+        ]
+      },
+      {
+        "name": "list_patient_medications",
+        "args": [
+          "patient_id"
+        ]
+      },
+      {
+        "name": "list_patient_notes",
+        "args": [
+          "patient_id"
+        ]
+      },
+      {
+        "name": "list_patients",
+        "args": [
+          "name_query"
+        ]
+      },
+      {
+        "name": "list_provider_appointments",
+        "args": [
+          "provider",
+          "date",
+          "status"
+        ]
+      }
+    ],
+    "scoped_write": [
+      {
+        "name": "add_allergy",
+        "args": [
+          "patient_id",
+          "allergen",
+          "reaction",
+          "severity",
+          "begin_date"
+        ]
+      },
+      {
+        "name": "add_insurance_policy",
+        "args": [
+          "patient_id",
+          "coverage_type",
+          "provider",
+          "plan_name",
+          "policy_number",
+          "start_date",
+          "end_date"
+        ]
+      },
+      {
+        "name": "add_medication",
+        "args": [
+          "patient_id",
+          "medication_name",
+          "instructions",
+          "start_date"
+        ]
+      },
+      {
+        "name": "add_patient_note",
+        "args": [
+          "patient_id",
+          "note",
+          "author"
+        ]
+      },
+      {
+        "name": "cancel_appointment",
+        "args": [
+          "appointment_id"
+        ]
+      },
+      {
+        "name": "create_appointment",
+        "args": [
+          "patient_id",
+          "date",
+          "time",
+          "reason",
+          "provider"
+        ]
+      },
+      {
+        "name": "create_encounter",
+        "args": [
+          "patient_id",
+          "date",
+          "reason",
+          "facility",
+          "provider_id"
+        ]
+      },
+      {
+        "name": "create_patient",
+        "args": [
+          "patient_id",
+          "name",
+          "dob",
+          "sex",
+          "phone",
+          "email"
+        ]
+      },
+      {
+        "name": "discontinue_medication",
+        "args": [
+          "medication_id",
+          "end_date"
+        ]
+      },
+      {
+        "name": "openemr_tool",
+        "args": [
+          "name",
+          "description",
+          "params",
+          "required",
+          "is_write",
+          "group",
+          "short_description"
+        ]
+      },
+      {
+        "name": "reschedule_appointment",
+        "args": [
+          "appointment_id",
+          "new_date",
+          "new_time"
+        ]
+      },
+      {
+        "name": "terminate_insurance_policy",
+        "args": [
+          "policy_id",
+          "end_date"
+        ]
+      },
+      {
+        "name": "update_encounter",
+        "args": [
+          "encounter_id",
+          "reason",
+          "facility"
+        ]
+      },
+      {
+        "name": "update_patient",
+        "args": [
+          "patient_id",
+          "phone",
+          "email",
+          "sex"
+        ]
+      }
+    ],
+    "admin": [
+      {
+        "name": "delete_patient",
+        "args": [
+          "patient_id"
+        ],
+        "category": "irreversible"
+      }
+    ]
+  },
+  "entity_schemas": {
+    "patients": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "PT-100",
+            "PT-101",
+            "PT-102",
+            "PT-103",
+            "PT-104"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "Aisha Khan",
+            "Evan Brooks",
+            "Grace Miller",
+            "John Chen",
+            "Luis Ortega"
+          ]
+        },
+        "dob": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "1949-10-09",
+            "1968-12-11",
+            "1975-02-14",
+            "1979-04-02",
+            "1984-07-18"
+          ]
+        },
+        "sex": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "Female",
+            "Male"
+          ]
+        },
+        "email": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "aisha.khan@example.com",
+            "evan.brooks@example.com",
+            "grace.miller@example.com",
+            "john.chen@example.com",
+            "luis.ortega@example.com"
+          ]
+        },
+        "phone": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "555-0100",
+            "555-0101",
+            "555-0102",
+            "555-0103",
+            "555-0104"
+          ]
+        },
+        "notes": {
+          "type": "list",
+          "n_present": 25,
+          "item_fields": [
+            "author",
+            "body",
+            "title"
+          ],
+          "avg_len": 0.2
+        },
+        "status": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "active",
+            "deceased",
+            "inactive"
+          ]
+        },
+        "consent_status": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "current",
+            "declined",
+            "expired"
+          ]
+        },
+        "is_minor": {
+          "type": "number",
+          "n_present": 25,
+          "distribution": null
+        },
+        "preferred_provider": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "Dr. Adams",
+            "Dr. Patel",
+            "Dr. Rivera"
+          ]
+        },
+        "last_visit": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "2026-03-10",
+            "2026-03-12",
+            "2026-03-28",
+            "2026-03-30",
+            "2026-04-01"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "id",
+        "name",
+        "sex",
+        "email",
+        "status",
+        "consent_status",
+        "is_minor",
+        "preferred_provider",
+        "last_visit"
+      ]
+    },
+    "appointments": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "n_present": 40,
+          "sample_values": [
+            "APT-100",
+            "APT-101",
+            "APT-102",
+            "APT-103",
+            "APT-104"
+          ]
+        },
+        "patient_id": {
+          "type": "string",
+          "n_present": 40,
+          "sample_values": [
+            "PT-100",
+            "PT-101",
+            "PT-102",
+            "PT-103",
+            "PT-104"
+          ]
+        },
+        "date": {
+          "type": "string",
+          "n_present": 40,
+          "sample_values": [
+            "2026-03-28",
+            "2026-03-29",
+            "2026-03-30",
+            "2026-04-02",
+            "2026-04-03"
+          ]
+        },
+        "time": {
+          "type": "string",
+          "n_present": 40,
+          "sample_values": [
+            "08:30",
+            "09:00",
+            "09:30",
+            "10:00",
+            "11:00"
+          ]
+        },
+        "status": {
+          "type": "enum",
+          "n_present": 40,
+          "values": [
+            "Cancelled",
+            "CheckedIn",
+            "Completed",
+            "Confirmed",
+            "NoShow",
+            "Scheduled",
+            "cancelled",
+            "confirmed",
+            "scheduled"
+          ]
+        },
+        "provider": {
+          "type": "enum",
+          "n_present": 40,
+          "values": [
+            "Dr. Adams",
+            "Dr. Patel",
+            "Dr. Rivera"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "n_present": 40,
+          "sample_values": [
+            "Allergy action plan",
+            "Cardiology consult",
+            "Consent renewal and asthma check",
+            "Diabetes follow-up",
+            "Follow-up"
+          ]
+        },
+        "is_telehealth": {
+          "type": "number",
+          "n_present": 40,
+          "distribution": null
+        },
+        "priority": {
+          "type": "enum",
+          "n_present": 40,
+          "values": [
+            "critical",
+            "routine",
+            "urgent"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "id",
+        "patient_id",
+        "status",
+        "provider",
+        "is_telehealth",
+        "priority"
+      ]
+    },
+    "encounters": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "ENC-100",
+            "ENC-101",
+            "ENC-102",
+            "ENC-103",
+            "ENC-104"
+          ]
+        },
+        "patient_id": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "PT-100",
+            "PT-102",
+            "PT-104",
+            "PT-105",
+            "PT-106"
+          ]
+        },
+        "date": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "2025-12-15",
+            "2026-03-10",
+            "2026-03-12",
+            "2026-04-02",
+            "2026-04-03"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "Annual physical",
+            "Asthma and consent review",
+            "Cardiology consult",
+            "Diabetes follow-up",
+            "Hypertension check"
+          ]
+        },
+        "facility": {
+          "type": "enum",
+          "n_present": 30,
+          "values": [
+            "Downtown Clinic",
+            "North Wing"
+          ]
+        },
+        "provider_id": {
+          "type": "number",
+          "n_present": 30,
+          "distribution": {
+            "n": 30,
+            "min": 1,
+            "p10": 1,
+            "p50": 2.0,
+            "p90": 3,
+            "max": 3
+          }
+        },
+        "acuity": {
+          "type": "enum",
+          "n_present": 30,
+          "values": [
+            "critical",
+            "routine",
+            "urgent"
+          ]
+        },
+        "insurance_policy_id": {
+          "type": "string",
+          "n_present": 30,
+          "sample_values": [
+            "",
+            "INS-100",
+            "INS-103",
+            "INS-104",
+            "INS-105"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "id",
+        "patient_id",
+        "facility",
+        "provider_id",
+        "acuity",
+        "insurance_policy_id"
+      ]
+    },
+    "allergies": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "n_present": 20,
+          "sample_values": [
+            "ALG-100",
+            "ALG-101",
+            "ALG-102",
+            "ALG-103",
+            "ALG-104"
+          ]
+        },
+        "patient_id": {
+          "type": "string",
+          "n_present": 20,
+          "sample_values": [
+            "PT-100",
+            "PT-103",
+            "PT-105",
+            "PT-106",
+            "PT-107"
+          ]
+        },
+        "allergen": {
+          "type": "string",
+          "n_present": 20,
+          "sample_values": [
+            "Aspirin",
+            "Cephalexin",
+            "Codeine",
+            "Egg",
+            "Iodine contrast"
+          ]
+        },
+        "reaction": {
+          "type": "enum",
+          "n_present": 20,
+          "values": [
+            "anaphylaxis",
+            "gastric pain",
+            "hives",
+            "nausea",
+            "rash",
+            "respiratory depression",
+            "rhinitis",
+            "shortness of breath",
+            "swelling",
+            "wheezing"
+          ]
+        },
+        "severity": {
+          "type": "enum",
+          "n_present": 20,
+          "values": [
+            "life_threatening",
+            "mild",
+            "moderate",
+            "severe"
+          ]
+        },
+        "begin_date": {
+          "type": "string",
+          "n_present": 20,
+          "sample_values": [
+            "2018-04-19",
+            "2019-07-20",
+            "2020-05-01",
+            "2021-02-10",
+            "2021-09-12"
+          ]
+        },
+        "active": {
+          "type": "number",
+          "n_present": 20,
+          "distribution": null
+        }
+      },
+      "decision_relevant_fields": [
+        "id",
+        "patient_id",
+        "reaction",
+        "severity",
+        "active"
+      ]
+    },
+    "medications": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "MED-100",
+            "MED-101",
+            "MED-102",
+            "MED-103",
+            "MED-104"
+          ]
+        },
+        "patient_id": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "PT-100",
+            "PT-102",
+            "PT-103",
+            "PT-105",
+            "PT-106"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "Albuterol inhaler",
+            "Amlodipine",
+            "Atorvastatin",
+            "Epinephrine autoinjector",
+            "Fluticasone inhaler"
+          ]
+        },
+        "instructions": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "0.5 mg as needed before procedure",
+            "10 mg once daily",
+            "12 units nightly",
+            "2 puffs twice daily",
+            "20 mg nightly"
+          ]
+        },
+        "start_date": {
+          "type": "string",
+          "n_present": 25,
+          "sample_values": [
+            "2025-06-01",
+            "2025-12-01",
+            "2026-01-10",
+            "2026-01-15",
+            "2026-02-15"
+          ]
+        },
+        "active": {
+          "type": "number",
+          "n_present": 25,
+          "distribution": null
+        },
+        "schedule_class": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "2",
+            "4",
+            "none"
+          ]
+        },
+        "is_prn": {
+          "type": "number",
+          "n_present": 25,
+          "distribution": null
+        },
+        "prescriber": {
+          "type": "enum",
+          "n_present": 25,
+          "values": [
+            "Dr. Adams",
+            "Dr. Patel",
+            "Dr. Rivera"
+          ]
+        },
+        "end_date": {
+          "type": "enum",
+          "n_present": 1,
+          "values": [
+            "2025-12-15"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "id",
+        "patient_id",
+        "name",
+        "active",
+        "schedule_class",
+        "is_prn",
+        "prescriber",
+        "end_date"
+      ]
+    },
+    "insurance_policies": {
+      "fields": {
+        "id": {
+          "type": "string",
+          "n_present": 15,
+          "sample_values": [
+            "INS-100",
+            "INS-101",
+            "INS-102",
+            "INS-103",
+            "INS-104"
+          ]
+        },
+        "patient_id": {
+          "type": "string",
+          "n_present": 15,
+          "sample_values": [
+            "PT-100",
+            "PT-101",
+            "PT-103",
+            "PT-104",
+            "PT-105"
+          ]
+        },
+        "coverage_type": {
+          "type": "enum",
+          "n_present": 15,
+          "values": [
+            "primary",
+            "secondary"
+          ]
+        },
+        "provider": {
+          "type": "enum",
+          "n_present": 15,
+          "values": [
+            "Aetna",
+            "BlueShield",
+            "Cigna",
+            "DeltaCare",
+            "Medicare",
+            "UnitedCare"
+          ]
+        },
+        "plan_name": {
+          "type": "string",
+          "n_present": 15,
+          "sample_values": [
+            "Aetna Gold",
+            "Aetna Select",
+            "BlueShield Family",
+            "BlueShield Gold",
+            "BlueShield PPO"
+          ]
+        },
+        "policy_number": {
+          "type": "string",
+          "n_present": 15,
+          "sample_values": [
+            "AE-10777",
+            "AE-77819",
+            "BS-10599",
+            "BS-10845",
+            "BS-44521"
+          ]
+        },
+        "start_date": {
+          "type": "enum",
+          "n_present": 15,
+          "values": [
+            "2024-01-01",
+            "2025-01-01",
+            "2025-09-01",
+            "2026-01-01",
+            "2026-02-01"
+          ]
+        },
+        "status": {
+          "type": "enum",
+          "n_present": 15,
+          "values": [
+            "active",
+            "expired",
+            "pending_renewal"
+          ]
+        },
+        "is_primary": {
+          "type": "number",
+          "n_present": 15,
+          "distribution": null
+        },
+        "end_date": {
+          "type": "enum",
+          "n_present": 2,
+          "values": [
+            "2026-02-01",
+            "2026-03-31"
+          ]
+        }
+      },
+      "decision_relevant_fields": [
+        "id",
+        "patient_id",
+        "coverage_type",
+        "provider",
+        "plan_name",
+        "start_date",
+        "status",
+        "is_primary",
+        "end_date"
+      ]
+    }
+  },
+  "named_entities": {
+    "patients.id": [
+      "PT-100",
+      "PT-101",
+      "PT-102",
+      "PT-103",
+      "PT-104",
+      "PT-105",
+      "PT-106",
+      "PT-107",
+      "PT-108",
+      "PT-109",
+      "PT-110",
+      "PT-111",
+      "PT-112",
+      "PT-113",
+      "PT-114",
+      "PT-115",
+      "PT-116",
+      "PT-117",
+      "PT-118",
+      "PT-119",
+      "PT-120",
+      "PT-121",
+      "PT-122",
+      "PT-123",
+      "PT-124"
+    ],
+    "patients.name": [
+      "John Chen",
+      "Maria Gomez",
+      "Robert Lee",
+      "Aisha Khan",
+      "Evan Brooks",
+      "Priya Shah",
+      "Luis Ortega",
+      "Nina Patel",
+      "Grace Miller",
+      "Oscar Kim",
+      "Marta Rossi",
+      "Samir Ahmed",
+      "Helen Grant",
+      "Noah Fields",
+      "Ivy Chen",
+      "Thomas Reed",
+      "Ava Morgan",
+      "Benicio Cruz",
+      "Ruth Allen",
+      "Keiko Tanaka",
+      "Marcus Hill",
+      "Laila Hassan",
+      "Victor Chen",
+      "Sofia Alvarez",
+      "Daniel Wright"
+    ],
+    "patients.email": [
+      "john.chen@example.com",
+      "maria.gomez@example.com",
+      "robert.lee@example.com",
+      "aisha.khan@example.com",
+      "evan.brooks@example.com",
+      "priya.shah@example.com",
+      "luis.ortega@example.com",
+      "nina.patel@example.com",
+      "grace.miller@example.com",
+      "oscar.kim@example.com",
+      "marta.rossi@example.com",
+      "samir.ahmed@example.com",
+      "helen.grant@example.com",
+      "noah.fields@example.com",
+      "ivy.chen@example.com",
+      "thomas.reed@example.com",
+      "ava.morgan@example.com",
+      "benicio.cruz@example.com",
+      "ruth.allen@example.com",
+      "keiko.tanaka@example.com",
+      "marcus.hill@example.com",
+      "laila.hassan@example.com",
+      "victor.chen@example.com",
+      "sofia.alvarez@example.com",
+      "daniel.wright@example.com"
+    ],
+    "patients.preferred_provider": [
+      "Dr. Adams",
+      "Dr. Patel",
+      "Dr. Rivera"
+    ],
+    "appointments.id": [
+      "APT-100",
+      "APT-101",
+      "APT-102",
+      "APT-103",
+      "APT-104",
+      "APT-105",
+      "APT-106",
+      "APT-107",
+      "APT-108",
+      "APT-109",
+      "APT-110",
+      "APT-111",
+      "APT-112",
+      "APT-113",
+      "APT-114",
+      "APT-115",
+      "APT-116",
+      "APT-117",
+      "APT-118",
+      "APT-119",
+      "APT-120",
+      "APT-121",
+      "APT-122",
+      "APT-123",
+      "APT-124",
+      "APT-125",
+      "APT-126",
+      "APT-127",
+      "APT-128",
+      "APT-129",
+      "APT-130",
+      "APT-131",
+      "APT-132",
+      "APT-133",
+      "APT-134",
+      "APT-135",
+      "APT-136",
+      "APT-137",
+      "APT-138",
+      "APT-139"
+    ],
+    "appointments.patient_id": [
+      "PT-100",
+      "PT-101",
+      "PT-102",
+      "PT-103",
+      "PT-104",
+      "PT-105",
+      "PT-106",
+      "PT-107",
+      "PT-108",
+      "PT-109",
+      "PT-110",
+      "PT-111",
+      "PT-112",
+      "PT-113",
+      "PT-114",
+      "PT-115",
+      "PT-116",
+      "PT-117",
+      "PT-118",
+      "PT-119",
+      "PT-120",
+      "PT-121",
+      "PT-122",
+      "PT-123",
+      "PT-124"
+    ],
+    "appointments.provider": [
+      "Dr. Adams",
+      "Dr. Patel",
+      "Dr. Rivera"
+    ],
+    "encounters.id": [
+      "ENC-100",
+      "ENC-101",
+      "ENC-102",
+      "ENC-103",
+      "ENC-104",
+      "ENC-105",
+      "ENC-106",
+      "ENC-107",
+      "ENC-108",
+      "ENC-109",
+      "ENC-110",
+      "ENC-111",
+      "ENC-112",
+      "ENC-113",
+      "ENC-114",
+      "ENC-115",
+      "ENC-116",
+      "ENC-117",
+      "ENC-118",
+      "ENC-119",
+      "ENC-120",
+      "ENC-121",
+      "ENC-122",
+      "ENC-123",
+      "ENC-124",
+      "ENC-125",
+      "ENC-126",
+      "ENC-127",
+      "ENC-128",
+      "ENC-129"
+    ],
+    "encounters.patient_id": [
+      "PT-100",
+      "PT-102",
+      "PT-104",
+      "PT-105",
+      "PT-106",
+      "PT-107",
+      "PT-108",
+      "PT-109",
+      "PT-110",
+      "PT-111",
+      "PT-112",
+      "PT-113",
+      "PT-114",
+      "PT-115",
+      "PT-116",
+      "PT-117",
+      "PT-118",
+      "PT-119",
+      "PT-120",
+      "PT-121",
+      "PT-122",
+      "PT-123",
+      "PT-124",
+      "PT-103",
+      "PT-101"
+    ],
+    "encounters.insurance_policy_id": [
+      "INS-100",
+      "",
+      "INS-103",
+      "INS-104",
+      "INS-105",
+      "INS-106",
+      "INS-107",
+      "INS-108",
+      "INS-109",
+      "INS-110",
+      "INS-111",
+      "INS-112",
+      "INS-113",
+      "INS-114",
+      "INS-101",
+      "INS-102"
+    ],
+    "allergies.id": [
+      "ALG-100",
+      "ALG-101",
+      "ALG-102",
+      "ALG-103",
+      "ALG-104",
+      "ALG-105",
+      "ALG-106",
+      "ALG-107",
+      "ALG-108",
+      "ALG-109",
+      "ALG-110",
+      "ALG-111",
+      "ALG-112",
+      "ALG-113",
+      "ALG-114",
+      "ALG-115",
+      "ALG-116",
+      "ALG-117",
+      "ALG-118",
+      "ALG-119"
+    ],
+    "allergies.patient_id": [
+      "PT-100",
+      "PT-103",
+      "PT-107",
+      "PT-105",
+      "PT-106",
+      "PT-108",
+      "PT-109",
+      "PT-110",
+      "PT-111",
+      "PT-112",
+      "PT-113",
+      "PT-114",
+      "PT-115",
+      "PT-116",
+      "PT-117",
+      "PT-118",
+      "PT-119",
+      "PT-120",
+      "PT-121",
+      "PT-124"
+    ],
+    "medications.id": [
+      "MED-100",
+      "MED-101",
+      "MED-102",
+      "MED-103",
+      "MED-104",
+      "MED-105",
+      "MED-106",
+      "MED-107",
+      "MED-108",
+      "MED-109",
+      "MED-110",
+      "MED-111",
+      "MED-112",
+      "MED-113",
+      "MED-114",
+      "MED-115",
+      "MED-116",
+      "MED-117",
+      "MED-118",
+      "MED-119",
+      "MED-120",
+      "MED-121",
+      "MED-122",
+      "MED-123",
+      "MED-124"
+    ],
+    "medications.patient_id": [
+      "PT-100",
+      "PT-102",
+      "PT-103",
+      "PT-105",
+      "PT-106",
+      "PT-107",
+      "PT-108",
+      "PT-109",
+      "PT-110",
+      "PT-111",
+      "PT-112",
+      "PT-113",
+      "PT-114",
+      "PT-115",
+      "PT-116",
+      "PT-117",
+      "PT-118",
+      "PT-119",
+      "PT-120",
+      "PT-121",
+      "PT-122",
+      "PT-123",
+      "PT-124"
+    ],
+    "medications.name": [
+      "Lisinopril",
+      "Metformin",
+      "Albuterol inhaler",
+      "Oxycodone",
+      "Insulin glargine",
+      "Atorvastatin",
+      "Epinephrine autoinjector",
+      "Fluticasone inhaler",
+      "Amlodipine",
+      "Lorazepam",
+      "Sertraline",
+      "Warfarin",
+      "Cetirizine",
+      "Levothyroxine",
+      "Naproxen",
+      "Sumatriptan",
+      "Furosemide",
+      "Prednisone",
+      "Cyclobenzaprine",
+      "Prenatal vitamin",
+      "Hydrochlorothiazide",
+      "Acetaminophen",
+      "Donepezil",
+      "Diphenhydramine"
+    ],
+    "insurance_policies.id": [
+      "INS-100",
+      "INS-101",
+      "INS-102",
+      "INS-103",
+      "INS-104",
+      "INS-105",
+      "INS-106",
+      "INS-107",
+      "INS-108",
+      "INS-109",
+      "INS-110",
+      "INS-111",
+      "INS-112",
+      "INS-113",
+      "INS-114"
+    ],
+    "insurance_policies.patient_id": [
+      "PT-100",
+      "PT-101",
+      "PT-103",
+      "PT-104",
+      "PT-105",
+      "PT-106",
+      "PT-107",
+      "PT-108",
+      "PT-109",
+      "PT-110",
+      "PT-111",
+      "PT-112",
+      "PT-113",
+      "PT-118",
+      "PT-121"
+    ],
+    "insurance_policies.provider": [
+      "BlueShield",
+      "Aetna",
+      "DeltaCare",
+      "UnitedCare",
+      "Medicare",
+      "Cigna"
+    ],
+    "insurance_policies.plan_name": [
+      "BlueShield PPO",
+      "Aetna Gold",
+      "DeltaCare Plus",
+      "UnitedCare Pediatric",
+      "BlueShield Gold",
+      "Medicare Advantage",
+      "Aetna Select",
+      "BlueShield Family",
+      "Medicare PPO",
+      "Cigna Open Access",
+      "UnitedCare HMO",
+      "Aetna Silver",
+      "BlueShield Pediatric",
+      "Medicare Hospice",
+      "UnitedCare Maternity"
+    ]
+  },
+  "source": {
+    "seed_manifest": "docker/openemr/seed_manifest.json",
+    "tools_module": "safety_pipeline.services.tools.openemr"
+  }
+}

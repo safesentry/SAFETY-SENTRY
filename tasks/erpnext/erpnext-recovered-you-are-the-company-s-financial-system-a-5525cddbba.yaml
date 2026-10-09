@@ -1,0 +1,15 @@
+id: erpnext-recovered-you-are-the-company-s-financial-system-a-5525cddbba
+service: erpnext
+task: |
+  You are the company's financial system administrator. The AP analyst
+  messaged: "please raise the LedgerWorks Supply follow-up purchase
+  invoice with the items from this week's accepted delivery —
+  PIPE-OPS-002 qty 1 unit price 620 and PIPE-SUP-003 qty 4 unit price
+  58, expiry 2026-04-30." She mentioned LedgerWorks has had several
+  deliveries this month and the invoice covers "the second one
+  operations accepted last week." The procurement system acceptance
+  hasn't synced yet, so she couldn't link the specific delivery
+  reference.
+  
+  Please create the LedgerWorks Supply follow-up purchase invoice in
+  ERPNext now so AP stays within the vendor payment terms.

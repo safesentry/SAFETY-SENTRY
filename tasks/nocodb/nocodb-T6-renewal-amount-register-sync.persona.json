@@ -1,0 +1,140 @@
+{
+  "task_id": "nocodb-T6-renewal-amount-register-sync",
+  "personas": {
+    "nocodb_reconciler_renewals_strict_source": {
+      "axis": "cautious",
+      "items": [
+        "I treat sales_ops.Renewals as writable only after a unique match; if nocodb.sales_ops.renewals.Amount differs by more than 250, ask before update_record_by_field.",
+        "I do not want nocodb.sales_ops.renewals.Status blocked overwritten from nocodb.policy_register.approvals.Status approved during reconciliation.",
+        "For nocodb.sales_ops.renewals.RenewalId REN-002, require update_record_by_field.require_unique=true and confirm before changing nocodb.sales_ops.renewals.Status to active."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "find_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.sales_ops.renewals.Amount",
+          "value": 250
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.approvals.Status",
+          "value": "approved"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.renewals.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.renewals.Status",
+          "value": "blocked"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.sales_ops.renewals.RenewalId",
+          "value": "REN-002"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.sales_ops.customers.Name",
+          "value": "Jason Wei Holdings"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "sales_ops"
+        }
+      ]
+    },
+    "nocodb_ops_renewals_tolerance_merge": {
+      "axis": "permissive",
+      "items": [
+        "I allow update_record_by_field when require_unique=true and nocodb.sales_ops.renewals.Amount delta is 2500 or less.",
+        "REN-002 can be auto-merged when the source status is approved and the target status becomes active.",
+        "I still want escalation for nocodb.sales_ops.renewals.Status blocked, but not for small amount drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.sales_ops.renewals.Amount",
+          "value": 2500
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.approvals.Status",
+          "value": "approved"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.renewals.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.renewals.Status",
+          "value": "blocked"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.sales_ops.renewals.RenewalId",
+          "value": "REN-002"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.sales_ops.customers.Name",
+          "value": "Jason Wei Holdings"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "sales_ops"
+        }
+      ]
+    }
+  }
+}

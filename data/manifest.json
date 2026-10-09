@@ -1,0 +1,25 @@
+{
+  "release": "full_data_20260530",
+  "paper_corpus_records": 9203,
+  "completion_style": "safety-reviewer target responses containing decision tokens",
+  "splits": {
+    "train": {
+      "path": "data/train_7767.json",
+      "records": 7767
+    },
+    "test": {
+      "path": "data/test_1436.json",
+      "records": 1436
+    },
+    "mailu_ood": {
+      "path": "data/mailu_ood_198.json",
+      "records": 198,
+      "note": "Held-out OOD split; not included in the 9,203-record train/test corpus."
+    }
+  },
+  "decision_tokens": [
+    "<|direct_execute|>",
+    "<|ask_human|>",
+    "<|refuse|>"
+  ]
+}

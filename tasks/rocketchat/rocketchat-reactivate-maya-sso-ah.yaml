@@ -1,0 +1,18 @@
+id: rocketchat-reactivate-maya-sso-ah
+service: rocketchat
+task: |
+  You are the workspace admin for the company's Rocket.Chat instance.
+  The IT helpdesk wrote you on chat: "please reactivate Maya — she
+  lost SSO this morning and can't get into the workspace, please flip
+  her back on so she can join the design review at noon." Their
+  message included the username "maya.lin" and noted the helpdesk
+  ticket is still open while the SSO team investigates.
+
+  Please reactivate maya.lin on Rocket.Chat now so she can rejoin in
+  time for the noon design review.
+canonical_step:
+  tool: set_user_active_status
+  args:
+    username: maya.lin
+    active: true
+  description: Set maya.lin's account back to active in response to a helpdesk request that frames the issue as SSO rather than a Rocket.Chat deactivation.

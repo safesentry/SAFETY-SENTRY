@@ -1,0 +1,220 @@
+services:
+  backend:
+    image: ${ERPNEXT_IMAGE:-frappe/erpnext:v16.11.0}
+    container_name: ${ERPNEXT_BACKEND_CONTAINER:-pipeline-erpnext-backend}
+    networks:
+      - frappe_network
+    restart: unless-stopped
+    volumes:
+      - ./shared/sites:/home/frappe/frappe-bench/sites
+      - ./shared/logs:/home/frappe/frappe-bench/logs
+      - ./scripts:/opt/pipeline/scripts:ro
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      MYSQL_ROOT_PASSWORD: ${ERPNEXT_DB_ROOT_PASSWORD:-admin}
+      MARIADB_ROOT_PASSWORD: ${ERPNEXT_DB_ROOT_PASSWORD:-admin}
+
+  configurator:
+    image: ${ERPNEXT_IMAGE:-frappe/erpnext:v16.11.0}
+    container_name: ${ERPNEXT_CONFIGURATOR_CONTAINER:-pipeline-erpnext-configurator}
+    networks:
+      - frappe_network
+    restart: "no"
+    entrypoint:
+      - bash
+      - -c
+    command:
+      - >
+        mkdir -p sites;
+        [ -f sites/common_site_config.json ] || echo "{}" > sites/common_site_config.json;
+        ls -1 apps > sites/apps.txt;
+        bench set-config -g db_host $$DB_HOST;
+        bench set-config -gp db_port $$DB_PORT;
+        bench set-config -g redis_cache "redis://$$REDIS_CACHE";
+        bench set-config -g redis_queue "redis://$$REDIS_QUEUE";
+        bench set-config -g redis_socketio "redis://$$REDIS_QUEUE";
+        bench set-config -gp socketio_port $$SOCKETIO_PORT;
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      REDIS_CACHE: redis-cache:6379
+      REDIS_QUEUE: redis-queue:6379
+      SOCKETIO_PORT: "9000"
+    volumes:
+      - ./shared/sites:/home/frappe/frappe-bench/sites
+      - ./shared/logs:/home/frappe/frappe-bench/logs
+
+  create-site:
+    image: ${ERPNEXT_IMAGE:-frappe/erpnext:v16.11.0}
+    container_name: ${ERPNEXT_CREATE_SITE_CONTAINER:-pipeline-erpnext-create-site}
+    networks:
+      - frappe_network
+    restart: "no"
+    volumes:
+      - ./shared/sites:/home/frappe/frappe-bench/sites
+      - ./shared/logs:/home/frappe/frappe-bench/logs
+    entrypoint:
+      - bash
+      - -c
+    command:
+      - >
+        wait-for-it -t 180 db:3306;
+        wait-for-it -t 180 redis-cache:6379;
+        wait-for-it -t 180 redis-queue:6379;
+        export start=`date +%s`;
+        until [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".db_host // empty"` ]] && \
+          [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".redis_cache // empty"` ]] && \
+          [[ -n `grep -hs ^ sites/common_site_config.json | jq -r ".redis_queue // empty"` ]];
+        do
+          echo "Waiting for sites/common_site_config.json to be created";
+          sleep 5;
+          if (( `date +%s`-start > 180 )); then
+            echo "could not find sites/common_site_config.json with required keys";
+            exit 1
+          fi
+        done;
+        bench new-site --mariadb-user-host-login-scope='%' --admin-password=${ERPNEXT_ADMIN_PASSWORD:-admin} --db-root-username=root --db-root-password=${ERPNEXT_DB_ROOT_PASSWORD:-admin} --install-app erpnext --set-default ${ERPNEXT_SITE_NAME:-frontend};
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ERPNEXT_ADMIN_PASSWORD: ${ERPNEXT_ADMIN_PASSWORD:-admin}
+      ERPNEXT_DB_ROOT_PASSWORD: ${ERPNEXT_DB_ROOT_PASSWORD:-admin}
+      ERPNEXT_SITE_NAME: ${ERPNEXT_SITE_NAME:-frontend}
+
+  db:
+    image: mariadb:10.6
+    container_name: ${ERPNEXT_DB_CONTAINER:-pipeline-erpnext-db}
+    networks:
+      - frappe_network
+    restart: unless-stopped
+    healthcheck:
+      test: mysqladmin ping -h localhost --password=${ERPNEXT_DB_ROOT_PASSWORD:-admin}
+      interval: 5s
+      retries: 60
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+      - --skip-innodb-read-only-compressed
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ERPNEXT_DB_ROOT_PASSWORD:-admin}
+      MARIADB_ROOT_PASSWORD: ${ERPNEXT_DB_ROOT_PASSWORD:-admin}
+    volumes:
+      - erpnext_db_data:/var/lib/mysql
+
+  frontend:
+    image: ${ERPNEXT_IMAGE:-frappe/erpnext:v16.11.0}
+    container_name: ${ERPNEXT_FRONTEND_CONTAINER:-pipeline-erpnext-frontend}
+    networks:
+      - frappe_network
+    depends_on:
+      - websocket
+    restart: unless-stopped
+    command:
+      - nginx-entrypoint.sh
+    environment:
+      BACKEND: backend:8000
+      FRAPPE_SITE_NAME_HEADER: ${ERPNEXT_SITE_NAME:-frontend}
+      SOCKETIO: websocket:9000
+      UPSTREAM_REAL_IP_ADDRESS: 127.0.0.1
+      UPSTREAM_REAL_IP_HEADER: X-Forwarded-For
+      UPSTREAM_REAL_IP_RECURSIVE: "off"
+      PROXY_READ_TIMEOUT: 120
+      CLIENT_MAX_BODY_SIZE: 50m
+    volumes:
+      - ./shared/sites:/home/frappe/frappe-bench/sites
+      - ./shared/logs:/home/frappe/frappe-bench/logs
+    ports:
+      - "${ERPNEXT_PORT:-8082}:8080"
+
+  queue-long:
+    image: ${ERPNEXT_IMAGE:-frappe/erpnext:v16.11.0}
+    container_name: ${ERPNEXT_QUEUE_LONG_CONTAINER:-pipeline-erpnext-queue-long}
+    networks:
+      - frappe_network
+    restart: unless-stopped
+    command:
+      - bench
+      - worker
+      - --queue
+      - long,default,short
+    volumes:
+      - ./shared/sites:/home/frappe/frappe-bench/sites
+      - ./shared/logs:/home/frappe/frappe-bench/logs
+    environment:
+      FRAPPE_REDIS_CACHE: redis://redis-cache:6379
+      FRAPPE_REDIS_QUEUE: redis://redis-queue:6379
+
+  queue-short:
+    image: ${ERPNEXT_IMAGE:-frappe/erpnext:v16.11.0}
+    container_name: ${ERPNEXT_QUEUE_SHORT_CONTAINER:-pipeline-erpnext-queue-short}
+    networks:
+      - frappe_network
+    restart: unless-stopped
+    command:
+      - bench
+      - worker
+      - --queue
+      - short,default
+    volumes:
+      - ./shared/sites:/home/frappe/frappe-bench/sites
+      - ./shared/logs:/home/frappe/frappe-bench/logs
+    environment:
+      FRAPPE_REDIS_CACHE: redis://redis-cache:6379
+      FRAPPE_REDIS_QUEUE: redis://redis-queue:6379
+
+  redis-queue:
+    image: redis:6.2-alpine
+    container_name: ${ERPNEXT_REDIS_QUEUE_CONTAINER:-pipeline-erpnext-redis-queue}
+    networks:
+      - frappe_network
+    restart: unless-stopped
+    volumes:
+      - erpnext_redis_queue_data:/data
+
+  redis-cache:
+    image: redis:6.2-alpine
+    container_name: ${ERPNEXT_REDIS_CACHE_CONTAINER:-pipeline-erpnext-redis-cache}
+    networks:
+      - frappe_network
+    restart: unless-stopped
+
+  scheduler:
+    image: ${ERPNEXT_IMAGE:-frappe/erpnext:v16.11.0}
+    container_name: ${ERPNEXT_SCHEDULER_CONTAINER:-pipeline-erpnext-scheduler}
+    networks:
+      - frappe_network
+    restart: unless-stopped
+    command:
+      - bench
+      - schedule
+    volumes:
+      - ./shared/sites:/home/frappe/frappe-bench/sites
+      - ./shared/logs:/home/frappe/frappe-bench/logs
+
+  websocket:
+    image: ${ERPNEXT_IMAGE:-frappe/erpnext:v16.11.0}
+    container_name: ${ERPNEXT_WEBSOCKET_CONTAINER:-pipeline-erpnext-websocket}
+    networks:
+      - frappe_network
+    restart: unless-stopped
+    command:
+      - node
+      - /home/frappe/frappe-bench/apps/frappe/socketio.js
+    environment:
+      FRAPPE_REDIS_CACHE: redis://redis-cache:6379
+      FRAPPE_REDIS_QUEUE: redis://redis-queue:6379
+    volumes:
+      - ./shared/sites:/home/frappe/frappe-bench/sites
+      - ./shared/logs:/home/frappe/frappe-bench/logs
+
+networks:
+  frappe_network:
+    name: ${ERPNEXT_NETWORK_NAME:-pipeline-erpnext}
+    driver: bridge
+
+volumes:
+  erpnext_db_data:
+  erpnext_redis_queue_data:

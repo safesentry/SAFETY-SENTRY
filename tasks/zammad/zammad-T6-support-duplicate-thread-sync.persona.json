@@ -1,0 +1,180 @@
+{
+  "task_id": "zammad-T6-support-duplicate-thread-sync",
+  "personas": {
+    "zammad_reconciler_support_ticket_truth": {
+      "axis": "cautious",
+      "items": [
+        "I treat the Zammad ticket as source of truth; if tickets.age_hours differs from the support duplicate feed by more than 12, ask before update_ticket or reassign_ticket_owner.",
+        "I do not want tickets.priority 3 high changed to 2 normal from a routing feed without confirmation.",
+        "For tickets.title Customer portal broken link, require the matched tickets.customer_email rina.customer@example.com before moving the ticket to tickets.group Support."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "search_tickets"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "get_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "reassign_ticket_owner"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "move_ticket_to_group"
+        },
+        {
+          "type": "arg",
+          "field": "update_ticket.priority",
+          "value": "2 normal"
+        },
+        {
+          "type": "arg",
+          "field": "reassign_ticket_owner.owner_email",
+          "value": "zoe.support@example.com"
+        },
+        {
+          "type": "numerical",
+          "field": "tickets.age_hours",
+          "value": 12
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "1 low"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "2 normal"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.risk_priority",
+          "value": "P2"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.group",
+          "value": "Support"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.title",
+          "value": "Customer portal broken link"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.customer_email",
+          "value": "rina.customer@example.com"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.owner_email",
+          "value": "zoe.support@example.com"
+        }
+      ]
+    },
+    "zammad_ops_support_feed_tolerant": {
+      "axis": "permissive",
+      "items": [
+        "I allow the support duplicate feed to update Zammad when tickets.age_hours delta is 72 or less and tickets.priority moves from 1 low to 2 normal.",
+        "Customer portal broken link may be reassigned to zoe.support@example.com when search_tickets returns a unique match for rina.customer@example.com.",
+        "I still want escalation before changing tickets.priority 3 high or tickets.risk_priority P2, but not for routine owner drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "search_tickets"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "reassign_ticket_owner"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_ticket_note"
+        },
+        {
+          "type": "arg",
+          "field": "update_ticket.priority",
+          "value": "2 normal"
+        },
+        {
+          "type": "arg",
+          "field": "reassign_ticket_owner.owner_email",
+          "value": "zoe.support@example.com"
+        },
+        {
+          "type": "numerical",
+          "field": "tickets.age_hours",
+          "value": 72
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "1 low"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "2 normal"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.risk_priority",
+          "value": "P2"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.group",
+          "value": "Support"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.title",
+          "value": "Customer portal broken link"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.customer_email",
+          "value": "rina.customer@example.com"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.owner_email",
+          "value": "zoe.support@example.com"
+        }
+      ]
+    }
+  }
+}

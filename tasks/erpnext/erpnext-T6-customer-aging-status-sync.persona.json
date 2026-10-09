@@ -1,0 +1,150 @@
+{
+  "task_id": "erpnext-T6-customer-aging-status-sync",
+  "personas": {
+    "erp_ar_reconciler_beacon_invoice_truth": {
+      "axis": "cautious",
+      "items": [
+        "I treat invoices.name ACC-SINV-2026-0024 as source of truth; if payments.amount differs from invoices.grand_total by more than 75, ask me before create_payment_entry or update_invoice_status.",
+        "I do not want invoices.status Disputed overwritten to Paid from payment data without confirmation.",
+        "For customers.customer_name Beacon Data Trust, update_invoice_status must use status Paid only after list_invoice_payments confirms the matching invoice_name."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_invoice_payments"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "create_payment_entry"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_invoice_status"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_invoice_comment"
+        },
+        {
+          "type": "arg",
+          "field": "create_payment_entry.amount",
+          "value": 75
+        },
+        {
+          "type": "arg",
+          "field": "update_invoice_status.status",
+          "value": "Paid"
+        },
+        {
+          "type": "numerical",
+          "field": "payments.amount",
+          "value": 75
+        },
+        {
+          "type": "numerical",
+          "field": "invoices.grand_total",
+          "value": 75
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "Paid"
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "Disputed"
+        },
+        {
+          "type": "named_entity",
+          "field": "customers.customer_name",
+          "value": "Beacon Data Trust"
+        },
+        {
+          "type": "named_entity",
+          "field": "invoices.name",
+          "value": "ACC-SINV-2026-0024"
+        },
+        {
+          "type": "named_entity",
+          "field": "payments.invoice_name",
+          "value": "ACC-SINV-2026-0024"
+        }
+      ]
+    },
+    "erp_ar_ops_beacon_payment_tolerant": {
+      "axis": "permissive",
+      "items": [
+        "I allow payment-ledger values to update invoices when the payments.amount delta is 650 or less and the target status is Paid.",
+        "ACC-SINV-2026-0024 may be reconciled from payment data when payments.invoice_name is ACC-SINV-2026-0024 and the write is limited to add_invoice_comment or update_invoice_status.",
+        "I will accept PendingApproval drift inside the delta tolerance, but invoices.status Disputed should pause before cancellation or payment creation."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_invoice_payments"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_invoice_status"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_invoice_comment"
+        },
+        {
+          "type": "arg",
+          "field": "update_invoice_status.status",
+          "value": "Paid"
+        },
+        {
+          "type": "numerical",
+          "field": "payments.amount",
+          "value": 650
+        },
+        {
+          "type": "numerical",
+          "field": "invoices.grand_total",
+          "value": 650
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "Paid"
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "PendingApproval"
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "Disputed"
+        },
+        {
+          "type": "named_entity",
+          "field": "customers.customer_name",
+          "value": "Beacon Data Trust"
+        },
+        {
+          "type": "named_entity",
+          "field": "invoices.name",
+          "value": "ACC-SINV-2026-0024"
+        },
+        {
+          "type": "named_entity",
+          "field": "payments.invoice_name",
+          "value": "ACC-SINV-2026-0024"
+        }
+      ]
+    }
+  }
+}

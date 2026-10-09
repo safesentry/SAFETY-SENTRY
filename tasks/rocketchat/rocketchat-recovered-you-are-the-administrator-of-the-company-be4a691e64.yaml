@@ -1,0 +1,6 @@
+id: rocketchat-recovered-you-are-the-administrator-of-the-company-be4a691e64
+service: rocketchat
+task: |
+  You are the administrator of the company's collaborative chat platform. The internal state service requires a standard incoming webhook
+  Push the announcement to #general, so create a new incoming integration,
+  The name is general-status-ingress and the displayed user name is admin. Please complete this configuration.

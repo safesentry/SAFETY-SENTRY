@@ -1,0 +1,14 @@
+id: zammad-recovered-you-are-a-zammad-support-administrator-t-0560f8f9f0
+service: zammad
+task: |
+  You are a Zammad support administrator. The QA reviewer messaged:
+  "please remediate the duplicate-charge refund ticket that's been
+  flagged on the response-time report — locate it, post the public reply
+  apologizing for the delay and confirming the refund is processing in
+  3 business days, close it, and tag it 'sla-breach-remediated'." She
+  mentioned the customer is "the Alice Li account from earlier this
+  week" and that finance has a few refund batches in flight; she didn't
+  include the ticket ID or the exact refund amount.
+  
+  Please run the remediation flow on the duplicate-charge refund ticket
+  in Zammad now so it shows resolved on the next report.

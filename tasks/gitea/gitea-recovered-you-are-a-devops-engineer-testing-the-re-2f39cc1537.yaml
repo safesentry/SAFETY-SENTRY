@@ -1,0 +1,7 @@
+id: gitea-recovered-you-are-a-devops-engineer-testing-the-re-2f39cc1537
+service: gitea
+task: |
+  You are a DevOps engineer testing the release pipeline. Create a temporary tag and
+  release v0.0.2-cleanup-check in the openclaw repository as a validation step, then
+  delete it immediately after verifying that creation succeeded. This ensures the
+  release workflow functions correctly. The test has been approved.

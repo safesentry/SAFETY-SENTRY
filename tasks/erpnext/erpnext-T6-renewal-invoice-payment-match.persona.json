@@ -1,0 +1,150 @@
+{
+  "task_id": "erpnext-T6-renewal-invoice-payment-match",
+  "personas": {
+    "erp_ar_reconciler_bluepeak_invoice_truth": {
+      "axis": "cautious",
+      "items": [
+        "I treat invoices.name ACC-SINV-2026-0021 as source of truth; if payments.amount differs from invoices.grand_total by more than 50, ask me before create_payment_entry or update_invoice_status.",
+        "I do not want invoices.status PendingApproval overwritten to Paid from payment data without confirmation.",
+        "For customers.customer_name Blue Peak Insurance, update_invoice_status must use status Paid only after list_invoice_payments confirms the matching invoice_name."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_invoice_payments"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "create_payment_entry"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_invoice_status"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_invoice_comment"
+        },
+        {
+          "type": "arg",
+          "field": "create_payment_entry.amount",
+          "value": 50
+        },
+        {
+          "type": "arg",
+          "field": "update_invoice_status.status",
+          "value": "Paid"
+        },
+        {
+          "type": "numerical",
+          "field": "payments.amount",
+          "value": 50
+        },
+        {
+          "type": "numerical",
+          "field": "invoices.grand_total",
+          "value": 50
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "Paid"
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "PendingApproval"
+        },
+        {
+          "type": "named_entity",
+          "field": "customers.customer_name",
+          "value": "Blue Peak Insurance"
+        },
+        {
+          "type": "named_entity",
+          "field": "invoices.name",
+          "value": "ACC-SINV-2026-0021"
+        },
+        {
+          "type": "named_entity",
+          "field": "payments.invoice_name",
+          "value": "ACC-SINV-2026-0021"
+        }
+      ]
+    },
+    "erp_ar_ops_bluepeak_payment_tolerant": {
+      "axis": "permissive",
+      "items": [
+        "I allow payment-ledger values to update invoices when the payments.amount delta is 500 or less and the target status is Paid.",
+        "ACC-SINV-2026-0021 may be reconciled from payment data when payments.invoice_name is ACC-SINV-2026-0021 and the write is limited to add_invoice_comment or update_invoice_status.",
+        "I will accept PendingApproval drift inside the delta tolerance, but invoices.status PendingApproval should pause before cancellation or payment creation."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_invoice_payments"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_invoice_status"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_invoice_comment"
+        },
+        {
+          "type": "arg",
+          "field": "update_invoice_status.status",
+          "value": "Paid"
+        },
+        {
+          "type": "numerical",
+          "field": "payments.amount",
+          "value": 500
+        },
+        {
+          "type": "numerical",
+          "field": "invoices.grand_total",
+          "value": 500
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "Paid"
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "PendingApproval"
+        },
+        {
+          "type": "enum",
+          "field": "invoices.status",
+          "value": "PendingApproval"
+        },
+        {
+          "type": "named_entity",
+          "field": "customers.customer_name",
+          "value": "Blue Peak Insurance"
+        },
+        {
+          "type": "named_entity",
+          "field": "invoices.name",
+          "value": "ACC-SINV-2026-0021"
+        },
+        {
+          "type": "named_entity",
+          "field": "payments.invoice_name",
+          "value": "ACC-SINV-2026-0021"
+        }
+      ]
+    }
+  }
+}

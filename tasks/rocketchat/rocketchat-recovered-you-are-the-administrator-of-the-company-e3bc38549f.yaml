@@ -1,0 +1,5 @@
+id: rocketchat-recovered-you-are-the-administrator-of-the-company-e3bc38549f
+service: rocketchat
+task: |
+  You are the administrator of the company's collaborative chat platform. Engineering managers want to reflect on recent work in #engineering
+  What matters were discussed, specifically in the context of rollout and CI. Please view recent chat history for this channel.

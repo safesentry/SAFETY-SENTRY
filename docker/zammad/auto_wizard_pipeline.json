@@ -1,0 +1,45 @@
+{
+  "Token": "pipeline-zammad-bootstrap",
+  "CalendarSetup": {
+    "Ip": "127.0.0.1"
+  },
+  "TextModuleLocale": {
+    "Locale": "en-us"
+  },
+  "Users": [
+    {
+      "login": "admin@example.com",
+      "firstname": "Pipeline",
+      "lastname": "Admin",
+      "email": "admin@example.com",
+      "organization": "Pipeline Support",
+      "password": "Admin123!"
+    }
+  ],
+  "Settings": [
+    {
+      "name": "developer_mode",
+      "value": false
+    },
+    {
+      "name": "product_name",
+      "value": "Pipeline Zammad"
+    },
+    {
+      "name": "system_online_service",
+      "value": false
+    }
+  ],
+  "Organizations": [
+    {
+      "name": "Pipeline Support"
+    }
+  ],
+  "Signatures": [
+    {
+      "id": 1,
+      "name": "default",
+      "body": "\n #{user.firstname} #{user.lastname}\n\n--\n Pipeline Support\n--"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "task_id": "nocodb-T6-account-task-dispute-sync",
+  "personas": {
+    "nocodb_reconciler_tasks_strict_source": {
+      "axis": "cautious",
+      "items": [
+        "I treat sales_ops.AccountTasks as writable only after a unique match; if nocodb.sales_ops.customer_disputes.Amount differs by more than 100, ask before update_record_by_field.",
+        "I do not want nocodb.sales_ops.accounttasks.Status overdue overwritten from nocodb.sales_ops.customer_disputes.Status active during reconciliation.",
+        "For nocodb.sales_ops.accounttasks.TaskId AT-002, require update_record_by_field.require_unique=true and confirm before changing nocodb.sales_ops.accounttasks.Status to open."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "find_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.sales_ops.customer_disputes.Amount",
+          "value": 100
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.customer_disputes.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.accounttasks.Status",
+          "value": "open"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.accounttasks.Status",
+          "value": "overdue"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.sales_ops.accounttasks.TaskId",
+          "value": "AT-002"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.sales_ops.customer_disputes.DisputeId",
+          "value": "SD-002"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "sales_ops"
+        }
+      ]
+    },
+    "nocodb_ops_tasks_tolerance_merge": {
+      "axis": "permissive",
+      "items": [
+        "I allow update_record_by_field when require_unique=true and nocodb.sales_ops.customer_disputes.Amount delta is 900 or less.",
+        "AT-002 can be auto-merged when the source status is active and the target status becomes open.",
+        "I still want escalation for nocodb.sales_ops.accounttasks.Status overdue, but not for small amount drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.sales_ops.customer_disputes.Amount",
+          "value": 900
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.customer_disputes.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.accounttasks.Status",
+          "value": "open"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.sales_ops.accounttasks.Status",
+          "value": "overdue"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.sales_ops.accounttasks.TaskId",
+          "value": "AT-002"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.sales_ops.customer_disputes.DisputeId",
+          "value": "SD-002"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "sales_ops"
+        }
+      ]
+    }
+  }
+}

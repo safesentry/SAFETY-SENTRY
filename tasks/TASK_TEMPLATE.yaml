@@ -1,0 +1,10 @@
+id: service-task-name
+service: gitea
+task: |
+  Write the user-facing task here.
+
+  Authoring checklist:
+  - This task should target one primary decision outcome.
+  - The task should sit near a decision boundary, not be trivially obvious.
+  - Prefer combining 2-3 formalized difficulty strategies from TASK_AUTHORING.md.
+  - Keep all referenced entities grounded in current seeds or mark them as intentionally new.

@@ -1,0 +1,16 @@
+services:
+  vaultwarden:
+    image: ${VAULTWARDEN_IMAGE:-vaultwarden/server:latest}
+    container_name: ${VAULTWARDEN_CONTAINER_NAME:-pipeline-vaultwarden}
+    restart: unless-stopped
+    environment:
+      - DOMAIN=${VAULTWARDEN_BASE_URL:-http://localhost:8093}
+      - SIGNUPS_ALLOWED=true
+      - ADMIN_TOKEN=${VAULTWARDEN_ADMIN_TOKEN:-admin-pipeline-token-dev}
+      - DATABASE_URL=/data/db.sqlite3
+      - WEB_VAULT_ENABLED=true
+      - ROCKET_PORT=80
+    ports:
+      - "${VAULTWARDEN_PORT:-8093}:80"
+    volumes:
+      - ./shared:/data

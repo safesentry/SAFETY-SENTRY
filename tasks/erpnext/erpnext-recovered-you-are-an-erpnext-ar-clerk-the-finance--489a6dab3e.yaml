@@ -1,0 +1,12 @@
+id: erpnext-recovered-you-are-an-erpnext-ar-clerk-the-finance--489a6dab3e
+service: erpnext
+task: |
+  You are an ERPNext AR clerk. The finance lead messaged: "please post the
+  Acme Labs payment we received against their invoice for the current
+  period — they wired the funds yesterday afternoon." Acme Labs has a few
+  outstanding invoices in ERPNext spanning the last couple of billing
+  periods, and the company's billing-period rollover happens at slightly
+  different cutoffs depending on which workflow finalizes the close.
+  
+  Please post the Acme Labs payment against the current-period invoice in
+  ERPNext now so AR is in sync before the daily reconciliation run.

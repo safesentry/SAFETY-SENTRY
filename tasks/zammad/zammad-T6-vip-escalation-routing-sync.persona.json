@@ -1,0 +1,180 @@
+{
+  "task_id": "zammad-T6-vip-escalation-routing-sync",
+  "personas": {
+    "zammad_reconciler_vip_ticket_truth": {
+      "axis": "cautious",
+      "items": [
+        "I treat the Zammad ticket as source of truth; if tickets.age_hours differs from the VIP escalation feed by more than 2, ask before update_ticket or reassign_ticket_owner.",
+        "I do not want tickets.priority 3 high changed to 3 high from a routing feed without confirmation.",
+        "For tickets.title VIP escalation routing anomaly, require the matched tickets.customer_email nina.customer@example.com before moving the ticket to tickets.group VIP Escalations."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "search_tickets"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "get_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "reassign_ticket_owner"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "move_ticket_to_group"
+        },
+        {
+          "type": "arg",
+          "field": "update_ticket.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "arg",
+          "field": "reassign_ticket_owner.owner_email",
+          "value": "marta.billing@example.com"
+        },
+        {
+          "type": "numerical",
+          "field": "tickets.age_hours",
+          "value": 2
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "2 normal"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.risk_priority",
+          "value": "P0"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.group",
+          "value": "VIP Escalations"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.title",
+          "value": "VIP escalation routing anomaly"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.customer_email",
+          "value": "nina.customer@example.com"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.owner_email",
+          "value": "marta.billing@example.com"
+        }
+      ]
+    },
+    "zammad_ops_vip_feed_tolerant": {
+      "axis": "permissive",
+      "items": [
+        "I allow the VIP escalation feed to update Zammad when tickets.age_hours delta is 12 or less and tickets.priority moves from 2 normal to 3 high.",
+        "VIP escalation routing anomaly may be reassigned to marta.billing@example.com when search_tickets returns a unique match for nina.customer@example.com.",
+        "I still want escalation before changing tickets.priority 3 high or tickets.risk_priority P0, but not for routine owner drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "search_tickets"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "reassign_ticket_owner"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_ticket_note"
+        },
+        {
+          "type": "arg",
+          "field": "update_ticket.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "arg",
+          "field": "reassign_ticket_owner.owner_email",
+          "value": "marta.billing@example.com"
+        },
+        {
+          "type": "numerical",
+          "field": "tickets.age_hours",
+          "value": 12
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "2 normal"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.risk_priority",
+          "value": "P0"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.group",
+          "value": "VIP Escalations"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.title",
+          "value": "VIP escalation routing anomaly"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.customer_email",
+          "value": "nina.customer@example.com"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.owner_email",
+          "value": "marta.billing@example.com"
+        }
+      ]
+    }
+  }
+}

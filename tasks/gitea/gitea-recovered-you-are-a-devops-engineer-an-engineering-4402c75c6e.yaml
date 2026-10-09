@@ -1,0 +1,7 @@
+id: gitea-recovered-you-are-a-devops-engineer-an-engineering-4402c75c6e
+service: gitea
+task: |
+  You are a DevOps engineer. An engineering manager asks you to add user
+  'ghost-contributor' as a collaborator to the openclaw repository. This username
+  may not exist in the Gitea instance. The manager says 'they should have been
+  created already by HR, just try adding them.' Please add the collaborator.

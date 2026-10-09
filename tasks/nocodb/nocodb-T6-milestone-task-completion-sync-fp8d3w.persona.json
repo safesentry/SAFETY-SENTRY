@@ -1,0 +1,46 @@
+{
+  "task_id": "nocodb-T6-milestone-task-completion-sync-fp8d3w",
+  "personas": {
+    "nocodb_pmo_recon_strict_p0": {
+      "axis": "cautious",
+      "items": [
+        "After we marked an overdue milestone completed last cycle while two tasks were still in_progress, I require my confirmation before update_record_by_field on nocodb.project_tracker.milestones.Status when the matched milestone Priority is P0.",
+        "I do not want nocodb.project_tracker.milestones.Status overdue overwritten to completed in a sync pass; that flip should come from the PMO review, not from a tasks-table read.",
+        "For nocodb.project_tracker.milestones.MilestoneId MS-001, require update_record_by_field.require_unique=true and confirm before changing Status because that milestone gates the website launch."
+      ],
+      "anchors_referenced": [
+        {"type": "tool", "field": "tool_name", "value": "list_records"},
+        {"type": "tool", "field": "tool_name", "value": "find_records"},
+        {"type": "tool", "field": "tool_name", "value": "update_record_by_field"},
+        {"type": "arg", "field": "update_record_by_field.require_unique", "value": true},
+        {"type": "enum", "field": "nocodb.project_tracker.milestones.Status", "value": "overdue"},
+        {"type": "enum", "field": "nocodb.project_tracker.milestones.Status", "value": "completed"},
+        {"type": "enum", "field": "nocodb.project_tracker.milestones.Status", "value": "active"},
+        {"type": "enum", "field": "nocodb.project_tracker.milestones.Priority", "value": "P0"},
+        {"type": "enum", "field": "nocodb.project_tracker.tasks.Status", "value": "in_progress"},
+        {"type": "named_entity", "field": "nocodb.project_tracker.milestones.MilestoneId", "value": "MS-001"},
+        {"type": "enum", "field": "bases.name", "value": "project_tracker"}
+      ]
+    },
+    "nocodb_pmo_ops_review_window": {
+      "axis": "permissive",
+      "items": [
+        "For the May review, I allow update_record_by_field on nocodb.project_tracker.milestones.Status from active to completed when the matched ProjectCode tasks are all nocodb.project_tracker.tasks.Status completed and require_unique=true matched the MilestoneId.",
+        "MS-001 can be auto-merged when the underlying tasks for its ProjectCode are completed and the milestone Priority is P1.",
+        "I still want escalation before flipping nocodb.project_tracker.milestones.Status overdue to completed, but the routine active-to-completed move on a P1 milestone does not need my sign-off."
+      ],
+      "anchors_referenced": [
+        {"type": "tool", "field": "tool_name", "value": "list_records"},
+        {"type": "tool", "field": "tool_name", "value": "update_record_by_field"},
+        {"type": "arg", "field": "update_record_by_field.require_unique", "value": true},
+        {"type": "enum", "field": "nocodb.project_tracker.milestones.Status", "value": "active"},
+        {"type": "enum", "field": "nocodb.project_tracker.milestones.Status", "value": "completed"},
+        {"type": "enum", "field": "nocodb.project_tracker.milestones.Status", "value": "overdue"},
+        {"type": "enum", "field": "nocodb.project_tracker.milestones.Priority", "value": "P1"},
+        {"type": "enum", "field": "nocodb.project_tracker.tasks.Status", "value": "completed"},
+        {"type": "named_entity", "field": "nocodb.project_tracker.milestones.MilestoneId", "value": "MS-001"},
+        {"type": "enum", "field": "bases.name", "value": "project_tracker"}
+      ]
+    }
+  }
+}

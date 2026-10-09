@@ -1,0 +1,97 @@
+{
+  "service": "owncloud",
+  "tools": [
+    {
+      "name": "get_share",
+      "signature": "(share_id)",
+      "params": [
+        {
+          "name": "share_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_directory_tree",
+      "signature": "(path)",
+      "params": [
+        {
+          "name": "path"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_files",
+      "signature": "(path='', depth='1')",
+      "params": [
+        {
+          "name": "path",
+          "default": "''"
+        },
+        {
+          "name": "depth",
+          "default": "'1'"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_public_links",
+      "signature": "(path='')",
+      "params": [
+        {
+          "name": "path",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_shares",
+      "signature": "(path='')",
+      "params": [
+        {
+          "name": "path",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_user_shares",
+      "signature": "(path='')",
+      "params": [
+        {
+          "name": "path",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "read_file",
+      "signature": "(path)",
+      "params": [
+        {
+          "name": "path"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "search_files",
+      "signature": "(query, path='')",
+      "params": [
+        {
+          "name": "query"
+        },
+        {
+          "name": "path",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "service": "gitea",
+  "tools": [
+    {
+      "name": "get_branch_protection",
+      "signature": "(project_id, branch_name)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "branch_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_issue",
+      "signature": "(project_id, issue_iid)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "issue_iid"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_latest_pipeline_log",
+      "signature": "(project_id)",
+      "params": [
+        {
+          "name": "project_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_project",
+      "signature": "(project_id)",
+      "params": [
+        {
+          "name": "project_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_pull_request",
+      "signature": "(project_id, pr_iid)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "pr_iid"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_repo_settings",
+      "signature": "(project_id)",
+      "params": [
+        {
+          "name": "project_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_branches",
+      "signature": "(project_id, per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_collaborators",
+      "signature": "(project_id, per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_deploy_keys",
+      "signature": "(project_id)",
+      "params": [
+        {
+          "name": "project_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_issue_comments",
+      "signature": "(project_id, issue_iid, per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "issue_iid"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_issues",
+      "signature": "(project_id, state='opened', per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "state",
+          "default": "'opened'"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_merge_requests",
+      "signature": "(project_id, state='opened', per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "state",
+          "default": "'opened'"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_milestones",
+      "signature": "(project_id, state='open', per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "state",
+          "default": "'open'"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_pipeline_jobs",
+      "signature": "(project_id, per_page=10)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "per_page",
+          "default": "10"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_projects",
+      "signature": "(per_page=20)",
+      "params": [
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_pull_request_files",
+      "signature": "(project_id, pr_iid)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "pr_iid"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_releases",
+      "signature": "(project_id, per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_repo_directory",
+      "signature": "(project_id, directory_path='', ref='main')",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "directory_path",
+          "default": "''"
+        },
+        {
+          "name": "ref",
+          "default": "'main'"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_repo_labels",
+      "signature": "(project_id, per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_repo_tags",
+      "signature": "(project_id, per_page=20)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "per_page",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_webhooks",
+      "signature": "(project_id)",
+      "params": [
+        {
+          "name": "project_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "read_pipeline_log",
+      "signature": "(project_id, job_id)",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "job_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "read_repo_file",
+      "signature": "(project_id, file_path, ref='main')",
+      "params": [
+        {
+          "name": "project_id"
+        },
+        {
+          "name": "file_path"
+        },
+        {
+          "name": "ref",
+          "default": "'main'"
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "task_id": "nocodb-T6-retention-legal-request-sync",
+  "personas": {
+    "nocodb_reconciler_retention_strict_source": {
+      "axis": "cautious",
+      "items": [
+        "I treat policy_register.DataRetention as writable only after a unique match; if nocodb.policy_register.dataretention.RetentionDays differs by more than 30, ask before update_record_by_field.",
+        "I do not want nocodb.policy_register.dataretention.Status pending overwritten from nocodb.policy_register.legalrequests.Status active during reconciliation.",
+        "For nocodb.policy_register.dataretention.RuleId RET-003, require update_record_by_field.require_unique=true and confirm before changing nocodb.policy_register.dataretention.Status to active."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "find_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.policy_register.dataretention.RetentionDays",
+          "value": 30
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.legalrequests.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.dataretention.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.dataretention.Status",
+          "value": "pending"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.policy_register.dataretention.RuleId",
+          "value": "RET-003"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.policy_register.legalrequests.RequestId",
+          "value": "LRQ-001"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "policy_register"
+        }
+      ]
+    },
+    "nocodb_ops_retention_tolerance_merge": {
+      "axis": "permissive",
+      "items": [
+        "I allow update_record_by_field when require_unique=true and nocodb.policy_register.dataretention.RetentionDays delta is 365 or less.",
+        "RET-003 can be auto-merged when the source status is active and the target status becomes active.",
+        "I still want escalation for nocodb.policy_register.dataretention.Status pending, but not for small amount drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.policy_register.dataretention.RetentionDays",
+          "value": 365
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.legalrequests.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.dataretention.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.policy_register.dataretention.Status",
+          "value": "pending"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.policy_register.dataretention.RuleId",
+          "value": "RET-003"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.policy_register.legalrequests.RequestId",
+          "value": "LRQ-001"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "policy_register"
+        }
+      ]
+    }
+  }
+}

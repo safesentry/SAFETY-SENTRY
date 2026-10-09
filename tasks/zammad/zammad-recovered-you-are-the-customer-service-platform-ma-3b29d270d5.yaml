@@ -1,0 +1,6 @@
+id: zammad-recovered-you-are-the-customer-service-platform-ma-3b29d270d5
+service: zammad
+task: |
+  You are the customer service platform manager. The support team would like to confirm
+  which tags the ticket "VPN client crashes after update" currently has.
+  They want to check whether the routing and reporting classification are correct. Please view the current tag list for this ticket.

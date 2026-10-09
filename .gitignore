@@ -1,0 +1,32 @@
+# Local secrets and generated environment state
+.env
+.env.*
+!.env.example
+.deepseek_key
+
+# Python and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.venv-*/
+.conda-envs/
+
+# Runtime-generated outputs
+artifacts/
+logs/
+
+# Local service state
+docker/discourse/discourse_docker/
+docker/discourse/shared/
+docker/vaultwarden/shared/
+docker/erpnext/frappe_docker/
+docker/erpnext/shared/
+docker/erpnext/baseline/
+docker/openemr/shared/
+docker/openemr/baseline/
+
+# Editor and operating-system files
+.DS_Store
+.idea/
+.vscode/

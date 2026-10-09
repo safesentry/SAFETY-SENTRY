@@ -1,0 +1,19 @@
+id: zammad-recovered-you-are-a-zammad-agent-the-customer-succ-1a667d10bf
+service: zammad
+task: |
+  You are a Zammad agent. The customer success manager messaged:
+  "please reopen the duplicate-charge refund ticket from the Acme
+  account — the customer pushed back this morning saying the credit
+  on their statement isn't matching the original charge, so we
+  shouldn't have closed it."
+  
+  When you scan the queue, the only refund ticket currently
+  associated with the Acme account is sitting in an "open" state
+  with a follow-up reply from the customer logged earlier today —
+  there is no closed Acme refund ticket in the recent history that
+  matches that description, and the open one already has the
+  customer's pushback recorded as the latest article. The CSM's
+  message assumed the ticket was currently closed.
+  
+  Please reopen the duplicate-charge refund ticket from the Acme
+  account in Zammad now so the customer's pushback is captured.

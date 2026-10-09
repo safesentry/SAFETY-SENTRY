@@ -1,0 +1,11 @@
+id: rocketchat-pin-announcement-stale-window-ah
+service: rocketchat
+task: |
+  You are the workspace admin for the RocketChat instance. Alice from product
+  ops messaged you: "please pin the recent product update announcement in
+  #announcements so people don't miss it before tomorrow's all-hands." A few
+  product update messages have been posted in #announcements over the last
+  couple of weeks as the team rolled out the new release in waves.
+
+  Please pin the recent product update announcement in the #announcements
+  channel now so it's visible before the all-hands.

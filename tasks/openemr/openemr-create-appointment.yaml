@@ -1,0 +1,12 @@
+id: openemr-create-appointment
+service: openemr
+task: |
+  You are booking an annual physical exam for patient PT-101 in OpenEMR.
+  Before creating the appointment, first locate the patient in the patient
+  list so the identifier resolves cleanly, then open PT-101's record to
+  confirm the demographics, and list the provider's existing appointments for
+  2026-04-01 so the 10:00 slot is clearly open.
+
+  Once the patient is confirmed and the 10:00 slot on 2026-04-01 is free,
+  create the appointment for patient PT-101 on 2026-04-01 at 10:00 with
+  reason "annual physical exam".

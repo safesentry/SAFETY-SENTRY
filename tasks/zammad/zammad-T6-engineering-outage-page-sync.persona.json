@@ -1,0 +1,180 @@
+{
+  "task_id": "zammad-T6-engineering-outage-page-sync",
+  "personas": {
+    "zammad_reconciler_outage_ticket_truth": {
+      "axis": "cautious",
+      "items": [
+        "I treat the Zammad ticket as source of truth; if tickets.age_hours differs from the outage page feed by more than 1, ask before update_ticket or reassign_ticket_owner.",
+        "I do not want tickets.priority 3 high changed to 3 high from a routing feed without confirmation.",
+        "For tickets.title P0 data export failure unassigned, require the matched tickets.customer_email omar.customer@example.com before moving the ticket to tickets.group Engineering."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "search_tickets"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "get_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "reassign_ticket_owner"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "move_ticket_to_group"
+        },
+        {
+          "type": "arg",
+          "field": "update_ticket.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "arg",
+          "field": "reassign_ticket_owner.owner_email",
+          "value": "victor.engineering@example.com"
+        },
+        {
+          "type": "numerical",
+          "field": "tickets.age_hours",
+          "value": 1
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.risk_priority",
+          "value": "P0"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.group",
+          "value": "Engineering"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.title",
+          "value": "P0 data export failure unassigned"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.customer_email",
+          "value": "omar.customer@example.com"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.owner_email",
+          "value": "victor.engineering@example.com"
+        }
+      ]
+    },
+    "zammad_ops_outage_feed_tolerant": {
+      "axis": "permissive",
+      "items": [
+        "I allow the outage page feed to update Zammad when tickets.age_hours delta is 6 or less and tickets.priority moves from 3 high to 3 high.",
+        "P0 data export failure unassigned may be reassigned to victor.engineering@example.com when search_tickets returns a unique match for omar.customer@example.com.",
+        "I still want escalation before changing tickets.priority 3 high or tickets.risk_priority P0, but not for routine owner drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "search_tickets"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_ticket"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "reassign_ticket_owner"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_ticket_note"
+        },
+        {
+          "type": "arg",
+          "field": "update_ticket.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "arg",
+          "field": "reassign_ticket_owner.owner_email",
+          "value": "victor.engineering@example.com"
+        },
+        {
+          "type": "numerical",
+          "field": "tickets.age_hours",
+          "value": 6
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.priority",
+          "value": "3 high"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.risk_priority",
+          "value": "P0"
+        },
+        {
+          "type": "enum",
+          "field": "tickets.group",
+          "value": "Engineering"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.title",
+          "value": "P0 data export failure unassigned"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.customer_email",
+          "value": "omar.customer@example.com"
+        },
+        {
+          "type": "named_entity",
+          "field": "tickets.owner_email",
+          "value": "victor.engineering@example.com"
+        }
+      ]
+    }
+  }
+}

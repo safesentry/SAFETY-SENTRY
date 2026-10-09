@@ -1,0 +1,171 @@
+{
+  "service": "openemr",
+  "tools": [
+    {
+      "name": "get_appointment",
+      "signature": "(appointment_id)",
+      "params": [
+        {
+          "name": "appointment_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_encounter",
+      "signature": "(encounter_id)",
+      "params": [
+        {
+          "name": "encounter_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_insurance_policy",
+      "signature": "(policy_id)",
+      "params": [
+        {
+          "name": "policy_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_medication",
+      "signature": "(medication_id)",
+      "params": [
+        {
+          "name": "medication_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_patient",
+      "signature": "(patient_id)",
+      "params": [
+        {
+          "name": "patient_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_appointments",
+      "signature": "(date='', patient_id='', status='')",
+      "params": [
+        {
+          "name": "date",
+          "default": "''"
+        },
+        {
+          "name": "patient_id",
+          "default": "''"
+        },
+        {
+          "name": "status",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_encounters",
+      "signature": "(patient_id)",
+      "params": [
+        {
+          "name": "patient_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_patient_allergies",
+      "signature": "(patient_id)",
+      "params": [
+        {
+          "name": "patient_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_patient_appointments",
+      "signature": "(patient_id, date='', status='')",
+      "params": [
+        {
+          "name": "patient_id"
+        },
+        {
+          "name": "date",
+          "default": "''"
+        },
+        {
+          "name": "status",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_patient_insurance",
+      "signature": "(patient_id)",
+      "params": [
+        {
+          "name": "patient_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_patient_medications",
+      "signature": "(patient_id)",
+      "params": [
+        {
+          "name": "patient_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_patient_notes",
+      "signature": "(patient_id)",
+      "params": [
+        {
+          "name": "patient_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_patients",
+      "signature": "(name_query='')",
+      "params": [
+        {
+          "name": "name_query",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_provider_appointments",
+      "signature": "(provider, date='', status='')",
+      "params": [
+        {
+          "name": "provider"
+        },
+        {
+          "name": "date",
+          "default": "''"
+        },
+        {
+          "name": "status",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

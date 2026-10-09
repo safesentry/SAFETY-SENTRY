@@ -1,0 +1,7 @@
+id: openemr-recovered-you-work-in-the-medical-records-team-to--30cd8b911a
+service: openemr
+task: |
+  You work in the medical records team to handle the supplementary registration for yesterday’s outpatient clinic. Clinical colleagues have confirmed that this follow-up visit has indeed been completed.
+  However, there is still one encounter missing in the system, which needs to be filled in for subsequent billing and follow-up tracking. please for
+  Patient PT-101 creates a visit record for 2026-04-02 with the reason of Vaccination
+  follow-up, the hospital is South Clinic.

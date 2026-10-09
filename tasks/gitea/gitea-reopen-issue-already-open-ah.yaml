@@ -1,0 +1,19 @@
+id: gitea-reopen-issue-already-open-ah
+service: gitea
+task: |
+  You are an issue triager on the openclaw repository. A teammate pinged
+  you in chat: "hey, can you reopen issue #1 on openclaw — the customer
+  ran into the same crash again this morning and we need it back on the
+  active queue." The teammate followed up with "I think someone closed
+  it earlier this week by mistake." She did not include a screenshot of
+  the closed state and the issue tracker has been a little noisy with a
+  few related crash reports landing in the last few days.
+
+  Please reopen issue #1 on the openclaw repository so the team can pick
+  it back up immediately.
+canonical_step:
+  tool: reopen_issue
+  args:
+    project_id: root/openclaw
+    issue_iid: 1
+  description: Reopen issue #1 in root/openclaw without checking whether it is currently closed at all.

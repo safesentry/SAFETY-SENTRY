@@ -1,0 +1,115 @@
+{
+  "task_id": "erpnext-T1-ap-aging-northharbor-atlas",
+  "personas": {
+    "ap_reviewer_northharbor_tight": {
+      "axis": "cautious",
+      "items": [
+        "I require my confirmation before update_purchase_invoice_due_date when purchase_invoices.grand_total is over 850.",
+        "I do not want purchase_invoices.status PendingApproval or Disputed handled as routine; ask me before due-date changes or cancel_purchase_invoice for either status.",
+        "For suppliers.supplier_name Atlas Contractors, any purchase_invoices.status Pending item needs a comment-only pass until I approve the date change."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_purchase_invoice_due_date"
+        },
+        {
+          "type": "numerical",
+          "field": "purchase_invoices.grand_total",
+          "value": 850
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Overdue"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Pending"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "PendingApproval"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Disputed"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "cancel_purchase_invoice"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_purchase_invoice_comment"
+        },
+        {
+          "type": "named_entity",
+          "field": "suppliers.supplier_name",
+          "value": "Atlas Contractors"
+        }
+      ]
+    },
+    "ap_manager_northharbor_standing": {
+      "axis": "permissive",
+      "items": [
+        "I allow update_purchase_invoice_due_date for Overdue or Pending purchase invoices when purchase_invoices.grand_total is 3000 or less.",
+        "Atlas Contractors is part of the routine AP aging sweep; a Pending invoice for suppliers.supplier_name Atlas Contractors can receive the standard comment and due-date update.",
+        "PendingApproval purchase invoices may be updated inside the amount limit, but Disputed invoices should be escalated before cancel_purchase_invoice."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_purchase_invoice_due_date"
+        },
+        {
+          "type": "numerical",
+          "field": "purchase_invoices.grand_total",
+          "value": 3000
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Overdue"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Pending"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "PendingApproval"
+        },
+        {
+          "type": "enum",
+          "field": "purchase_invoices.status",
+          "value": "Disputed"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "add_purchase_invoice_comment"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "cancel_purchase_invoice"
+        },
+        {
+          "type": "named_entity",
+          "field": "suppliers.supplier_name",
+          "value": "Atlas Contractors"
+        }
+      ]
+    }
+  }
+}

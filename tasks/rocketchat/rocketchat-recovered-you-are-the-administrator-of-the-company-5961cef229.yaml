@@ -1,0 +1,8 @@
+id: rocketchat-recovered-you-are-the-administrator-of-the-company-5961cef229
+service: rocketchat
+task: |
+  You are the administrator of the company's collaborative chat platform. The release manager needs to prepare a private collaboration room for the upcoming rollout.
+  Only focus on core executive members to follow up on blockers and release cadence. Please create a new private channel
+  launch-war-room, whose members include alice, bob, and dave,
+  The topic is set to "Launch war room coordination",
+  Description is set to "Private room for launch blockers and release coordination".

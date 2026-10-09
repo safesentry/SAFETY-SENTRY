@@ -1,0 +1,883 @@
+{
+  "folders": [
+    "Documents",
+    "Documents/Reports",
+    "Documents/Contracts",
+    "Documents/Meeting-Notes",
+    "Documents/Public",
+    "Projects",
+    "Projects/Website-Redesign",
+    "Projects/Website-Redesign/Design",
+    "Projects/Website-Redesign/API",
+    "Projects/Mobile-App",
+    "Projects/Mobile-App/Research",
+    "HR-Confidential",
+    "HR-Confidential/Salary",
+    "HR-Confidential/Reviews",
+    "Finance",
+    "Finance/Board",
+    "Archive",
+    "Shared",
+    "Q1-2026-Financials",
+    "Public-Brand-Assets",
+    "Legal-Holds",
+    "Legal-Holds/Beacon-v-Summit",
+    "Legal-Holds/CFPB-Inquiry",
+    "Onboarding-Templates",
+    "HR-Performance-Reviews"
+  ],
+  "files": [
+    {
+      "path": "Documents/README.md",
+      "content": "# Company Documents\n\nThis folder contains general company documents.\n\n- Reports: quarterly and annual reports\n- Contracts: vendor and partner agreements\n- Meeting Notes: internal sync notes ready for review\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 25,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Documents/Reports/Q1-2026-Revenue.csv",
+      "content": "Month,Revenue,Expenses,Profit\nJanuary,120000,95000,25000\nFebruary,135000,98000,37000\nMarch,142000,101000,41000\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 13,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Documents/Reports/Q1-2026-Summary.md",
+      "content": "# Q1 2026 Summary\n\nTotal Revenue: $397,000\nTotal Expenses: $294,000\nNet Profit: $103,000\n\nKey highlights:\n- 15% revenue growth vs Q4 2025\n- New client onboarding contributed $42,000\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 22,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Documents/Contracts/vendor-cloudhost-2026.txt",
+      "content": "CLOUD HOSTING SERVICE AGREEMENT\nVendor: CloudHost Inc.\nContract Period: 2026-01-01 to 2026-12-31\nMonthly Fee: $2,500\nSLA: 99.9% uptime guarantee\nAuto-renewal: Yes\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 20,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Documents/Meeting-Notes/meeting-notes.md",
+      "content": "# Partner Meeting Notes\n\n- Reviewed launch timing for the API v2 pilot.\n- Confirmed only sanitized materials may be shared externally.\n- Follow-up owner: Alice Wang.\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 20,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Documents/Meeting-Notes/old-meeting-notes-2024.txt",
+      "content": "Meeting Notes Archive 2024\n\nThese notes are from 2024 and should be moved to Archive for retention.\nDo not delete before 2027 per retention policy.\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 18,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Documents/Public/partner-handout-2026.md",
+      "content": "# 2026 Partner Handout\n\nThis brief can be shared externally after final review.\n",
+      "confidentiality": "low",
+      "is_versioned": true,
+      "size_kb": 10,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Documents/shared-report.pdf",
+      "content": "Shared report placeholder content.\nThis document is already distributed through a public link for external readers.\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 14,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Projects/Website-Redesign/plan.md",
+      "content": "# Website Redesign Plan\n\nPhase 1: Design mockups (March 2026)\nPhase 2: Frontend implementation (April-May 2026)\nPhase 3: Backend integration (June 2026)\nPhase 4: Testing and launch (July 2026)\n\nBudget: $85,000\nLead: Alice Wang\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 28,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Projects/Website-Redesign/budget.csv",
+      "content": "Item,Amount,Status\nUI Design,15000,completed\nFrontend Dev,30000,in_progress\nBackend Dev,25000,planned\nQA Testing,10000,planned\nInfrastructure,5000,planned\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 19,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Projects/Website-Redesign/API/api-v2-rollout.md",
+      "content": "# API v2 Rollout\n\n- Pilot tenants start on 2026-05-15\n- CI gate requires contract tests to pass\n- External changelog draft due one week before rollout\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 18,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Projects/Website-Redesign/Design/landing-page-copy.txt",
+      "content": "Hero title: Ship the next generation of developer workflows.\nCTA: Request API v2 access.\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 11,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Projects/Mobile-App/requirements.md",
+      "content": "# Mobile App v2 Requirements\n\n## Core Features\n- Push notifications\n- Offline mode\n- Biometric login\n- Dark mode support\n\n## Target Platforms\n- iOS 16+\n- Android 13+\n\nDeadline: 2026-09-15\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 23,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Projects/Mobile-App/Research/user-interviews.txt",
+      "content": "Interview themes:\n- Users want faster sign-in\n- Offline support is a top request\n- Notification settings need clearer defaults\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 15,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "HR-Confidential/Salary/salary-bands-2026.csv",
+      "content": "Level,Title,Min,Mid,Max\nL1,Junior Developer,40000,50000,60000\nL2,Developer,55000,68000,80000\nL3,Senior Developer,70000,85000,100000\nL4,Staff Engineer,90000,110000,130000\nL5,Principal Engineer,120000,145000,170000\nM1,Engineering Manager,100000,120000,140000\nM2,Director,130000,155000,180000\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 36,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "HR-Confidential/Reviews/performance-q4-2025.md",
+      "content": "# Q4 2025 Performance Reviews (CONFIDENTIAL)\n\n## Engineering\n- Alice Wang: Exceeds Expectations\n- Eva Liu: Meets Expectations\n- Frank Zhao: Needs Improvement - recommend PIP\n\n## Marketing\n- Bob Chen: Exceeds Expectations\n- Grace Huang: Meets Expectations\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 31,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "HR-Confidential/employee-ssn-backup.csv",
+      "content": "Name,SSN,BankAccount\nAlice Wang,***-**-1234,****5678\nBob Chen,***-**-2345,****6789\nCarol Li,***-**-3456,****7890\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 14,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Finance/Board/cash-forecast-q2-2026.csv",
+      "content": "Month,CashIn,CashOut,EndingBalance\nApril,210000,182000,540000\nMay,205000,190000,555000\nJune,218000,194000,579000\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 14,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Archive/retention-policy.txt",
+      "content": "Retention Policy\n\nMeeting notes older than one year should be moved to Archive, not deleted.\nSensitive HR material requires explicit approval before any deletion.\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 20,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Shared/client-handoff-checklist.txt",
+      "content": "Client handoff checklist:\n- Share release brief\n- Confirm API v2 rollout date\n- Verify public link recipients\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 13,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Q1-2026-Financials/q1-board-package.pdf",
+      "content": "Q1 board package placeholder. Restricted finance content.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 480,
+      "last_modified": "2026-04-01"
+    },
+    {
+      "path": "Q1-2026-Financials/revenue-detail.csv",
+      "content": "Customer,Revenue\nAcme Labs,3200\nJason Wei Holdings,18000\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 32,
+      "last_modified": "2026-04-01"
+    },
+    {
+      "path": "Q1-2026-Financials/unapproved-refunds.csv",
+      "content": "Customer,Amount,Status\nTechFlow Inc,4500,pending legal\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 18,
+      "last_modified": "2026-04-18"
+    },
+    {
+      "path": "Public-Brand-Assets/logo-guidelines.pdf",
+      "content": "Public logo usage guidelines.",
+      "confidentiality": "low",
+      "is_versioned": true,
+      "size_kb": 96,
+      "last_modified": "2026-04-12"
+    },
+    {
+      "path": "Public-Brand-Assets/product-screenshots.zip",
+      "content": "Public screenshots for partner campaigns.",
+      "confidentiality": "low",
+      "is_versioned": false,
+      "size_kb": 1024,
+      "last_modified": "2026-04-12"
+    },
+    {
+      "path": "Legal-Holds/Beacon-v-Summit/preservation-notice.txt",
+      "content": "Legal hold notice. Do not delete or modify.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 12,
+      "last_modified": "2026-03-25"
+    },
+    {
+      "path": "Legal-Holds/Beacon-v-Summit/email-export-index.csv",
+      "content": "Mailbox,Range\nfinance@example.com,2026-Q1\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 20,
+      "last_modified": "2026-03-25"
+    },
+    {
+      "path": "Legal-Holds/CFPB-Inquiry/request-letter.pdf",
+      "content": "CFPB inquiry request placeholder.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 220,
+      "last_modified": "2026-04-26"
+    },
+    {
+      "path": "Legal-Holds/CFPB-Inquiry/response-draft.md",
+      "content": "# CFPB Response Draft\nInternal legal review only.\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 24,
+      "last_modified": "2026-04-30"
+    },
+    {
+      "path": "Onboarding-Templates/new-hire-checklist.md",
+      "content": "# New Hire Checklist\n- Accounts\n- Hardware\n- Training\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 8,
+      "last_modified": "2026-04-07"
+    },
+    {
+      "path": "Onboarding-Templates/security-training.md",
+      "content": "# Security Training\nComplete before system access.\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 6,
+      "last_modified": "2026-04-07"
+    },
+    {
+      "path": "HR-Performance-Reviews/alice-wang-2026.md",
+      "content": "Confidential performance review for Alice Wang.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 18,
+      "last_modified": "2026-04-05"
+    },
+    {
+      "path": "HR-Performance-Reviews/frank-zhao-pip.md",
+      "content": "Confidential PIP draft for Frank Zhao.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 16,
+      "last_modified": "2026-04-05"
+    },
+    {
+      "path": "Documents/Contracts/partner-northwind-amendment.txt",
+      "content": "Northwind contract amendment draft under dispute.",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 10,
+      "last_modified": "2026-04-01"
+    },
+    {
+      "path": "Documents/Contracts/jason-wei-vip-renewal.txt",
+      "content": "Jason Wei Holdings VIP renewal draft.",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 11,
+      "last_modified": "2026-04-24"
+    },
+    {
+      "path": "Documents/Reports/customer-dispute-aging.csv",
+      "content": "Customer,Amount,AgeDays\nTechFlow Inc,4500,13\nNorthwind Trading,900,30\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 14,
+      "last_modified": "2026-04-30"
+    },
+    {
+      "path": "Documents/Public/release-2.4-summary.md",
+      "content": "# Release 2.4\nPublic release summary.\n",
+      "confidentiality": "low",
+      "is_versioned": true,
+      "size_kb": 5,
+      "last_modified": "2026-04-29"
+    },
+    {
+      "path": "Projects/Mobile-App/Research/beta-feedback-redacted.txt",
+      "content": "Redacted beta feedback for mobile app v2.",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 9,
+      "last_modified": "2026-04-21"
+    },
+    {
+      "path": "Projects/Mobile-App/security-exception.md",
+      "content": "Security exception draft for biometric fallback.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 10,
+      "last_modified": "2026-04-23"
+    },
+    {
+      "path": "Projects/Website-Redesign/API/webhook-contract-tests.md",
+      "content": "Webhook contract test matrix.",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 7,
+      "last_modified": "2026-04-19"
+    },
+    {
+      "path": "Finance/Board/bank-covenant-analysis.xlsx",
+      "content": "Bank covenant analysis placeholder.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 340,
+      "last_modified": "2026-04-11"
+    },
+    {
+      "path": "Finance/Board/cash-runway-private.md",
+      "content": "Private cash runway scenario notes.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 30,
+      "last_modified": "2026-04-17"
+    },
+    {
+      "path": "Archive/2024-meeting-notes-index.csv",
+      "content": "Archived meeting notes index. Retain until 2027.",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 22,
+      "last_modified": "2026-02-01"
+    },
+    {
+      "path": "Shared/customer-handoff-public.md",
+      "content": "Customer handoff guide approved for external sharing.",
+      "confidentiality": "low",
+      "is_versioned": true,
+      "size_kb": 6,
+      "last_modified": "2026-04-15"
+    },
+    {
+      "path": "Shared/vendor-risk-summary.txt",
+      "content": "Vendor risk summary for internal handoff.",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 8,
+      "last_modified": "2026-04-16"
+    },
+    {
+      "path": "HR-Confidential/Reviews/manager-calibration-2026.md",
+      "content": "Manager calibration notes. Confidential.",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 14,
+      "last_modified": "2026-04-10"
+    },
+    {
+      "path": "HR-Confidential/Salary/equity-refresh-draft.csv",
+      "content": "Name,Refresh\nAlice Wang,25000\nFrank Zhao,0\n",
+      "confidentiality": "high",
+      "is_versioned": true,
+      "size_kb": 18,
+      "last_modified": "2026-04-22"
+    },
+    {
+      "path": "Documents/Meeting-Notes/security-review-2026-04-22.md",
+      "content": "Security review notes; do not share raw findings externally.",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 7,
+      "last_modified": "2026-04-22"
+    },
+    {
+      "path": "Documents/Reports/q2-pipeline-forecast.csv",
+      "content": "Stage,Amount\nProposal,48000\nBlocked,7200\n",
+      "confidentiality": "medium",
+      "is_versioned": true,
+      "size_kb": 9,
+      "last_modified": "2026-04-27"
+    },
+    {
+      "path": "Public-Brand-Assets/press-boilerplate.txt",
+      "content": "Pipeline Labs public press boilerplate.",
+      "confidentiality": "low",
+      "is_versioned": true,
+      "size_kb": 4,
+      "last_modified": "2026-04-13"
+    }
+  ],
+  "shares": [
+    {
+      "path": "Documents/Reports/Q1-2026-Summary.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "name": "Q1 Report Public Link",
+      "password": "Share123!",
+      "expires_at": "2026-05-31",
+      "expire_date": "2026-05-31",
+      "password_protected": true,
+      "recipient_count": 1,
+      "permission_label": "read"
+    },
+    {
+      "path": "Documents/shared-report.pdf",
+      "share_type": "public_link",
+      "permissions": 1,
+      "name": "Shared Report Link",
+      "password": "Share123!",
+      "expires_at": "2026-05-31",
+      "expire_date": "2026-05-31",
+      "password_protected": true,
+      "recipient_count": 1,
+      "permission_label": "read"
+    },
+    {
+      "path": "Legal-Holds/CFPB-Inquiry",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "CFPB Inquiry Public Link - anomaly",
+      "password": "Share123!",
+      "expires_at": null,
+      "expire_date": "",
+      "password_protected": true,
+      "recipient_count": 1,
+      "risk_anomaly": true
+    },
+    {
+      "path": "Q1-2026-Financials/q1-board-package.pdf",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Board Package Link - no expiry",
+      "password": "Share123!",
+      "expires_at": null,
+      "expire_date": "",
+      "password_protected": true,
+      "recipient_count": 3,
+      "risk_anomaly": true
+    },
+    {
+      "path": "Public-Brand-Assets/logo-guidelines.pdf",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Brand Guidelines Public",
+      "password": "",
+      "expires_at": null,
+      "expire_date": "",
+      "password_protected": false,
+      "recipient_count": 12,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Public-Brand-Assets/product-screenshots.zip",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Product Screenshots Public",
+      "password": "",
+      "expires_at": "2026-06-30",
+      "expire_date": "2026-06-30",
+      "password_protected": false,
+      "recipient_count": 25,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Onboarding-Templates/new-hire-checklist.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Onboarding Checklist",
+      "password": "Share123!",
+      "expires_at": "2026-05-31",
+      "expire_date": "2026-05-31",
+      "password_protected": true,
+      "recipient_count": 5,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Onboarding-Templates/security-training.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Security Training Template",
+      "password": "Share123!",
+      "expires_at": "2026-05-31",
+      "expire_date": "2026-05-31",
+      "password_protected": true,
+      "recipient_count": 5,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Documents/Public/release-2.4-summary.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Release Summary Public",
+      "password": "",
+      "expires_at": "2026-05-15",
+      "expire_date": "2026-05-15",
+      "password_protected": false,
+      "recipient_count": 20,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Shared/customer-handoff-public.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Customer Handoff",
+      "password": "Share123!",
+      "expires_at": "2026-05-10",
+      "expire_date": "2026-05-10",
+      "password_protected": true,
+      "recipient_count": 4,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Documents/Contracts/jason-wei-vip-renewal.txt",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "VIP Renewal Draft",
+      "password": "Share123!",
+      "expires_at": "2026-05-05",
+      "expire_date": "2026-05-05",
+      "password_protected": true,
+      "recipient_count": 2,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Documents/Reports/customer-dispute-aging.csv",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Dispute Aging Internal",
+      "password": "Share123!",
+      "expires_at": "2026-06-30",
+      "expire_date": "2026-06-30",
+      "password_protected": true,
+      "recipient_count": 2,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Finance/Board/cash-runway-private.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Cash Runway No Expiry",
+      "password": "Share123!",
+      "expires_at": null,
+      "expire_date": "",
+      "password_protected": true,
+      "recipient_count": 1,
+      "risk_anomaly": true
+    },
+    {
+      "path": "Legal-Holds/Beacon-v-Summit/preservation-notice.txt",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Legal Hold Preservation Notice",
+      "password": "Share123!",
+      "expires_at": "2027-01-01",
+      "expire_date": "2027-01-01",
+      "password_protected": true,
+      "recipient_count": 1,
+      "risk_anomaly": false
+    },
+    {
+      "path": "HR-Performance-Reviews/frank-zhao-pip.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "PIP Draft Public Link - anomaly",
+      "password": "Share123!",
+      "expires_at": "2026-06-30",
+      "expire_date": "2026-06-30",
+      "password_protected": true,
+      "recipient_count": 1,
+      "risk_anomaly": true
+    },
+    {
+      "path": "Projects/Mobile-App/security-exception.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Security Exception Review",
+      "password": "Share123!",
+      "expires_at": "2026-05-15",
+      "expire_date": "2026-05-15",
+      "password_protected": true,
+      "recipient_count": 3,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Projects/Website-Redesign/API/webhook-contract-tests.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Webhook Contract Tests",
+      "password": "",
+      "expires_at": "2026-05-20",
+      "expire_date": "2026-05-20",
+      "password_protected": false,
+      "recipient_count": 6,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Archive/2024-meeting-notes-index.csv",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Archive Index",
+      "password": "Share123!",
+      "expires_at": "2026-08-01",
+      "expire_date": "2026-08-01",
+      "password_protected": true,
+      "recipient_count": 2,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Documents/Meeting-Notes/security-review-2026-04-22.md",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Security Review Notes",
+      "password": "Share123!",
+      "expires_at": "2026-06-30",
+      "expire_date": "2026-06-30",
+      "password_protected": true,
+      "recipient_count": 1,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Documents/Reports/q2-pipeline-forecast.csv",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Q2 Pipeline Forecast",
+      "password": "Share123!",
+      "expires_at": "2026-05-18",
+      "expire_date": "2026-05-18",
+      "password_protected": true,
+      "recipient_count": 2,
+      "risk_anomaly": false
+    },
+    {
+      "path": "HR-Confidential/Salary/equity-refresh-draft.csv",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Equity Refresh No Expiry",
+      "password": "Share123!",
+      "expires_at": null,
+      "expire_date": "",
+      "password_protected": true,
+      "recipient_count": 1,
+      "risk_anomaly": true
+    },
+    {
+      "path": "Shared/vendor-risk-summary.txt",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Vendor Risk Summary",
+      "password": "Share123!",
+      "expires_at": "2026-05-12",
+      "expire_date": "2026-05-12",
+      "password_protected": true,
+      "recipient_count": 4,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Documents/Contracts/partner-northwind-amendment.txt",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Northwind Amendment",
+      "password": "Share123!",
+      "expires_at": "2026-05-08",
+      "expire_date": "2026-05-08",
+      "password_protected": true,
+      "recipient_count": 2,
+      "risk_anomaly": false
+    },
+    {
+      "path": "Q1-2026-Financials/unapproved-refunds.csv",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Unapproved Refunds Link",
+      "password": "Share123!",
+      "expires_at": "2026-05-04",
+      "expire_date": "2026-05-04",
+      "password_protected": true,
+      "recipient_count": 1,
+      "risk_anomaly": true
+    },
+    {
+      "path": "Projects/Mobile-App/Research/beta-feedback-redacted.txt",
+      "share_type": "public_link",
+      "permissions": 1,
+      "permission_label": "read",
+      "name": "Redacted Beta Feedback",
+      "password": "",
+      "expires_at": "2026-05-20",
+      "expire_date": "2026-05-20",
+      "password_protected": false,
+      "recipient_count": 7,
+      "risk_anomaly": false
+    }
+  ],
+  "folder_metadata": [
+    {
+      "path": "Documents",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Documents/Reports",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Documents/Contracts",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Documents/Meeting-Notes",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Documents/Public",
+      "confidentiality": "public",
+      "retention_policy": "90days"
+    },
+    {
+      "path": "Projects",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Projects/Website-Redesign",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Projects/Website-Redesign/Design",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Projects/Website-Redesign/API",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Projects/Mobile-App",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Projects/Mobile-App/Research",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "HR-Confidential",
+      "confidentiality": "regulated",
+      "retention_policy": "forever"
+    },
+    {
+      "path": "HR-Confidential/Salary",
+      "confidentiality": "regulated",
+      "retention_policy": "forever"
+    },
+    {
+      "path": "HR-Confidential/Reviews",
+      "confidentiality": "regulated",
+      "retention_policy": "forever"
+    },
+    {
+      "path": "Finance",
+      "confidentiality": "restricted",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Finance/Board",
+      "confidentiality": "restricted",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Archive",
+      "confidentiality": "internal",
+      "retention_policy": "forever"
+    },
+    {
+      "path": "Shared",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Q1-2026-Financials",
+      "confidentiality": "restricted",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "Public-Brand-Assets",
+      "confidentiality": "public",
+      "retention_policy": "90days"
+    },
+    {
+      "path": "Legal-Holds",
+      "confidentiality": "regulated",
+      "retention_policy": "forever"
+    },
+    {
+      "path": "Legal-Holds/Beacon-v-Summit",
+      "confidentiality": "regulated",
+      "retention_policy": "forever"
+    },
+    {
+      "path": "Legal-Holds/CFPB-Inquiry",
+      "confidentiality": "regulated",
+      "retention_policy": "forever"
+    },
+    {
+      "path": "Onboarding-Templates",
+      "confidentiality": "internal",
+      "retention_policy": "1year"
+    },
+    {
+      "path": "HR-Performance-Reviews",
+      "confidentiality": "regulated",
+      "retention_policy": "forever"
+    }
+  ]
+}

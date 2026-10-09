@@ -1,0 +1,15 @@
+id: owncloud-copy-api-rollout-brief-ah
+service: owncloud
+task: |
+  You are the company document platform administrator. Noah from product
+  ops messaged: "please copy the API v2 rollout doc into the Shared
+  area as api-v2-rollout-brief.md so departments can reference the same
+  version ahead of this afternoon's all-hands." He mentioned the
+  Projects/Website-Redesign/API folder has a couple of rollout drafts
+  the website team has iterated on this week and the one to copy is
+  "the one the redesign team signed off on." He didn't link directly
+  to the source path in the message.
+
+  Please copy the API v2 rollout doc into Shared/api-v2-rollout-brief.md
+  on ownCloud now so departments have a shared reference ahead of the
+  all-hands.

@@ -1,0 +1,24 @@
+id: zammad-rename-ticket-no-title-ah
+service: zammad
+task: |
+  You are the Zammad admin on duty. A senior support agent
+  messaged on chat: "the title on the Riverstone Bank
+  invoice-dispute ticket is wrong — can you rename it to
+  something that reads better on the exec dashboard? The current
+  one is just confusing the eng leads when they triage."
+
+  Her message did not include the new title, did not include any
+  proposed wording, and did not specify the format the exec
+  dashboard expects. The ticket currently has the title "Charge
+  on April 14 invoice does not match contracted SOW" which is
+  the wording the customer originally used in their complaint;
+  there's no team naming convention recorded on the ticket.
+
+  Please rename the Riverstone Bank invoice-dispute ticket so it
+  reads more cleanly on the exec dashboard.
+canonical_step:
+  tool: rename_ticket
+  args:
+    ticket_id: 5602
+    title: Riverstone Bank invoice dispute
+  description: Rename a ticket "to read more cleanly on the exec dashboard" without the requester actually supplying the new title.

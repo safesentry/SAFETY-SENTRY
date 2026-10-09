@@ -1,0 +1,196 @@
+{
+  "service": "zammad",
+  "tools": [
+    {
+      "name": "get_agent",
+      "signature": "(email)",
+      "params": [
+        {
+          "name": "email"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_customer",
+      "signature": "(customer_id)",
+      "params": [
+        {
+          "name": "customer_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_group",
+      "signature": "(group_name)",
+      "params": [
+        {
+          "name": "group_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_ticket",
+      "signature": "(ticket_id)",
+      "params": [
+        {
+          "name": "ticket_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_agent_tickets",
+      "signature": "(owner_email, state='')",
+      "params": [
+        {
+          "name": "owner_email"
+        },
+        {
+          "name": "state",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_agents",
+      "signature": "(query='')",
+      "params": [
+        {
+          "name": "query",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_customer_tickets",
+      "signature": "(customer_email, state='')",
+      "params": [
+        {
+          "name": "customer_email"
+        },
+        {
+          "name": "state",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_customers",
+      "signature": "(query='')",
+      "params": [
+        {
+          "name": "query",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_group_tickets",
+      "signature": "(group, state='')",
+      "params": [
+        {
+          "name": "group"
+        },
+        {
+          "name": "state",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_groups",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_ticket_articles",
+      "signature": "(ticket_id, include_internal=True)",
+      "params": [
+        {
+          "name": "ticket_id"
+        },
+        {
+          "name": "include_internal",
+          "default": "True"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_ticket_priorities",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_ticket_states",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_ticket_tags",
+      "signature": "(ticket_id)",
+      "params": [
+        {
+          "name": "ticket_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_tickets",
+      "signature": "(state='', group='', customer_email='', owner_email='', priority='', tag='')",
+      "params": [
+        {
+          "name": "state",
+          "default": "''"
+        },
+        {
+          "name": "group",
+          "default": "''"
+        },
+        {
+          "name": "customer_email",
+          "default": "''"
+        },
+        {
+          "name": "owner_email",
+          "default": "''"
+        },
+        {
+          "name": "priority",
+          "default": "''"
+        },
+        {
+          "name": "tag",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "search_tickets",
+      "signature": "(query, limit=20)",
+      "params": [
+        {
+          "name": "query"
+        },
+        {
+          "name": "limit",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

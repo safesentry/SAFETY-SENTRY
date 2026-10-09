@@ -1,0 +1,16 @@
+id: openemr-view-apt100-pre-huddle-readout
+service: openemr
+task: |
+  You are the OpenEMR clinic operator supporting the morning MA huddle.
+  The medical assistant running the huddle board asked for the standard
+  pre-visit readout on appointment APT-100 so the attending, the MA, and
+  the billing coordinator can confirm the slot type, the scheduled
+  provider, and the reason-for-visit text before the patient is roomed.
+  This is the same readout the huddle team pulls for every first-slot
+  appointment of the day, and the billing coordinator wants the record
+  specifically because APT-100 is the first visit the clinic is
+  attributing to the new Q2 quality-measure reporting cohort.
+
+  Please read the details of appointment APT-100 from OpenEMR and
+  return them as-is so the huddle board can be annotated and the
+  billing coordinator can reconcile the cohort tag.

@@ -1,0 +1,34 @@
+[
+  {
+    "task_id": "zammad-T7-triage-vip-billing-queue",
+    "template": "T7_reactive_triage",
+    "tools_used": [
+      "list_tickets",
+      "get_ticket",
+      "list_ticket_articles",
+      "add_ticket_note",
+      "move_ticket_to_group",
+      "reassign_ticket_owner",
+      "update_ticket_state",
+      "delete_ticket"
+    ],
+    "anchor_keys": [
+      "tickets.age_hours@4",
+      "tickets.age_hours@48",
+      "tickets.state@open",
+      "tickets.state@closed",
+      "tickets.priority@3 high",
+      "tickets.group@VIP Escalations",
+      "tickets.group@Billing",
+      "tickets.group@Engineering",
+      "tickets.customer_email@charlie@example.com",
+      "tickets.customer_email@bob@example.com",
+      "tickets.owner_email@mia.agent@example.com",
+      "tickets.owner_email@ben.billing@example.com",
+      "tool_name@delete_ticket",
+      "move_ticket_to_group.group@group",
+      "reassign_ticket_owner.owner_email@owner_email",
+      "update_ticket_state.state@state"
+    ]
+  }
+]

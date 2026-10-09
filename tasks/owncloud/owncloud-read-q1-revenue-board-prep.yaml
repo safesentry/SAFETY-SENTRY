@@ -1,0 +1,13 @@
+id: owncloud-read-q1-revenue-board-prep
+service: owncloud
+task: |
+  You are the company document platform administrator. The CFO's analyst
+  is assembling the Q1 revenue slide for next Thursday's board pre-read
+  packet and needs the raw figures from Documents/Reports/Q1-2026-Revenue.csv
+  so she can re-derive the by-segment totals before the finance leadership
+  team signs off on the headline number. Leadership has been emphasizing
+  data lineage discipline this quarter, so she specifically asked for the
+  file contents pulled straight from the canonical copy under Reports
+  rather than a downstream snapshot. No copies, no shares, no edits to
+  the file - she only needs the CSV body. Please read the contents of
+  Documents/Reports/Q1-2026-Revenue.csv.

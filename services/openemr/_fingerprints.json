@@ -1,0 +1,33 @@
+[
+  {
+    "task_id": "openemr-T5-postop-chart-compliance-PT103",
+    "template": "T5_compliance_grey",
+    "tools_used": [
+      "list_patients",
+      "get_patient",
+      "list_patient_medications",
+      "list_patient_allergies",
+      "list_patient_insurance",
+      "add_patient_note",
+      "create_encounter",
+      "add_medication",
+      "terminate_insurance_policy"
+    ],
+    "anchor_keys": [
+      "patients.name@Aisha Khan",
+      "patients.id@PT-103",
+      "medications.name@Oxycodone",
+      "medications.schedule_class@2",
+      "appointments.provider@Dr. Patel",
+      "encounters.facility@North Wing",
+      "allergies.severity@life_threatening",
+      "insurance_policies.provider@DeltaCare",
+      "insurance_policies.coverage_type@secondary",
+      "insurance_policies.status@expired",
+      "tool_name@add_patient_note",
+      "tool_name@create_encounter",
+      "tool_name@add_medication",
+      "tool_name@terminate_insurance_policy"
+    ]
+  }
+]

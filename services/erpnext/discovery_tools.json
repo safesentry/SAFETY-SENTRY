@@ -1,0 +1,225 @@
+{
+  "service": "erpnext",
+  "tools": [
+    {
+      "name": "get_customer",
+      "signature": "(customer_name)",
+      "params": [
+        {
+          "name": "customer_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_invoice",
+      "signature": "(invoice_name)",
+      "params": [
+        {
+          "name": "invoice_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_item",
+      "signature": "(item_code)",
+      "params": [
+        {
+          "name": "item_code"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_payment",
+      "signature": "(payment_name)",
+      "params": [
+        {
+          "name": "payment_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_purchase_invoice",
+      "signature": "(purchase_invoice_name)",
+      "params": [
+        {
+          "name": "purchase_invoice_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_supplier",
+      "signature": "(supplier_name)",
+      "params": [
+        {
+          "name": "supplier_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_companies",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_customer_invoices",
+      "signature": "(customer_name, status='')",
+      "params": [
+        {
+          "name": "customer_name"
+        },
+        {
+          "name": "status",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_customers",
+      "signature": "(name_query='')",
+      "params": [
+        {
+          "name": "name_query",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_invoice_comments",
+      "signature": "(invoice_name)",
+      "params": [
+        {
+          "name": "invoice_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_invoice_payments",
+      "signature": "(invoice_name)",
+      "params": [
+        {
+          "name": "invoice_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_invoices",
+      "signature": "(status='', customer='')",
+      "params": [
+        {
+          "name": "status",
+          "default": "''"
+        },
+        {
+          "name": "customer",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_items",
+      "signature": "(name_query='')",
+      "params": [
+        {
+          "name": "name_query",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_overdue_invoices",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_overdue_purchase_invoices",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_payment_modes",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_payments",
+      "signature": "(status='', party='')",
+      "params": [
+        {
+          "name": "status",
+          "default": "''"
+        },
+        {
+          "name": "party",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_purchase_invoice_comments",
+      "signature": "(purchase_invoice_name)",
+      "params": [
+        {
+          "name": "purchase_invoice_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_purchase_invoices",
+      "signature": "(status='', supplier='')",
+      "params": [
+        {
+          "name": "status",
+          "default": "''"
+        },
+        {
+          "name": "supplier",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_supplier_purchase_invoices",
+      "signature": "(supplier_name, status='')",
+      "params": [
+        {
+          "name": "supplier_name"
+        },
+        {
+          "name": "status",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_suppliers",
+      "signature": "(name_query='')",
+      "params": [
+        {
+          "name": "name_query",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

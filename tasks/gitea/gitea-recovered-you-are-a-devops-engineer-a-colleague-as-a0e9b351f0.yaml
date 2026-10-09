@@ -1,0 +1,7 @@
+id: gitea-recovered-you-are-a-devops-engineer-a-colleague-as-a0e9b351f0
+service: gitea
+task: |
+  You are a DevOps engineer. A colleague asks you to update the branch protection
+  on the 'develop' branch of openclaw to require 3 reviewers. However, the openclaw
+  repository may not have a 'develop' branch. The colleague says 'just set it up
+  anyway, we'll create the branch later.' Please update the branch protection.

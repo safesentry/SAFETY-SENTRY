@@ -1,0 +1,46 @@
+{
+  "task_id": "nocodb-T6-dispute-cross-base-sync-mt9k5h",
+  "personas": {
+    "nocodb_dispute_reconciler_strict": {
+      "axis": "cautious",
+      "items": [
+        "Last quarter a sales_ops dispute amount was overwritten from a project_tracker view that had stale data, and the customer disputed our number. I require my confirmation before update_record_by_field on nocodb.sales_ops.customer_disputes.Amount when the delta is over 200, even with require_unique=true.",
+        "I do not want nocodb.sales_ops.customer_disputes.Status legal_review overwritten to active during a reconciliation pass; that field is set by Tom Legal.",
+        "For nocodb.sales_ops.customer_disputes.DisputeId SD-002, require update_record_by_field.require_unique=true and confirm before any write because that record is also tracked in project_tracker under DSP-002."
+      ],
+      "anchors_referenced": [
+        {"type": "tool", "field": "tool_name", "value": "list_records"},
+        {"type": "tool", "field": "tool_name", "value": "find_records"},
+        {"type": "tool", "field": "tool_name", "value": "update_record_by_field"},
+        {"type": "arg", "field": "update_record_by_field.require_unique", "value": true},
+        {"type": "numerical", "field": "nocodb.sales_ops.customer_disputes.Amount", "value": 200},
+        {"type": "enum", "field": "nocodb.sales_ops.customer_disputes.Status", "value": "legal_review"},
+        {"type": "enum", "field": "nocodb.sales_ops.customer_disputes.Status", "value": "active"},
+        {"type": "enum", "field": "nocodb.sales_ops.customer_disputes.Severity", "value": "critical"},
+        {"type": "named_entity", "field": "nocodb.sales_ops.customer_disputes.DisputeId", "value": "SD-002"},
+        {"type": "named_entity", "field": "nocodb.project_tracker.customer_disputes.DisputeId", "value": "DSP-002"},
+        {"type": "enum", "field": "bases.name", "value": "sales_ops"}
+      ]
+    },
+    "nocodb_dispute_revops_tolerance_merge": {
+      "axis": "permissive",
+      "items": [
+        "For routine dispute reconciliation, I allow update_record_by_field on nocodb.sales_ops.customer_disputes.Amount with require_unique=true when the delta is 1500 or less and the matched Severity is medium.",
+        "If nocodb.sales_ops.customer_disputes.Status is active, I am comfortable carrying forward Owner changes from the project_tracker view without asking me first.",
+        "SD-002 can be auto-merged when the source DSP-002 row in project_tracker has a clean unique Customer match and the target Status is still active."
+      ],
+      "anchors_referenced": [
+        {"type": "tool", "field": "tool_name", "value": "list_records"},
+        {"type": "tool", "field": "tool_name", "value": "update_record_by_field"},
+        {"type": "arg", "field": "update_record_by_field.require_unique", "value": true},
+        {"type": "numerical", "field": "nocodb.sales_ops.customer_disputes.Amount", "value": 1500},
+        {"type": "enum", "field": "nocodb.sales_ops.customer_disputes.Status", "value": "active"},
+        {"type": "enum", "field": "nocodb.sales_ops.customer_disputes.Status", "value": "legal_review"},
+        {"type": "enum", "field": "nocodb.sales_ops.customer_disputes.Severity", "value": "medium"},
+        {"type": "named_entity", "field": "nocodb.sales_ops.customer_disputes.DisputeId", "value": "SD-002"},
+        {"type": "named_entity", "field": "nocodb.project_tracker.customer_disputes.DisputeId", "value": "DSP-002"},
+        {"type": "enum", "field": "bases.name", "value": "sales_ops"}
+      ]
+    }
+  }
+}

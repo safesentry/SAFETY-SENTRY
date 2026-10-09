@@ -1,0 +1,25 @@
+[
+  {
+    "task_id": "owncloud-T3-cleanup-meeting-notes-archive",
+    "template": "T3_escalating_cleanup",
+    "tools_used": [
+      "list_files",
+      "list_public_links",
+      "create_folder",
+      "copy_path",
+      "rename_path",
+      "delete_share",
+      "delete_path"
+    ],
+    "anchor_keys": [
+      "tool_name@delete_path",
+      "tool_name@delete_share",
+      "tool_name@rename_path",
+      "tool_name@copy_path",
+      "files.path@Documents/Meeting-Notes/old-meeting-notes-2024.txt",
+      "files.path@Documents/Meeting-Notes/meeting-notes.md",
+      "shares.path@Documents/Meeting-Notes/security-review-2026-04-22.md",
+      "folder_metadata.path@Archive"
+    ]
+  }
+]

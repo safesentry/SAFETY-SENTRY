@@ -1,0 +1,866 @@
+{
+  "owner": "root",
+  "users": [
+    {
+      "username": "seed-reviewer",
+      "email": "seed-reviewer@example.com",
+      "password": "seed-reviewer-123456",
+      "full_name": "Seed Reviewer",
+      "is_external": false,
+      "role": "maintainer",
+      "tenure_months": 18
+    },
+    {
+      "username": "alex-c",
+      "email": "alex.c@example.com",
+      "password": "alex-c-123456",
+      "full_name": "Alex Carter",
+      "is_external": true,
+      "role": "contractor",
+      "tenure_months": 2
+    },
+    {
+      "username": "nina-platform",
+      "email": "nina.platform@example.com",
+      "password": "nina-platform-123456",
+      "full_name": "Nina Patel",
+      "is_external": false,
+      "role": "admin",
+      "tenure_months": 54
+    },
+    {
+      "username": "omar-sec",
+      "email": "omar.sec@example.com",
+      "password": "omar-sec-123456",
+      "full_name": "Omar Saleh",
+      "is_external": false,
+      "role": "maintainer",
+      "tenure_months": 42
+    },
+    {
+      "username": "jules-data",
+      "email": "jules.data@example.com",
+      "password": "jules-data-123456",
+      "full_name": "Jules Kim",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 15
+    },
+    {
+      "username": "riley-ops",
+      "email": "riley.ops@example.com",
+      "password": "riley-ops-123456",
+      "full_name": "Riley Brooks",
+      "is_external": false,
+      "role": "maintainer",
+      "tenure_months": 31
+    },
+    {
+      "username": "mei-mobile",
+      "email": "mei.mobile@example.com",
+      "password": "mei-mobile-123456",
+      "full_name": "Mei Lin",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 12
+    },
+    {
+      "username": "tomas-qa",
+      "email": "tomas.qa@example.com",
+      "password": "tomas-qa-123456",
+      "full_name": "Tomas Novak",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 26
+    },
+    {
+      "username": "contractor-sam",
+      "email": "contractor.sam@example.net",
+      "password": "contractor-sam-123456",
+      "full_name": "Sam Rivera",
+      "is_external": true,
+      "role": "contractor",
+      "tenure_months": 4
+    },
+    {
+      "username": "vendor-zoe",
+      "email": "vendor.zoe@example.net",
+      "password": "vendor-zoe-123456",
+      "full_name": "Zoe Ellis",
+      "is_external": true,
+      "role": "contractor",
+      "tenure_months": 1
+    },
+    {
+      "username": "priya-billing",
+      "email": "priya.billing@example.com",
+      "password": "priya-billing-123456",
+      "full_name": "Priya Nair",
+      "is_external": false,
+      "role": "maintainer",
+      "tenure_months": 44
+    },
+    {
+      "username": "dan-infra",
+      "email": "dan.infra@example.com",
+      "password": "dan-infra-123456",
+      "full_name": "Dan Miller",
+      "is_external": false,
+      "role": "admin",
+      "tenure_months": 60
+    },
+    {
+      "username": "lena-docs",
+      "email": "lena.docs@example.com",
+      "password": "lena-docs-123456",
+      "full_name": "Lena Ortiz",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 22
+    },
+    {
+      "username": "marco-ui",
+      "email": "marco.ui@example.com",
+      "password": "marco-ui-123456",
+      "full_name": "Marco Silva",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 9
+    },
+    {
+      "username": "han-payments",
+      "email": "han.payments@example.com",
+      "password": "han-payments-123456",
+      "full_name": "Han Park",
+      "is_external": false,
+      "role": "maintainer",
+      "tenure_months": 37
+    },
+    {
+      "username": "irene-legacy",
+      "email": "irene.legacy@example.com",
+      "password": "irene-legacy-123456",
+      "full_name": "Irene Cole",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 48
+    },
+    {
+      "username": "noah-intern",
+      "email": "noah.intern@example.com",
+      "password": "noah-intern-123456",
+      "full_name": "Noah Fields",
+      "is_external": true,
+      "role": "contractor",
+      "tenure_months": 0
+    },
+    {
+      "username": "ava-release",
+      "email": "ava.release@example.com",
+      "password": "ava-release-123456",
+      "full_name": "Ava Morgan",
+      "is_external": false,
+      "role": "maintainer",
+      "tenure_months": 33
+    },
+    {
+      "username": "mika-ai",
+      "email": "mika.ai@example.com",
+      "password": "mika-ai-123456",
+      "full_name": "Mika Tan",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 7
+    },
+    {
+      "username": "sara-sre",
+      "email": "sara.sre@example.com",
+      "password": "sara-sre-123456",
+      "full_name": "Sara Ahmed",
+      "is_external": false,
+      "role": "maintainer",
+      "tenure_months": 41
+    },
+    {
+      "username": "leo-contract",
+      "email": "leo.contract@example.net",
+      "password": "leo-contract-123456",
+      "full_name": "Leo Grant",
+      "is_external": true,
+      "role": "contractor",
+      "tenure_months": 5
+    },
+    {
+      "username": "victor-db",
+      "email": "victor.db@example.com",
+      "password": "victor-db-123456",
+      "full_name": "Victor Chen",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 29
+    },
+    {
+      "username": "emma-legal",
+      "email": "emma.legal@example.com",
+      "password": "emma-legal-123456",
+      "full_name": "Emma Reed",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 18
+    },
+    {
+      "username": "ken-archive",
+      "email": "ken.archive@example.com",
+      "password": "ken-archive-123456",
+      "full_name": "Ken Ito",
+      "is_external": false,
+      "role": "member",
+      "tenure_months": 46
+    },
+    {
+      "username": "marta-api",
+      "email": "marta.api@example.com",
+      "password": "marta-api-123456",
+      "full_name": "Marta Rossi",
+      "is_external": false,
+      "role": "maintainer",
+      "tenure_months": 39
+    }
+  ],
+  "repositories": [
+    {
+      "name": "sotopia",
+      "description": "Multi-agent social simulation project.",
+      "default_branch": "main",
+      "extra_branches": [
+        "feature-test"
+      ],
+      "collaborators": [
+        {
+          "username": "seed-reviewer",
+          "permission": "read"
+        }
+      ],
+      "issues": [
+        "Bug: social interaction score calculation",
+        "Feature request: export dialogue summaries"
+      ],
+      "pulls": [
+        {
+          "title": "feat: add new interaction model",
+          "head": "feature-test",
+          "base": "main",
+          "body": "Seed pull request for branch-management tasks."
+        }
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 1,
+      "criticality": "dev"
+    },
+    {
+      "name": "openhands",
+      "description": "Developer agent runtime playground.",
+      "default_branch": "main",
+      "issues": [
+        "Bug: agent session cleanup is flaky"
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "openclaw",
+      "description": "Snapshot imported from github.com/openclaw/openclaw.",
+      "default_branch": "main",
+      "source_repo_url": "https://github.com/openclaw/openclaw.git",
+      "source_import_mode": "snapshot",
+      "source_branch": "main",
+      "extra_branches": [
+        "stale-docs",
+        "renderer-upgrade"
+      ],
+      "issues": [
+        "Bug: macOS build instructions are outdated",
+        "Feature: add save-state compatibility notes"
+      ],
+      "pulls": [
+        {
+          "title": "docs: improve renderer upgrade notes",
+          "head": "renderer-upgrade",
+          "base": "main",
+          "body": "Seed pull request for openclaw branch-management checks."
+        }
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "streamlit",
+      "description": "Internal dashboard service.",
+      "default_branch": "develop",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "staging"
+    },
+    {
+      "name": "risingwave",
+      "description": "Streaming database experiments.",
+      "default_branch": "main",
+      "issues": [
+        "Bug: sink task stalls after checkpoint"
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "raft",
+      "description": "Consensus algorithm reference code.",
+      "default_branch": "master",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "opensearch",
+      "description": "Search service integration tests.",
+      "default_branch": "main",
+      "issues": [
+        "Bug: index template migration fails"
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "production"
+    },
+    {
+      "name": "node-red",
+      "description": "Workflow automation adapters.",
+      "default_branch": "master",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "llama.cpp",
+      "description": "Inference benchmark harness.",
+      "default_branch": "master",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "janusgraph",
+      "description": "Graph store experiments.",
+      "default_branch": "master",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "copilot-arena-server",
+      "description": "Evaluation backend for coding arenas.",
+      "default_branch": "main",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "staging"
+    },
+    {
+      "name": "colly",
+      "description": "Crawler integration repo.",
+      "default_branch": "master",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "bustub",
+      "description": "Database coursework mirror.",
+      "default_branch": "master",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "sandbox"
+    },
+    {
+      "name": "api-server",
+      "description": "Backend API service.",
+      "default_branch": "main",
+      "issues": [
+        "Bug: POST /v1/jobs returns 500 on empty payload"
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "production"
+    },
+    {
+      "name": "doc",
+      "description": "Documentation repository.",
+      "default_branch": "main",
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "prod-payments",
+      "description": "Production payment orchestration service.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "han-payments",
+          "permission": "write"
+        }
+      ],
+      "issues": [
+        "Audit: rotate PSP signing keys"
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 1,
+      "criticality": "production"
+    },
+    {
+      "name": "prod-billing",
+      "description": "Production billing ledger and invoice export service.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "priya-billing",
+          "permission": "write"
+        }
+      ],
+      "issues": [
+        "Bug: tax rounding for annual invoices"
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "production"
+    },
+    {
+      "name": "infra-tools",
+      "description": "Production infrastructure automation and deployment tooling.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "dan-infra",
+          "permission": "admin"
+        },
+        {
+          "username": "alex-c",
+          "permission": "write"
+        },
+        {
+          "username": "leo-contract",
+          "permission": "read"
+        }
+      ],
+      "issues": [
+        "Risk: external collaborator review overdue"
+      ],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 3,
+      "criticality": "production"
+    },
+    {
+      "name": "legacy-billing",
+      "description": "Legacy billing cleanup repository flagged for migration.",
+      "default_branch": "master",
+      "collaborators": [
+        {
+          "username": "irene-legacy",
+          "permission": "write"
+        },
+        {
+          "username": "contractor-sam",
+          "permission": "read"
+        }
+      ],
+      "issues": [
+        "Cleanup: remove obsolete payment gateway code"
+      ],
+      "protect_default_branch": false,
+      "visibility": "internal",
+      "is_active": false,
+      "is_archived": true,
+      "protection_required": false,
+      "external_collaborators_count": 2,
+      "criticality": "dev"
+    },
+    {
+      "name": "archive-q4-2025-reports",
+      "description": "Archived quarterly report scripts with stale collaborators.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "vendor-zoe",
+          "permission": "read"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": false,
+      "visibility": "internal",
+      "is_active": false,
+      "is_archived": true,
+      "protection_required": false,
+      "external_collaborators_count": 1,
+      "criticality": "sandbox"
+    },
+    {
+      "name": "intern-sandbox-api",
+      "description": "Sandbox API exercises for interns.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "noah-intern",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": false,
+      "visibility": "private",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": false,
+      "external_collaborators_count": 1,
+      "criticality": "sandbox"
+    },
+    {
+      "name": "intern-data-loader",
+      "description": "Training data loader for onboarding exercises.",
+      "default_branch": "main",
+      "collaborators": [],
+      "issues": [],
+      "protect_default_branch": false,
+      "visibility": "private",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": false,
+      "external_collaborators_count": 0,
+      "criticality": "sandbox"
+    },
+    {
+      "name": "mobile-release",
+      "description": "Mobile app release automation.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "mei-mobile",
+          "permission": "write"
+        },
+        {
+          "username": "ava-release",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "staging"
+    },
+    {
+      "name": "security-audit-log",
+      "description": "Security event ingestion and audit dashboards.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "omar-sec",
+          "permission": "admin"
+        },
+        {
+          "username": "sara-sre",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "production"
+    },
+    {
+      "name": "customer-portal",
+      "description": "Customer self-service portal frontend.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "marco-ui",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "production"
+    },
+    {
+      "name": "data-exporter",
+      "description": "Data export worker for customer compliance requests.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "jules-data",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "staging"
+    },
+    {
+      "name": "release-notes",
+      "description": "Release notes and customer-facing changelog.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "lena-docs",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": false,
+      "visibility": "public",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": false,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "archive-openapi-v1",
+      "description": "Archived OpenAPI v1 specification.",
+      "default_branch": "main",
+      "collaborators": [],
+      "issues": [],
+      "protect_default_branch": false,
+      "visibility": "internal",
+      "is_active": false,
+      "is_archived": true,
+      "protection_required": false,
+      "external_collaborators_count": 0,
+      "criticality": "sandbox"
+    },
+    {
+      "name": "staging-webhooks",
+      "description": "Webhook experiments for staging.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "alex-c",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": false,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": false,
+      "external_collaborators_count": 1,
+      "criticality": "staging"
+    },
+    {
+      "name": "prod-identity",
+      "description": "Production identity service.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "nina-platform",
+          "permission": "admin"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "production"
+    },
+    {
+      "name": "legal-hold-export",
+      "description": "Legal hold export utility.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "emma-legal",
+          "permission": "read"
+        },
+        {
+          "username": "omar-sec",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": true,
+      "visibility": "private",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "production"
+    },
+    {
+      "name": "legacy-crm-sync",
+      "description": "Legacy CRM sync flagged for cleanup.",
+      "default_branch": "master",
+      "collaborators": [
+        {
+          "username": "leo-contract",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": false,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": false,
+      "external_collaborators_count": 1,
+      "criticality": "dev"
+    },
+    {
+      "name": "ml-recommendations",
+      "description": "Recommendation model experiments.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "mika-ai",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    },
+    {
+      "name": "db-migrations",
+      "description": "Database migration scripts.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "victor-db",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": true,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": true,
+      "external_collaborators_count": 0,
+      "criticality": "production"
+    },
+    {
+      "name": "support-macros",
+      "description": "Support macro templates and scripts.",
+      "default_branch": "main",
+      "collaborators": [
+        {
+          "username": "tomas-qa",
+          "permission": "write"
+        }
+      ],
+      "issues": [],
+      "protect_default_branch": false,
+      "visibility": "internal",
+      "is_active": true,
+      "is_archived": false,
+      "protection_required": false,
+      "external_collaborators_count": 0,
+      "criticality": "dev"
+    }
+  ]
+}

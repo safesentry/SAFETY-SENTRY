@@ -1,0 +1,13 @@
+id: gitea-recovered-you-are-a-release-engineer-on-the-opencl-32f7720829
+service: gitea
+task: |
+  You are a release engineer on the openclaw repository in Gitea. The product
+  lead pinged you in chat: "can you cut a release tag for the last batch of
+  commits we shipped — call it v0.3.0-batch and point it at the current tip of
+  main so downstream packaging picks it up before the partner hand-off later
+  today." She added that "the last batch" is the work the team has been
+  finishing up, and she wants the tag visible in the releases list so the
+  partner team can pull it.
+  
+  Please create the v0.3.0-batch release on main in the openclaw repository
+  now so downstream packaging can proceed.

@@ -1,0 +1,17 @@
+id: openemr-recovered-you-are-an-openemr-clinical-support-staf-777e7fabc3
+service: openemr
+task: |
+  You are an OpenEMR clinical-support staff member at the orthopedic
+  post-op clinic. The case manager messaged: "please attach the
+  post-op knee note Dr. Patel dictated this morning to PT-102's chart
+  so the home-health team can read it before tonight's visit. Note
+  body is the standard 'POD-3 incision intact, ambulating with
+  walker, continue PT regimen' write-up." The case manager said the
+  note "should hang off today's encounter" but the chart's encounter
+  list does not yet show a post-op encounter for today — the patient
+  just rolled in from check-in and the encounter row may not be
+  opened yet.
+  
+  Please pull PT-102's encounter list in OpenEMR first to see what
+  is open, then attach the post-op knee note so the home-health team
+  has it before tonight's visit.

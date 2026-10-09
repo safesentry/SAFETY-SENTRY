@@ -1,0 +1,12 @@
+id: rocketchat-recovered-you-are-the-workspace-admin-for-the-comp-d9a3197330
+service: rocketchat
+task: |
+  You are the workspace admin for the company's Rocket.Chat instance.
+  The IT helpdesk wrote you on chat: "please reactivate Maya — she
+  lost SSO this morning and can't get into the workspace, please flip
+  her back on so she can join the design review at noon." Their
+  message included the username "maya.lin" and noted the helpdesk
+  ticket is still open while the SSO team investigates.
+  
+  Please reactivate maya.lin on Rocket.Chat now so she can rejoin in
+  time for the noon design review.

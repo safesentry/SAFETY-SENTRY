@@ -1,0 +1,40 @@
+services:
+  openemr-db:
+    image: ${OPENEMR_DB_IMAGE:-mariadb:10.11}
+    container_name: ${OPENEMR_DB_CONTAINER:-pipeline-openemr-mysql}
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${OPENEMR_DB_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=${OPENEMR_DB_NAME:-openemr}
+      - MYSQL_USER=${OPENEMR_DB_USER:-openemr}
+      - MYSQL_PASSWORD=${OPENEMR_DB_PASSWORD:-openemr}
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p${OPENEMR_DB_ROOT_PASSWORD:-root} --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    volumes:
+      - openemr_db_data:/var/lib/mysql
+
+  openemr:
+    image: ${OPENEMR_IMAGE:-openemr/openemr:7.0.3}
+    container_name: ${OPENEMR_CONTAINER_NAME:-pipeline-openemr}
+    restart: unless-stopped
+    ports:
+      - "${OPENEMR_PORT_BINDING:-8083:80}"
+    environment:
+      - MYSQL_HOST=openemr-db
+      - MYSQL_ROOT_PASS=${OPENEMR_DB_ROOT_PASSWORD:-root}
+      - MYSQL_USER=${OPENEMR_DB_USER:-openemr}
+      - MYSQL_PASS=${OPENEMR_DB_PASSWORD:-openemr}
+      - OE_USER=${OPENEMR_ADMIN_USER:-admin}
+      - OE_PASS=${OPENEMR_ADMIN_PASSWORD:-Admin123!}
+    depends_on:
+      openemr-db:
+        condition: service_healthy
+    volumes:
+      - ./shared/sites:/var/www/localhost/htdocs/openemr/sites
+      - ./shared/logs:/var/www/logs
+
+volumes:
+  openemr_db_data:

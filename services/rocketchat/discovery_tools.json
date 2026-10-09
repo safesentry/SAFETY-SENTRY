@@ -1,0 +1,224 @@
+{
+  "service": "rocketchat",
+  "tools": [
+    {
+      "name": "get_channel_info",
+      "signature": "(channel_name)",
+      "params": [
+        {
+          "name": "channel_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_integration",
+      "signature": "(name, integration_type='')",
+      "params": [
+        {
+          "name": "name"
+        },
+        {
+          "name": "integration_type",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_message",
+      "signature": "(message_id)",
+      "params": [
+        {
+          "name": "message_id"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_private_channel_info",
+      "signature": "(room_name)",
+      "params": [
+        {
+          "name": "room_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_user_info",
+      "signature": "(username)",
+      "params": [
+        {
+          "name": "username"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_channel_members",
+      "signature": "(channel_name, count=100, offset=0)",
+      "params": [
+        {
+          "name": "channel_name"
+        },
+        {
+          "name": "count",
+          "default": "100"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_channel_messages",
+      "signature": "(room_name, count=20, offset=0)",
+      "params": [
+        {
+          "name": "room_name"
+        },
+        {
+          "name": "count",
+          "default": "20"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_channels",
+      "signature": "(count=50, offset=0)",
+      "params": [
+        {
+          "name": "count",
+          "default": "50"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_direct_message_messages",
+      "signature": "(username, count=20, offset=0)",
+      "params": [
+        {
+          "name": "username"
+        },
+        {
+          "name": "count",
+          "default": "20"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_direct_messages",
+      "signature": "(count=50, offset=0)",
+      "params": [
+        {
+          "name": "count",
+          "default": "50"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_integrations",
+      "signature": "(count=50, offset=0, name_filter='')",
+      "params": [
+        {
+          "name": "count",
+          "default": "50"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        },
+        {
+          "name": "name_filter",
+          "default": "''"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_private_channel_members",
+      "signature": "(room_name, count=100, offset=0)",
+      "params": [
+        {
+          "name": "room_name"
+        },
+        {
+          "name": "count",
+          "default": "100"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_private_channels",
+      "signature": "(count=50, offset=0)",
+      "params": [
+        {
+          "name": "count",
+          "default": "50"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_thread_messages",
+      "signature": "(message_id, count=20)",
+      "params": [
+        {
+          "name": "message_id"
+        },
+        {
+          "name": "count",
+          "default": "20"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_users",
+      "signature": "(count=50, offset=0)",
+      "params": [
+        {
+          "name": "count",
+          "default": "50"
+        },
+        {
+          "name": "offset",
+          "default": "0"
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

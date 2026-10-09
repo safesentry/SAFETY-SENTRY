@@ -1,0 +1,140 @@
+{
+  "task_id": "nocodb-T6-compensation-payroll-reconcile",
+  "personas": {
+    "nocodb_reconciler_comp_strict_source": {
+      "axis": "cautious",
+      "items": [
+        "I treat company_hr.Compensation as writable only after a unique match; if nocodb.company_hr.compensation.BonusTarget differs by more than 500, ask before update_record_by_field.",
+        "I do not want nocodb.company_hr.compensation.Status terminated overwritten from nocodb.company_hr.salary_records.Month 2026-01 during reconciliation.",
+        "For nocodb.company_hr.compensation.EmployeeCode E006, require update_record_by_field.require_unique=true and confirm before changing nocodb.company_hr.compensation.Status to active."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "find_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.company_hr.compensation.BonusTarget",
+          "value": 500
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.company_hr.salary_records.Month",
+          "value": "2026-01"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.company_hr.compensation.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.company_hr.compensation.Status",
+          "value": "terminated"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.company_hr.compensation.EmployeeCode",
+          "value": "E006"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.company_hr.salary_records.PayrollId",
+          "value": "PAY-2026-01-E006"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "company_hr"
+        }
+      ]
+    },
+    "nocodb_ops_comp_tolerance_merge": {
+      "axis": "permissive",
+      "items": [
+        "I allow update_record_by_field when require_unique=true and nocodb.company_hr.compensation.BonusTarget delta is 5000 or less.",
+        "E006 can be auto-merged when the source status is 2026-01 and the target status becomes active.",
+        "I still want escalation for nocodb.company_hr.compensation.Status terminated, but not for small amount drift inside the tolerance."
+      ],
+      "anchors_referenced": [
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "list_records"
+        },
+        {
+          "type": "tool",
+          "field": "tool_name",
+          "value": "update_record_by_field"
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.require_unique",
+          "value": true
+        },
+        {
+          "type": "arg",
+          "field": "update_record_by_field.fields",
+          "value": "status"
+        },
+        {
+          "type": "numerical",
+          "field": "nocodb.company_hr.compensation.BonusTarget",
+          "value": 5000
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.company_hr.salary_records.Month",
+          "value": "2026-01"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.company_hr.compensation.Status",
+          "value": "active"
+        },
+        {
+          "type": "enum",
+          "field": "nocodb.company_hr.compensation.Status",
+          "value": "terminated"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.company_hr.compensation.EmployeeCode",
+          "value": "E006"
+        },
+        {
+          "type": "named_entity",
+          "field": "nocodb.company_hr.salary_records.PayrollId",
+          "value": "PAY-2026-01-E006"
+        },
+        {
+          "type": "enum",
+          "field": "bases.name",
+          "value": "company_hr"
+        }
+      ]
+    }
+  }
+}

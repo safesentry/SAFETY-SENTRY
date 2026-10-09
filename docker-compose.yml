@@ -1,0 +1,430 @@
+services:
+  gitea:
+    image: ${GITEA_IMAGE:-gitea/gitea:1.22}
+    container_name: ${GITEA_CONTAINER_NAME:-pipeline-gitea}
+    restart: unless-stopped
+    ports:
+      - "${GITEA_HTTP_PORT:-3000}:3000"
+      - "${GITEA_SSH_PORT:-2222}:22"
+    environment:
+      - GITEA__database__DB_TYPE=sqlite3
+      - GITEA__security__INSTALL_LOCK=true
+      - GITEA__service__DISABLE_REGISTRATION=true
+      - GITEA__actions__ENABLED=true
+      - GITEA__server__ROOT_URL=${GITEA_BASE_URL:-http://localhost:3000}
+
+  nocodb:
+    image: ${NOCODB_IMAGE:-nocodb/nocodb:latest}
+    container_name: ${NOCODB_CONTAINER_NAME:-pipeline-nocodb}
+    restart: unless-stopped
+    ports:
+      - "${NOCODB_PORT:-8080}:8080"
+    environment:
+      - NC_DB=pg://nocodb-db:5432?u=nocodb&p=nocodb123&d=nocodb
+      - NC_AUTH_JWT_SECRET=${NOCODB_JWT_SECRET:-pipeline-nocodb-secret}
+      - NC_DISABLE_TELE=true
+    depends_on:
+      nocodb-db:
+        condition: service_healthy
+    volumes:
+      - nocodb_data:/usr/app/data
+
+  nocodb-db:
+    image: postgres:16-alpine
+    container_name: ${NOCODB_PG_CONTAINER:-pipeline-nocodb-pg}
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=nocodb
+      - POSTGRES_PASSWORD=nocodb123
+      - POSTGRES_DB=nocodb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nocodb"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - nocodb_pg_data:/var/lib/postgresql/data
+
+  owncloud:
+    image: ${OWNCLOUD_IMAGE:-owncloud/ocis:latest}
+    container_name: ${OWNCLOUD_CONTAINER_NAME:-pipeline-owncloud}
+    restart: unless-stopped
+    ports:
+      - "${OWNCLOUD_PORT:-9200}:9200"
+    environment:
+      - OCIS_INSECURE=true
+      - PROXY_HTTP_ADDR=0.0.0.0:9200
+      - OCIS_URL=${OWNCLOUD_BASE_URL:-https://localhost:9200}
+      - IDM_ADMIN_PASSWORD=${OWNCLOUD_ADMIN_PASSWORD:-Admin123!}
+      - OCIS_LOG_LEVEL=warn
+      - PROXY_ENABLE_BASIC_AUTH=true
+    entrypoint: ["/bin/sh"]
+    command: ["-c", "ocis init --insecure true 2>/dev/null || true; ocis server"]
+    volumes:
+      - owncloud_data:/var/lib/ocis
+
+  rocketchat:
+    image: ${ROCKETCHAT_IMAGE:-rocket.chat:latest}
+    platform: linux/amd64
+    container_name: ${ROCKETCHAT_CONTAINER_NAME:-pipeline-rocketchat}
+    restart: unless-stopped
+    ports:
+      - "${ROCKETCHAT_PORT:-3100}:3000"
+    environment:
+      - ROOT_URL=${ROCKETCHAT_BASE_URL:-http://localhost:3100}
+      - MONGO_URL=mongodb://rocketchat-mongo:27017/rocketchat?replicaSet=rs0
+      - MONGO_OPLOG_URL=mongodb://rocketchat-mongo:27017/local?replicaSet=rs0
+      - DEPLOY_METHOD=docker
+      - OVERWRITE_SETTING_Show_Setup_Wizard=completed
+      - OVERWRITE_SETTING_API_Enable_Rate_Limiter=false
+      - CREATE_TOKENS_FOR_USERS=true
+      - ADMIN_USERNAME=${ROCKETCHAT_ADMIN_USER:-admin}
+      - ADMIN_PASS=${ROCKETCHAT_ADMIN_PASSWORD:-Admin123!}
+      - ADMIN_EMAIL=${ROCKETCHAT_ADMIN_EMAIL:-admin@example.com}
+    depends_on:
+      rocketchat-mongo:
+        condition: service_healthy
+    volumes:
+      - rocketchat_uploads:/app/uploads
+
+  rocketchat-mongo:
+    image: mongo:8.0
+    container_name: ${ROCKETCHAT_MONGO_CONTAINER:-pipeline-rocketchat-mongo}
+    restart: unless-stopped
+    command: ["mongod", "--replSet", "rs0", "--oplogSize", "128"]
+    healthcheck:
+      test: >
+        mongosh --eval "try { rs.status().ok } catch(e) { rs.initiate({_id:'rs0',members:[{_id:0,host:'rocketchat-mongo:27017'}]}).ok }"
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    volumes:
+      - rocketchat_mongo_data:/data/db
+
+  zammad-postgresql:
+    image: postgres:${ZAMMAD_POSTGRES_VERSION:-17-alpine}
+    container_name: ${ZAMMAD_PG_CONTAINER:-pipeline-zammad-postgresql}
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=${ZAMMAD_POSTGRES_DB:-zammad_production}
+      - POSTGRES_USER=${ZAMMAD_POSTGRES_USER:-zammad}
+      - POSTGRES_PASSWORD=${ZAMMAD_POSTGRES_PASSWORD:-zammad}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${ZAMMAD_POSTGRES_USER:-zammad} -d ${ZAMMAD_POSTGRES_DB:-zammad_production}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - zammad_postgresql_data:/var/lib/postgresql/data
+
+  zammad-redis:
+    image: redis:${ZAMMAD_REDIS_VERSION:-8-alpine}
+    container_name: ${ZAMMAD_REDIS_CONTAINER:-pipeline-zammad-redis}
+    restart: unless-stopped
+    volumes:
+      - zammad_redis_data:/data
+
+  zammad-memcached:
+    image: memcached:${ZAMMAD_MEMCACHED_VERSION:-1.6-alpine}
+    container_name: ${ZAMMAD_MEMCACHED_CONTAINER:-pipeline-zammad-memcached}
+    restart: unless-stopped
+    command: ["memcached", "-m", "256M"]
+
+  zammad-init:
+    image: ${ZAMMAD_IMAGE:-ghcr.io/zammad/zammad:7.0.0-0042}
+    container_name: ${ZAMMAD_INIT_CONTAINER:-pipeline-zammad-init}
+    restart: on-failure
+    command: ["zammad-init"]
+    user: "0:0"
+    environment:
+      - MEMCACHE_SERVERS=zammad-memcached:11211
+      - POSTGRESQL_DB=${ZAMMAD_POSTGRES_DB:-zammad_production}
+      - POSTGRESQL_HOST=zammad-postgresql
+      - POSTGRESQL_USER=${ZAMMAD_POSTGRES_USER:-zammad}
+      - POSTGRESQL_PASS=${ZAMMAD_POSTGRES_PASSWORD:-zammad}
+      - POSTGRESQL_PORT=5432
+      - POSTGRESQL_OPTIONS=?pool=50
+      - REDIS_URL=redis://zammad-redis:6379
+      - ELASTICSEARCH_ENABLED=false
+      - TZ=${TZ:-UTC}
+      - ZAMMAD_HTTP_TYPE=http
+      - ZAMMAD_FQDN=localhost
+      - AUTOWIZARD_RELATIVE_PATH=contrib/auto_wizard_pipeline.json
+    depends_on:
+      zammad-postgresql:
+        condition: service_healthy
+    volumes:
+      - zammad_storage:/opt/zammad/storage
+      - ./docker/zammad/auto_wizard_pipeline.json:/opt/zammad/contrib/auto_wizard_pipeline.json:ro
+
+  zammad-railsserver:
+    image: ${ZAMMAD_IMAGE:-ghcr.io/zammad/zammad:7.0.0-0042}
+    container_name: ${ZAMMAD_RAILSSERVER_CONTAINER:-pipeline-zammad-railsserver}
+    restart: unless-stopped
+    command: ["zammad-railsserver"]
+    environment:
+      - MEMCACHE_SERVERS=zammad-memcached:11211
+      - POSTGRESQL_DB=${ZAMMAD_POSTGRES_DB:-zammad_production}
+      - POSTGRESQL_HOST=zammad-postgresql
+      - POSTGRESQL_USER=${ZAMMAD_POSTGRES_USER:-zammad}
+      - POSTGRESQL_PASS=${ZAMMAD_POSTGRES_PASSWORD:-zammad}
+      - POSTGRESQL_PORT=5432
+      - POSTGRESQL_OPTIONS=?pool=50
+      - REDIS_URL=redis://zammad-redis:6379
+      - ELASTICSEARCH_ENABLED=false
+      - TZ=${TZ:-UTC}
+      - ZAMMAD_HTTP_TYPE=http
+      - ZAMMAD_FQDN=localhost
+      - AUTOWIZARD_RELATIVE_PATH=contrib/auto_wizard_pipeline.json
+    depends_on:
+      - zammad-memcached
+      - zammad-postgresql
+      - zammad-redis
+      - zammad-init
+    volumes:
+      - zammad_storage:/opt/zammad/storage
+      - ./docker/zammad/auto_wizard_pipeline.json:/opt/zammad/contrib/auto_wizard_pipeline.json:ro
+
+  zammad-scheduler:
+    image: ${ZAMMAD_IMAGE:-ghcr.io/zammad/zammad:7.0.0-0042}
+    container_name: ${ZAMMAD_SCHEDULER_CONTAINER:-pipeline-zammad-scheduler}
+    restart: unless-stopped
+    command: ["zammad-scheduler"]
+    environment:
+      - MEMCACHE_SERVERS=zammad-memcached:11211
+      - POSTGRESQL_DB=${ZAMMAD_POSTGRES_DB:-zammad_production}
+      - POSTGRESQL_HOST=zammad-postgresql
+      - POSTGRESQL_USER=${ZAMMAD_POSTGRES_USER:-zammad}
+      - POSTGRESQL_PASS=${ZAMMAD_POSTGRES_PASSWORD:-zammad}
+      - POSTGRESQL_PORT=5432
+      - POSTGRESQL_OPTIONS=?pool=50
+      - REDIS_URL=redis://zammad-redis:6379
+      - ELASTICSEARCH_ENABLED=false
+      - TZ=${TZ:-UTC}
+      - ZAMMAD_HTTP_TYPE=http
+      - ZAMMAD_FQDN=localhost
+      - AUTOWIZARD_RELATIVE_PATH=contrib/auto_wizard_pipeline.json
+    depends_on:
+      - zammad-memcached
+      - zammad-postgresql
+      - zammad-redis
+      - zammad-init
+    volumes:
+      - zammad_storage:/opt/zammad/storage
+      - ./docker/zammad/auto_wizard_pipeline.json:/opt/zammad/contrib/auto_wizard_pipeline.json:ro
+
+  zammad-websocket:
+    image: ${ZAMMAD_IMAGE:-ghcr.io/zammad/zammad:7.0.0-0042}
+    container_name: ${ZAMMAD_WEBSOCKET_CONTAINER:-pipeline-zammad-websocket}
+    restart: unless-stopped
+    command: ["zammad-websocket"]
+    environment:
+      - MEMCACHE_SERVERS=zammad-memcached:11211
+      - POSTGRESQL_DB=${ZAMMAD_POSTGRES_DB:-zammad_production}
+      - POSTGRESQL_HOST=zammad-postgresql
+      - POSTGRESQL_USER=${ZAMMAD_POSTGRES_USER:-zammad}
+      - POSTGRESQL_PASS=${ZAMMAD_POSTGRES_PASSWORD:-zammad}
+      - POSTGRESQL_PORT=5432
+      - POSTGRESQL_OPTIONS=?pool=50
+      - REDIS_URL=redis://zammad-redis:6379
+      - ELASTICSEARCH_ENABLED=false
+      - TZ=${TZ:-UTC}
+      - ZAMMAD_HTTP_TYPE=http
+      - ZAMMAD_FQDN=localhost
+      - AUTOWIZARD_RELATIVE_PATH=contrib/auto_wizard_pipeline.json
+    depends_on:
+      - zammad-memcached
+      - zammad-postgresql
+      - zammad-redis
+      - zammad-init
+    volumes:
+      - zammad_storage:/opt/zammad/storage
+      - ./docker/zammad/auto_wizard_pipeline.json:/opt/zammad/contrib/auto_wizard_pipeline.json:ro
+
+  zammad-nginx:
+    image: ${ZAMMAD_IMAGE:-ghcr.io/zammad/zammad:7.0.0-0042}
+    container_name: ${ZAMMAD_NGINX_CONTAINER:-pipeline-zammad-nginx}
+    restart: unless-stopped
+    command: ["zammad-nginx"]
+    environment:
+      - MEMCACHE_SERVERS=zammad-memcached:11211
+      - POSTGRESQL_DB=${ZAMMAD_POSTGRES_DB:-zammad_production}
+      - POSTGRESQL_HOST=zammad-postgresql
+      - POSTGRESQL_USER=${ZAMMAD_POSTGRES_USER:-zammad}
+      - POSTGRESQL_PASS=${ZAMMAD_POSTGRES_PASSWORD:-zammad}
+      - POSTGRESQL_PORT=5432
+      - POSTGRESQL_OPTIONS=?pool=50
+      - REDIS_URL=redis://zammad-redis:6379
+      - ELASTICSEARCH_ENABLED=false
+      - TZ=${TZ:-UTC}
+      - NGINX_PORT=8080
+      - ZAMMAD_HTTP_TYPE=http
+      - ZAMMAD_FQDN=localhost
+      - AUTOWIZARD_RELATIVE_PATH=contrib/auto_wizard_pipeline.json
+    depends_on:
+      - zammad-railsserver
+    ports:
+      - "${ZAMMAD_PORT:-8081}:8080"
+    volumes:
+      - zammad_storage:/opt/zammad/storage
+      - ./docker/zammad/auto_wizard_pipeline.json:/opt/zammad/contrib/auto_wizard_pipeline.json:ro
+
+  mailu-redis:
+    image: redis:7-alpine
+    container_name: ${MAILU_REDIS_CONTAINER:-pipeline-mailu-redis}
+    restart: unless-stopped
+    volumes:
+      - mailu_redis_data:/data
+    networks:
+      default:
+      mailu_network:
+        ipv4_address: 192.168.203.5
+        aliases:
+          - redis
+
+  mailu-front:
+    image: ${MAILU_FRONT_IMAGE:-ghcr.io/mailu/nginx:2024.06}
+    container_name: ${MAILU_FRONT_CONTAINER:-pipeline-mailu-front}
+    restart: unless-stopped
+    ports:
+      - "${MAILU_HTTP_PORT:-8443}:80"
+      - "${MAILU_SMTP_PORT:-2525}:25"
+      - "${MAILU_IMAP_PORT:-1143}:143"
+    environment:
+      - TZ=UTC
+      - SECRET_KEY=${MAILU_SECRET_KEY:-pipeline-mailu-secret-key-2024}
+      - DOMAIN=example.com
+      - HOSTNAMES=mail.example.com
+      - POSTMASTER=admin
+      - SUBNET=192.168.203.0/24
+      - TLS_FLAVOR=notls
+      - ADMIN=true
+      - WEBMAIL=none
+      - API=true
+      - MESSAGE_SIZE_LIMIT=50000000
+      - LOG_LEVEL=WARNING
+      - WEB_ADMIN=/admin
+    depends_on:
+      - mailu-admin
+      - mailu-dovecot
+      - mailu-postfix
+    volumes:
+      - mailu_certs:/certs
+      - mailu_overrides:/overrides:ro
+    networks:
+      default:
+      mailu_network:
+        ipv4_address: 192.168.203.254
+        aliases:
+          - front
+
+  mailu-admin:
+    image: ${MAILU_ADMIN_IMAGE:-ghcr.io/mailu/admin:2024.06}
+    container_name: ${MAILU_ADMIN_CONTAINER:-pipeline-mailu-admin}
+    restart: unless-stopped
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    environment:
+      - TZ=UTC
+      - SECRET_KEY=${MAILU_SECRET_KEY:-pipeline-mailu-secret-key-2024}
+      - DOMAIN=example.com
+      - HOSTNAMES=mail.example.com
+      - POSTMASTER=admin
+      - SUBNET=192.168.203.0/24
+      - TLS_FLAVOR=notls
+      - INITIAL_ADMIN_ACCOUNT=admin
+      - INITIAL_ADMIN_DOMAIN=example.com
+      - INITIAL_ADMIN_PW=${MAILU_ADMIN_PASSWORD:-Admin123!}
+      - INITIAL_ADMIN_MODE=ifmissing
+      - API=true
+      - API_TOKEN=${MAILU_API_TOKEN:-pipeline-mailu-api-token-2024}
+      - WEB_ADMIN=/admin
+      - AUTH_RATELIMIT_IP=9999/minute;99999/hour
+      - AUTH_RATELIMIT_USER=9999/minute;99999/hour
+      - CREDENTIAL_ROUNDS=12
+      - REDIS_ADDRESS=192.168.203.5
+      - LOG_LEVEL=WARNING
+    depends_on:
+      - mailu-redis
+    volumes:
+      - mailu_data:/data
+      - mailu_dkim:/dkim
+    networks:
+      default:
+      mailu_network:
+        ipv4_address: 192.168.203.2
+        aliases:
+          - admin
+
+  mailu-dovecot:
+    image: ${MAILU_DOVECOT_IMAGE:-ghcr.io/mailu/dovecot:2024.06}
+    container_name: ${MAILU_DOVECOT_CONTAINER:-pipeline-mailu-dovecot}
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+      - SECRET_KEY=${MAILU_SECRET_KEY:-pipeline-mailu-secret-key-2024}
+      - DOMAIN=example.com
+      - HOSTNAMES=mail.example.com
+      - POSTMASTER=admin
+      - SUBNET=192.168.203.0/24
+      - TLS_FLAVOR=notls
+      - LOG_LEVEL=WARNING
+    volumes:
+      - mailu_mail:/mail
+      - mailu_overrides:/overrides:ro
+    networks:
+      default:
+      mailu_network:
+        ipv4_address: 192.168.203.3
+        aliases:
+          - imap
+
+  mailu-postfix:
+    image: ${MAILU_POSTFIX_IMAGE:-ghcr.io/mailu/postfix:2024.06}
+    container_name: ${MAILU_POSTFIX_CONTAINER:-pipeline-mailu-postfix}
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+      - SECRET_KEY=${MAILU_SECRET_KEY:-pipeline-mailu-secret-key-2024}
+      - DOMAIN=example.com
+      - HOSTNAMES=mail.example.com
+      - POSTMASTER=admin
+      - SUBNET=192.168.203.0/24
+      - TLS_FLAVOR=notls
+      - RELAYHOST=
+      - MESSAGE_SIZE_LIMIT=50000000
+      - LOG_LEVEL=WARNING
+    volumes:
+      - mailu_queue:/queue
+      - mailu_overrides:/overrides:ro
+    networks:
+      default:
+      mailu_network:
+        ipv4_address: 192.168.203.4
+        aliases:
+          - smtp
+
+volumes:
+  nocodb_data:
+  nocodb_pg_data:
+  owncloud_data:
+  rocketchat_uploads:
+  rocketchat_mongo_data:
+  zammad_postgresql_data:
+  zammad_redis_data:
+  zammad_storage:
+  mailu_data:
+  mailu_mail:
+  mailu_certs:
+  mailu_dkim:
+  mailu_overrides:
+  mailu_queue:
+  mailu_redis_data:
+
+networks:
+  mailu_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.203.0/24

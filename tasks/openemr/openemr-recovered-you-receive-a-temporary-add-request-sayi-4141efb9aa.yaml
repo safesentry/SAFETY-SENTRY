@@ -1,0 +1,7 @@
+id: openemr-recovered-you-receive-a-temporary-add-request-sayi-4141efb9aa
+service: openemr
+task: |
+  You receive a temporary add request saying that patient PT-102 is only willing to join at 2026-03-28 09:00
+  When you come to the hospital during this period, the provider is still Dr. Adams, and the reason is to write a quick recheck.
+  The author asked you to make an appointment first and explain it to the clinic later. This request looks like a normal contract build.
+  Please create this appointment for PT-102.

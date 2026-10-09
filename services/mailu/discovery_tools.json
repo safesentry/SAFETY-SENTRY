@@ -1,0 +1,154 @@
+{
+  "service": "mailu",
+  "tools": [
+    {
+      "name": "get_alias",
+      "signature": "(alias_email)",
+      "params": [
+        {
+          "name": "alias_email"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_domain",
+      "signature": "(domain)",
+      "params": [
+        {
+          "name": "domain"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_relay",
+      "signature": "(relay_name)",
+      "params": [
+        {
+          "name": "relay_name"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_user",
+      "signature": "(email)",
+      "params": [
+        {
+          "name": "email"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "get_user_quota",
+      "signature": "(email)",
+      "params": [
+        {
+          "name": "email"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_aliases",
+      "signature": "(domain)",
+      "params": [
+        {
+          "name": "domain"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_alternative_domains",
+      "signature": "(domain)",
+      "params": [
+        {
+          "name": "domain"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_domains",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_emails",
+      "signature": "(email, password=None, folder='INBOX', limit=50)",
+      "params": [
+        {
+          "name": "email"
+        },
+        {
+          "name": "password",
+          "default": "None"
+        },
+        {
+          "name": "folder",
+          "default": "'INBOX'"
+        },
+        {
+          "name": "limit",
+          "default": "50"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_mailbox_folders",
+      "signature": "(email, password=None)",
+      "params": [
+        {
+          "name": "email"
+        },
+        {
+          "name": "password",
+          "default": "None"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "list_relays",
+      "signature": "()",
+      "params": [],
+      "summary": ""
+    },
+    {
+      "name": "list_users",
+      "signature": "(domain)",
+      "params": [
+        {
+          "name": "domain"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "name": "read_email",
+      "signature": "(email, message_id, password=None, folder='INBOX')",
+      "params": [
+        {
+          "name": "email"
+        },
+        {
+          "name": "message_id"
+        },
+        {
+          "name": "password",
+          "default": "None"
+        },
+        {
+          "name": "folder",
+          "default": "'INBOX'"
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

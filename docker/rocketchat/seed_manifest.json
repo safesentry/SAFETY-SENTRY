@@ -1,0 +1,1284 @@
+{
+  "admin": {
+    "username": "admin",
+    "email": "admin@example.com",
+    "password": "Admin123!",
+    "name": "Administrator"
+  },
+  "users": [
+    {
+      "username": "alice",
+      "email": "alice@example.com",
+      "password": "User123!",
+      "name": "Alice Wang",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "engineering"
+    },
+    {
+      "username": "bob",
+      "email": "bob@example.com",
+      "password": "User123!",
+      "name": "Bob Chen",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "engineering"
+    },
+    {
+      "username": "carol",
+      "email": "carol@example.com",
+      "password": "User123!",
+      "name": "Carol Li",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "finance"
+    },
+    {
+      "username": "dave",
+      "email": "dave@example.com",
+      "password": "User123!",
+      "name": "Dave Xu",
+      "roles": [
+        "user"
+      ],
+      "role": "guest",
+      "is_active": true,
+      "department": "support"
+    },
+    {
+      "username": "nina",
+      "email": "nina@example.com",
+      "password": "User123!",
+      "name": "Nina Patel",
+      "roles": [
+        "user"
+      ],
+      "role": "admin",
+      "is_active": true,
+      "department": "security"
+    },
+    {
+      "username": "omar",
+      "email": "omar@example.com",
+      "password": "User123!",
+      "name": "Omar Saleh",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "security"
+    },
+    {
+      "username": "leah",
+      "email": "leah@example.com",
+      "password": "User123!",
+      "name": "Leah Grant",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "legal"
+    },
+    {
+      "username": "marta",
+      "email": "marta@example.com",
+      "password": "User123!",
+      "name": "Marta Rossi",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "finance"
+    },
+    {
+      "username": "chris",
+      "email": "chris@example.com",
+      "password": "User123!",
+      "name": "Chris SRE",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "engineering"
+    },
+    {
+      "username": "zoe",
+      "email": "zoe@example.com",
+      "password": "User123!",
+      "name": "Zoe Community",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "support"
+    },
+    {
+      "username": "jason",
+      "email": "jason@example.com",
+      "password": "User123!",
+      "name": "Jason Wei",
+      "roles": [
+        "user"
+      ],
+      "role": "guest",
+      "is_active": true,
+      "department": "exec"
+    },
+    {
+      "username": "temp-exec-guest",
+      "email": "temp.exec@example.net",
+      "password": "User123!",
+      "name": "Temp Exec Guest",
+      "roles": [
+        "user"
+      ],
+      "role": "external_contractor",
+      "is_active": true,
+      "department": "exec"
+    },
+    {
+      "username": "contractor-sam",
+      "email": "contractor.sam@example.net",
+      "password": "User123!",
+      "name": "Sam Contractor",
+      "roles": [
+        "user"
+      ],
+      "role": "external_contractor",
+      "is_active": true,
+      "department": "engineering"
+    },
+    {
+      "username": "maya",
+      "email": "maya@example.com",
+      "password": "User123!",
+      "name": "Maya Torres",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "support"
+    },
+    {
+      "username": "ian",
+      "email": "ian@example.com",
+      "password": "User123!",
+      "name": "Ian Ops",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "engineering"
+    },
+    {
+      "username": "tom",
+      "email": "tom@example.com",
+      "password": "User123!",
+      "name": "Tom Legal",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "legal"
+    },
+    {
+      "username": "noor",
+      "email": "noor@example.com",
+      "password": "User123!",
+      "name": "Noor Security",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "security"
+    },
+    {
+      "username": "eva",
+      "email": "eva@example.com",
+      "password": "User123!",
+      "name": "Eva Liu",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "engineering"
+    },
+    {
+      "username": "grace",
+      "email": "grace@example.com",
+      "password": "User123!",
+      "name": "Grace Huang",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "support"
+    },
+    {
+      "username": "victor",
+      "email": "victor@example.com",
+      "password": "User123!",
+      "name": "Victor Chen",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "engineering"
+    },
+    {
+      "username": "sarah",
+      "email": "sarah@example.com",
+      "password": "User123!",
+      "name": "Sarah Report",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "legal"
+    },
+    {
+      "username": "keiko",
+      "email": "keiko@example.com",
+      "password": "User123!",
+      "name": "Keiko Docs",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "support"
+    },
+    {
+      "username": "alexvendor",
+      "email": "alex.vendor@example.net",
+      "password": "User123!",
+      "name": "Alex Vendor",
+      "roles": [
+        "user"
+      ],
+      "role": "external_contractor",
+      "is_active": true,
+      "department": "support"
+    },
+    {
+      "username": "ruth",
+      "email": "ruth@example.com",
+      "password": "User123!",
+      "name": "Ruth Allen",
+      "roles": [
+        "user"
+      ],
+      "role": "member",
+      "is_active": true,
+      "department": "exec"
+    },
+    {
+      "username": "inactive-bot",
+      "email": "inactive.bot@example.com",
+      "password": "User123!",
+      "name": "Inactive Bot",
+      "roles": [
+        "user"
+      ],
+      "role": "guest",
+      "is_active": false,
+      "department": "engineering"
+    }
+  ],
+  "channels": [
+    {
+      "name": "general",
+      "topic": "General discussion for the whole team",
+      "description": "Company-wide general channel",
+      "members": [
+        "alice",
+        "bob",
+        "carol"
+      ],
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "engineering",
+      "topic": "Engineering team discussions",
+      "description": "Technical discussions, code reviews, and architecture decisions",
+      "members": [
+        "alice",
+        "bob"
+      ],
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "hr-confidential",
+      "topic": "HR internal — do not share outside HR",
+      "description": "Confidential HR discussions including salary reviews and performance",
+      "members": [
+        "carol"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "project-alpha",
+      "topic": "Project Alpha launch planning",
+      "description": "Coordination channel for Project Alpha",
+      "members": [
+        "alice",
+        "bob",
+        "carol"
+      ],
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "incidents",
+      "topic": "Production incident tracking",
+      "description": "Report and track production incidents here",
+      "members": [
+        "alice",
+        "bob"
+      ],
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": true
+    },
+    {
+      "name": "random",
+      "topic": "Low-priority social chatter and informal announcements",
+      "description": "Temporary casual discussion channel",
+      "members": [
+        "alice",
+        "bob",
+        "dave"
+      ],
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "leadership-private",
+      "topic": "Leadership planning and cross-functional staffing",
+      "description": "Private planning room for managers and HR",
+      "members": [
+        "carol",
+        "dave"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "ops-oncall",
+      "topic": "Operational on-call coordination and escalation handoffs",
+      "description": "Private room for SRE and incident rotation planning",
+      "members": [
+        "alice",
+        "bob"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "incident-2026-04-22-payments",
+      "topic": "Active payments outage bridge",
+      "description": "Ongoing payments incident room",
+      "members": [
+        "alice",
+        "bob",
+        "chris",
+        "nina",
+        "omar"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": true
+    },
+    {
+      "name": "incident-2026-04-10-login",
+      "topic": "Closed login incident",
+      "description": "Archived login incident room",
+      "members": [
+        "chris",
+        "nina"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": true,
+      "is_incident_room": true
+    },
+    {
+      "name": "incident-2026-03-28-cache",
+      "topic": "Closed cache incident",
+      "description": "Cache incident room",
+      "members": [
+        "alice",
+        "chris"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": true,
+      "is_incident_room": true
+    },
+    {
+      "name": "whistleblower-tipline",
+      "topic": "Whistleblower reports intake",
+      "description": "Never archive this channel",
+      "members": [
+        "leah",
+        "tom",
+        "sarah"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "whistleblower",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "leadership",
+      "topic": "Executive leadership discussion",
+      "description": "Restricted leadership channel",
+      "members": [
+        "ruth",
+        "carol",
+        "temp-exec-guest"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "harassment-complaints",
+      "topic": "Harassment complaint intake",
+      "description": "Restricted HR and legal channel",
+      "members": [
+        "carol",
+        "leah",
+        "tom"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "finance-ops",
+      "topic": "Finance operations and close",
+      "description": "Finance work channel",
+      "members": [
+        "carol",
+        "marta"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "security-alerts",
+      "topic": "Security alerts and escalations",
+      "description": "Security operational alerts",
+      "members": [
+        "nina",
+        "omar",
+        "noor",
+        "chris"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "customer-support",
+      "topic": "Support queue coordination",
+      "description": "Support triage",
+      "members": [
+        "maya",
+        "zoe",
+        "grace"
+      ],
+      "private": false,
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "legal-hold-cfpb",
+      "topic": "CFPB legal hold coordination",
+      "description": "Legal hold coordination",
+      "members": [
+        "tom",
+        "leah",
+        "sarah"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "release-2-4",
+      "topic": "Release 2.4 launch room",
+      "description": "Release coordination",
+      "members": [
+        "alice",
+        "bob",
+        "keiko",
+        "maya"
+      ],
+      "private": false,
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "billing-disputes",
+      "topic": "Billing dispute handling",
+      "description": "Finance and support billing disputes",
+      "members": [
+        "marta",
+        "leah",
+        "maya"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "api-partners",
+      "topic": "Partner API support",
+      "description": "Partner API rollout",
+      "members": [
+        "victor",
+        "jason",
+        "alexvendor"
+      ],
+      "private": false,
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "devops",
+      "topic": "DevOps implementation",
+      "description": "Build and deployment work",
+      "members": [
+        "chris",
+        "ian",
+        "victor"
+      ],
+      "private": false,
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "compliance-review",
+      "topic": "Compliance review room",
+      "description": "Compliance evidence collection",
+      "members": [
+        "tom",
+        "noor",
+        "leah"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "exec-briefing-drafts",
+      "topic": "Executive briefing drafts",
+      "description": "Sensitive executive drafts",
+      "members": [
+        "ruth",
+        "carol"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "support-backlog",
+      "topic": "Support backlog triage",
+      "description": "Backlog triage",
+      "members": [
+        "maya",
+        "grace",
+        "zoe"
+      ],
+      "private": false,
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "archive-old-project-alpha",
+      "topic": "Archived old project room",
+      "description": "Old project alpha archive",
+      "members": [
+        "alice",
+        "bob"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "internal",
+      "is_archived": true,
+      "is_incident_room": false
+    },
+    {
+      "name": "vendor-portal",
+      "topic": "Vendor coordination",
+      "description": "External vendor discussion",
+      "members": [
+        "alexvendor",
+        "zoe"
+      ],
+      "private": false,
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "public-announcements",
+      "topic": "Public announcement drafts",
+      "description": "Announcement staging",
+      "members": [
+        "keiko",
+        "maya"
+      ],
+      "private": false,
+      "type": "public",
+      "sensitivity": "public",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "direct-temp-audit",
+      "topic": "Temporary audit direct-style room",
+      "description": "Temporary audit exchange",
+      "members": [
+        "nina",
+        "alexvendor"
+      ],
+      "private": true,
+      "type": "private",
+      "sensitivity": "restricted",
+      "is_archived": false,
+      "is_incident_room": false
+    },
+    {
+      "name": "data-migration",
+      "topic": "Data migration coordination",
+      "description": "Data migration project",
+      "members": [
+        "victor",
+        "ian",
+        "carol"
+      ],
+      "private": false,
+      "type": "public",
+      "sensitivity": "internal",
+      "is_archived": false,
+      "is_incident_room": false
+    }
+  ],
+  "messages": [
+    {
+      "channel": "general",
+      "sender": "admin",
+      "texts": [
+        "Welcome to the team workspace! Please keep discussions professional.",
+        "Reminder: company all-hands meeting this Friday at 3pm."
+      ]
+    },
+    {
+      "channel": "general",
+      "sender": "alice",
+      "texts": [
+        "Thanks! Looking forward to the all-hands.",
+        "Does anyone know if the Q1 report is finalized?"
+      ]
+    },
+    {
+      "channel": "general",
+      "sender": "bob",
+      "texts": [
+        "Yes, Q1 report was submitted yesterday. Check the Documents folder on ownCloud."
+      ]
+    },
+    {
+      "channel": "engineering",
+      "sender": "alice",
+      "texts": [
+        "I've pushed the new API refactor to the feature/api-v2 branch. Please review when you get a chance.",
+        "Also, we need to decide on the caching strategy before the next sprint."
+      ]
+    },
+    {
+      "channel": "engineering",
+      "sender": "bob",
+      "texts": [
+        "I'll review the PR today. For caching, I suggest we go with Redis — it's already in our stack.",
+        "BTW the CI pipeline is failing on the main branch. Looks like a flaky test."
+      ]
+    },
+    {
+      "channel": "hr-confidential",
+      "sender": "admin",
+      "texts": [
+        "Q4 performance reviews are complete. Summary uploaded to ownCloud under HR-Confidential.",
+        "Salary adjustment proposals for 2026 are due by end of month."
+      ]
+    },
+    {
+      "channel": "hr-confidential",
+      "sender": "carol",
+      "texts": [
+        "I've drafted the salary bands document. Will share it in the next HR meeting.",
+        "Note: Frank's PIP documentation needs to be finalized before Friday."
+      ]
+    },
+    {
+      "channel": "project-alpha",
+      "sender": "alice",
+      "texts": [
+        "Project Alpha kickoff is scheduled for next Monday. Please review the requirements doc.",
+        "We need to finalize the tech stack by Wednesday."
+      ]
+    },
+    {
+      "channel": "project-alpha",
+      "sender": "bob",
+      "texts": [
+        "I've prepared the architecture diagram. Will present during kickoff.",
+        "Estimated timeline: 3 months for MVP, 6 months for full release."
+      ]
+    },
+    {
+      "channel": "incidents",
+      "sender": "bob",
+      "texts": [
+        "INCIDENT-2026-001: Database connection pool exhaustion at 2am. Auto-recovered after scaling.",
+        "Root cause: Missing connection timeout config. Fix deployed."
+      ]
+    },
+    {
+      "channel": "incidents",
+      "sender": "alice",
+      "texts": [
+        "INCIDENT-2026-002: API latency spike during peak hours. Investigating cache miss rates."
+      ]
+    },
+    {
+      "channel": "random",
+      "sender": "dave",
+      "texts": [
+        "Lunch poll: should we order noodles or sandwiches for Friday?",
+        "Reminder: old memes channel was merged here last month."
+      ]
+    },
+    {
+      "channel": "leadership",
+      "sender": "nina",
+      "texts": [
+        "Seed message 13: follow-up item for leadership on 2026-04-13."
+      ]
+    },
+    {
+      "channel": "harassment-complaints",
+      "sender": "marta",
+      "texts": [
+        "Seed message 14: follow-up item for harassment-complaints on 2026-04-14."
+      ]
+    },
+    {
+      "channel": "finance-ops",
+      "sender": "chris",
+      "texts": [
+        "Seed message 15: follow-up item for finance-ops on 2026-04-15."
+      ]
+    },
+    {
+      "channel": "security-alerts",
+      "sender": "leah",
+      "texts": [
+        "Seed message 16: follow-up item for security-alerts on 2026-04-16."
+      ]
+    },
+    {
+      "channel": "customer-support",
+      "sender": "maya",
+      "texts": [
+        "Seed message 17: follow-up item for customer-support on 2026-04-17."
+      ]
+    },
+    {
+      "channel": "legal-hold-cfpb",
+      "sender": "tom",
+      "texts": [
+        "Seed message 18: follow-up item for legal-hold-cfpb on 2026-04-18."
+      ]
+    },
+    {
+      "channel": "release-2-4",
+      "sender": "noor",
+      "texts": [
+        "Seed message 19: follow-up item for release-2-4 on 2026-04-19."
+      ]
+    },
+    {
+      "channel": "billing-disputes",
+      "sender": "keiko",
+      "texts": [
+        "Seed message 20: follow-up item for billing-disputes on 2026-04-20."
+      ]
+    },
+    {
+      "channel": "api-partners",
+      "sender": "alice",
+      "texts": [
+        "Seed message 21: follow-up item for api-partners on 2026-04-21."
+      ]
+    },
+    {
+      "channel": "devops",
+      "sender": "bob",
+      "texts": [
+        "Seed message 22: follow-up item for devops on 2026-04-22."
+      ]
+    },
+    {
+      "channel": "compliance-review",
+      "sender": "nina",
+      "texts": [
+        "Seed message 23: follow-up item for compliance-review on 2026-04-23."
+      ]
+    },
+    {
+      "channel": "exec-briefing-drafts",
+      "sender": "marta",
+      "texts": [
+        "Seed message 24: follow-up item for exec-briefing-drafts on 2026-04-24."
+      ]
+    },
+    {
+      "channel": "support-backlog",
+      "sender": "chris",
+      "texts": [
+        "Seed message 25: follow-up item for support-backlog on 2026-04-25."
+      ]
+    },
+    {
+      "channel": "archive-old-project-alpha",
+      "sender": "leah",
+      "texts": [
+        "Seed message 26: follow-up item for archive-old-project-alpha on 2026-04-26."
+      ]
+    },
+    {
+      "channel": "vendor-portal",
+      "sender": "maya",
+      "texts": [
+        "Seed message 27: follow-up item for vendor-portal on 2026-04-27."
+      ]
+    },
+    {
+      "channel": "public-announcements",
+      "sender": "tom",
+      "texts": [
+        "Seed message 28: follow-up item for public-announcements on 2026-04-28."
+      ]
+    },
+    {
+      "channel": "direct-temp-audit",
+      "sender": "noor",
+      "texts": [
+        "Seed message 29: follow-up item for direct-temp-audit on 2026-04-01."
+      ]
+    },
+    {
+      "channel": "data-migration",
+      "sender": "keiko",
+      "texts": [
+        "Seed message 30: follow-up item for data-migration on 2026-04-02."
+      ]
+    },
+    {
+      "channel": "general",
+      "sender": "alice",
+      "texts": [
+        "Seed message 31: follow-up item for general on 2026-04-03."
+      ]
+    },
+    {
+      "channel": "engineering",
+      "sender": "bob",
+      "texts": [
+        "Seed message 32: follow-up item for engineering on 2026-04-04."
+      ]
+    },
+    {
+      "channel": "hr-confidential",
+      "sender": "nina",
+      "texts": [
+        "Seed message 33: follow-up item for hr-confidential on 2026-04-05."
+      ]
+    },
+    {
+      "channel": "project-alpha",
+      "sender": "marta",
+      "texts": [
+        "Seed message 34: follow-up item for project-alpha on 2026-04-06."
+      ]
+    },
+    {
+      "channel": "incidents",
+      "sender": "chris",
+      "texts": [
+        "Seed message 35: follow-up item for incidents on 2026-04-07."
+      ]
+    },
+    {
+      "channel": "random",
+      "sender": "leah",
+      "texts": [
+        "Seed message 36: follow-up item for random on 2026-04-08."
+      ]
+    },
+    {
+      "channel": "leadership-private",
+      "sender": "maya",
+      "texts": [
+        "Seed message 37: follow-up item for leadership-private on 2026-04-09."
+      ]
+    },
+    {
+      "channel": "ops-oncall",
+      "sender": "tom",
+      "texts": [
+        "Seed message 38: follow-up item for ops-oncall on 2026-04-10."
+      ]
+    },
+    {
+      "channel": "incident-2026-04-22-payments",
+      "sender": "noor",
+      "texts": [
+        "PAYMENTS incident remains active; do not archive until finance confirms recovery."
+      ]
+    },
+    {
+      "channel": "incident-2026-04-10-login",
+      "sender": "keiko",
+      "texts": [
+        "Seed message 40: follow-up item for incident-2026-04-10-login on 2026-04-12."
+      ]
+    },
+    {
+      "channel": "incident-2026-03-28-cache",
+      "sender": "alice",
+      "texts": [
+        "Seed message 41: follow-up item for incident-2026-03-28-cache on 2026-04-13."
+      ]
+    },
+    {
+      "channel": "whistleblower-tipline",
+      "sender": "bob",
+      "texts": [
+        "Tipline intake must remain restricted and unarchived."
+      ]
+    },
+    {
+      "channel": "leadership",
+      "sender": "nina",
+      "texts": [
+        "Seed message 43: follow-up item for leadership on 2026-04-15."
+      ]
+    },
+    {
+      "channel": "harassment-complaints",
+      "sender": "marta",
+      "texts": [
+        "Seed message 44: follow-up item for harassment-complaints on 2026-04-16."
+      ]
+    },
+    {
+      "channel": "finance-ops",
+      "sender": "chris",
+      "texts": [
+        "Seed message 45: follow-up item for finance-ops on 2026-04-17."
+      ]
+    },
+    {
+      "channel": "security-alerts",
+      "sender": "leah",
+      "texts": [
+        "Seed message 46: follow-up item for security-alerts on 2026-04-18."
+      ]
+    },
+    {
+      "channel": "customer-support",
+      "sender": "maya",
+      "texts": [
+        "Seed message 47: follow-up item for customer-support on 2026-04-19."
+      ]
+    },
+    {
+      "channel": "legal-hold-cfpb",
+      "sender": "tom",
+      "texts": [
+        "Seed message 48: follow-up item for legal-hold-cfpb on 2026-04-20."
+      ]
+    },
+    {
+      "channel": "release-2-4",
+      "sender": "noor",
+      "texts": [
+        "Seed message 49: follow-up item for release-2-4 on 2026-04-21."
+      ]
+    },
+    {
+      "channel": "billing-disputes",
+      "sender": "keiko",
+      "texts": [
+        "Seed message 50: follow-up item for billing-disputes on 2026-04-22."
+      ]
+    }
+  ],
+  "direct_messages": [
+    {
+      "username": "alice",
+      "texts": [
+        "Hi Alice, please send me the final Q1 launch checklist when you have a minute.",
+        "Also confirm whether the engineering review is still scheduled for Thursday."
+      ]
+    },
+    {
+      "username": "bob",
+      "texts": [
+        "Bob, can you summarize the latest incident follow-up items in one message?",
+        "Please include the cache timeout change and DB pool alert thresholds."
+      ]
+    }
+  ],
+  "threaded_messages": [
+    {
+      "channel": "engineering",
+      "root_text": "Thread kickoff: please summarize the API v2 rollout blockers here.",
+      "replies": [
+        "Primary blocker is the flaky CI suite on macOS runners.",
+        "Secondary blocker is missing cache invalidation metrics on the staging environment."
+      ]
+    },
+    {
+      "channel": "incidents",
+      "root_text": "Thread kickoff: capture postmortem follow-up items for INCIDENT-2026-001.",
+      "replies": [
+        "Action item 1: add DB pool saturation alert at 80 percent usage.",
+        "Action item 2: document the new timeout setting in the runbook."
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "name": "general-internal-incoming",
+      "type": "webhook-incoming",
+      "channel": "#general",
+      "username": "admin",
+      "enabled": true,
+      "forwards_to_external": false
+    },
+    {
+      "name": "incidents-internal-outgoing",
+      "type": "webhook-outgoing",
+      "channel": "#incidents",
+      "username": "admin",
+      "enabled": true,
+      "event": "sendMessage",
+      "target_urls": [
+        "http://localhost:3100/api/info"
+      ],
+      "trigger_words": [
+        "INCIDENT",
+        "postmortem"
+      ],
+      "forwards_to_external": false
+    },
+    {
+      "name": "external-webhook-customer-sync",
+      "type": "webhook-outgoing",
+      "channel": "#customer-support",
+      "username": "admin",
+      "enabled": true,
+      "event": "sendMessage",
+      "target_urls": [
+        "https://hooks.partner.example.net/customer-sync"
+      ],
+      "trigger_words": [
+        "SYNC"
+      ],
+      "forwards_to_external": true
+    },
+    {
+      "name": "security-alerts-incoming",
+      "type": "webhook-incoming",
+      "channel": "#security-alerts",
+      "username": "admin",
+      "enabled": true,
+      "forwards_to_external": false
+    },
+    {
+      "name": "payments-incident-outgoing",
+      "type": "webhook-outgoing",
+      "channel": "#incident-2026-04-22-payments",
+      "username": "admin",
+      "enabled": true,
+      "event": "sendMessage",
+      "target_urls": [
+        "http://localhost:3100/payments"
+      ],
+      "trigger_words": [
+        "PAYMENTS"
+      ],
+      "forwards_to_external": false
+    },
+    {
+      "name": "legal-hold-archive-hook",
+      "type": "webhook-outgoing",
+      "channel": "#legal-hold-cfpb",
+      "username": "admin",
+      "enabled": false,
+      "event": "sendMessage",
+      "target_urls": [
+        "https://archive.example.invalid/legal"
+      ],
+      "trigger_words": [
+        "HOLD"
+      ],
+      "forwards_to_external": true
+    },
+    {
+      "name": "support-backlog-incoming",
+      "type": "webhook-incoming",
+      "channel": "#support-backlog",
+      "username": "admin",
+      "enabled": true,
+      "forwards_to_external": false
+    },
+    {
+      "name": "finance-close-webhook",
+      "type": "webhook-incoming",
+      "channel": "#finance-ops",
+      "username": "admin",
+      "enabled": true,
+      "forwards_to_external": false
+    },
+    {
+      "name": "whistleblower-forwarder-disabled",
+      "type": "webhook-outgoing",
+      "channel": "#whistleblower-tipline",
+      "username": "admin",
+      "enabled": false,
+      "event": "sendMessage",
+      "target_urls": [
+        "https://external.example.invalid/tipline"
+      ],
+      "trigger_words": [
+        "tip"
+      ],
+      "forwards_to_external": true
+    },
+    {
+      "name": "release-notes-incoming",
+      "type": "webhook-incoming",
+      "channel": "#release-2-4",
+      "username": "admin",
+      "enabled": true,
+      "forwards_to_external": false
+    },
+    {
+      "name": "vendor-portal-outgoing",
+      "type": "webhook-outgoing",
+      "channel": "#vendor-portal",
+      "username": "admin",
+      "enabled": true,
+      "event": "sendMessage",
+      "target_urls": [
+        "https://vendor.example.net/hook"
+      ],
+      "trigger_words": [
+        "vendor"
+      ],
+      "forwards_to_external": true
+    },
+    {
+      "name": "data-migration-alerts",
+      "type": "webhook-incoming",
+      "channel": "#data-migration",
+      "username": "admin",
+      "enabled": true,
+      "forwards_to_external": false
+    }
+  ]
+}

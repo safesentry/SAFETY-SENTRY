@@ -1,0 +1,7 @@
+id: erpnext-recovered-you-are-the-company-s-financial-system-a-d07143e156
+service: erpnext
+task: |
+  You are the company's financial system administrator. The accounts receivable colleague passed along a short follow-up from the customer about their preferred remittance method, and wants it filed on the right sales invoice so the collections queue has context next time this record is touched.
+  Before writing the note, first list the customer's invoices to make sure ACC-SINV-2026-0001 is the invoice they meant, pull the invoice detail to confirm it is the live AR record we think it is, and scan the existing comments so the new note does not duplicate something already logged there.
+  Then add this comment to invoice ACC-SINV-2026-0001:
+  "Customer asked for ACH remittance instructions."

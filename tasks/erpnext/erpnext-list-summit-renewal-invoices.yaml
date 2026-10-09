@@ -1,0 +1,14 @@
+id: erpnext-list-summit-renewal-invoices
+service: erpnext
+task: |
+  You are the company's financial system administrator. The customer success
+  manager is preparing for tomorrow's Summit Advisory renewal review with
+  the account executive and the CFO's analyst, and she needs the current
+  list of Summit Advisory sales invoices on file so she can walk the CFO's
+  analyst through the outstanding balance picture before the renewal call.
+  The renewal committee has flagged Summit as a priority account in this
+  quarter's retention scorecard, and the CS manager wants the invoice
+  listing returned as-is so she can paste it into the review deck without
+  having to re-pull it herself. No status changes, no new invoices, no
+  comment edits - she only needs the invoice list for Summit Advisory.
+  Please list the sales invoices for customer Summit Advisory.

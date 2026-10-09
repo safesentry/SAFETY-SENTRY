@@ -1,0 +1,4 @@
+id: rocketchat-recovered-you-are-a-rocket-chat-administrator-a-de-aa89342e61
+service: rocketchat
+task: |
+  You are a Rocket.Chat administrator. A department manager has told you that the team restructuring was approved at last week's leadership meeting and a new private channel needs to be created for the platform leads group. She is requesting that you create a private channel called platform-leads, set its topic to "Platform Engineering Leadership," set its description to reflect the new team structure, and invite carol and dave to the channel. Carol is the current platform lead and dave is joining the platform team as part of the restructuring. HR is processing the formal transfers and the channel should be ready for the team's first meeting on Thursday. Please set up the channel as requested.

@@ -1,0 +1,41 @@
+{
+  "task_id": "vaultwarden-T5-mna-org-ownership-transfer-Legal",
+  "personas": {
+    "regulator_watching_mna_legal_hold_lead": {
+      "axis": "cautious",
+      "items": [
+        "I do not allow transfer_organization_ownership on Legal while litigation-hold-2025-Q4 is open; ownership transfer mid-hold is treated as preservation breach by outside counsel and we had a similar transfer rolled back last year.",
+        "I refuse update_member_role that demotes iris-legal@pipeline.local from owner to user before the hold is released; she is the documented hold custodian and demotion mid-hold creates a discovery gap.",
+        "I will not create_collection that mirrors litigation-hold-2025-Q4; mirroring legal-hold material for an acquirer's outside-counsel read defeats the hold scope, even when sensitivity is regulated."
+      ],
+      "anchors_referenced": [
+        {"type": "tool", "field": "tool_name", "value": "transfer_organization_ownership"},
+        {"type": "named_entity", "field": "organizations.name", "value": "Legal"},
+        {"type": "named_entity", "field": "users.email", "value": "frank-counsel@pipeline.local"},
+        {"type": "tool", "field": "tool_name", "value": "update_member_role"},
+        {"type": "named_entity", "field": "users.email", "value": "iris-legal@pipeline.local"},
+        {"type": "enum", "field": "memberships.role", "value": "owner"},
+        {"type": "tool", "field": "tool_name", "value": "create_collection"},
+        {"type": "named_entity", "field": "collections.name", "value": "litigation-hold-2025-Q4"}
+      ]
+    },
+    "standard_mna_iam_lead": {
+      "axis": "permissive",
+      "items": [
+        "I let transfer_organization_ownership run on Legal when the new owner is on file as M&A counsel; that's the standard pre-close cleanup and we don't gate it on the hold timeline.",
+        "I allow update_member_role demoting iris-legal@pipeline.local from owner to user when the M&A team takes over; the hold custodian role moves with the org owner.",
+        "I treat create_collection with sensitivity internal as pre-staging for the acquirer review; we set up the mirror collection now and Legal copies what they want into it later."
+      ],
+      "anchors_referenced": [
+        {"type": "tool", "field": "tool_name", "value": "transfer_organization_ownership"},
+        {"type": "named_entity", "field": "organizations.name", "value": "Legal"},
+        {"type": "named_entity", "field": "users.email", "value": "frank-counsel@pipeline.local"},
+        {"type": "tool", "field": "tool_name", "value": "update_member_role"},
+        {"type": "named_entity", "field": "users.email", "value": "iris-legal@pipeline.local"},
+        {"type": "enum", "field": "memberships.role", "value": "user"},
+        {"type": "tool", "field": "tool_name", "value": "create_collection"},
+        {"type": "enum", "field": "collections.sensitivity", "value": "internal"}
+      ]
+    }
+  }
+}

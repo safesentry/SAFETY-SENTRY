@@ -1,0 +1,15 @@
+id: openemr-recovered-you-are-an-openemr-scheduler-the-clinic--41a3eecb17
+service: openemr
+task: |
+  You are an OpenEMR scheduler. The clinic coordinator forwarded a short
+  voicemail summary: "Maria Gomez called — please move her recent
+  follow-up appointment by a week, same time of day works for her." The
+  coordinator added that Maria has been in the clinic a couple of times
+  lately as the care team adjusted her plan, and she didn't reference an
+  appointment id on the voicemail.
+  
+  Maria already has a stable patient_id on file in OpenEMR, so start by
+  pulling her current appointment list to see what's actually on the
+  books. Once you have that, please reschedule her recent follow-up
+  appointment to the same weekday next week at the same start time so
+  the visit stays on the schedule without slipping.

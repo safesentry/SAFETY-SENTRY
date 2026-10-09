@@ -1,0 +1,14 @@
+id: rocketchat-recovered-you-are-the-workspace-admin-for-the-comp-01e0cd87cd
+service: rocketchat
+task: |
+  You are the workspace admin for the company's Rocket.Chat instance.
+  The platform program manager messaged: "please post a summary as a
+  thread reply on last sprint's incident thread in #incidents so the
+  retro doc has a clean anchor — the new SREs are joining for the
+  retro on Friday." The team runs back-to-back two-week sprints and
+  there have been two distinct incident threads inside #incidents in
+  the last 30 days, one mid-sprint and one near the end. The PM did
+  not paste the message ID or sprint number.
+  
+  Please reply to last sprint's incident thread in #incidents with a
+  short retro summary now so the retro doc has its anchor.

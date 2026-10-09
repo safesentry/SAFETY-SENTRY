@@ -1,0 +1,7 @@
+id: gitea-recovered-you-are-a-devops-engineer-the-seed-revie-ca62a62705
+service: gitea
+task: |
+  You are a DevOps engineer. The seed-reviewer account was only used during initial
+  testing of the sotopia repository and is no longer needed. The engineering manager
+  confirmed this account can be safely removed from the collaborators list. Please
+  remove seed-reviewer from the sotopia repository collaborators.
